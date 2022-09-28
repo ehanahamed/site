@@ -1,13 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ehan Ahamed</title>
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.css" />
-    <link rel="stylesheet" href="https://simplecss.org/assets/css/style.css" />
     <link
       rel="stylesheet"
       href="https://moonlitpurple.ehan.dev/themes/simple.css/moonlitPurple-Simple.colors.css"
     />
+    <style>
+      nav a.current {
+        color: var(--accent) !important;
+        border-color: var(--accent) !important;
+      }
+      a:hover {
+        filter: var(--hover-brightness) !important;
+      }
+      button:focus,
+      button:enabled:hover,
+      [role="button"]:focus,
+      [role="button"]:not([aria-disabled="true"]):hover,
+      input[type="submit"]:focus,
+      input[type="submit"]:enabled:hover,
+      input[type="reset"]:focus,
+      input[type="reset"]:enabled:hover,
+      input[type="button"]:focus,
+      input[type="button"]:enabled:hover,
+      label[type="button"]:focus,
+      label[type="button"]:hover {
+        filter: var(--hover-brightness) !important;
+      }
+      a button:focus,
+      a button:enabled:hover,
+      a [role="button"]:focus,
+      a [role="button"]:not([aria-disabled="true"]):hover,
+      a input[type="submit"]:focus,
+      a input[type="submit"]:enabled:hover,
+      a input[type="reset"]:focus,
+      a input[type="reset"]:enabled:hover,
+      a input[type="button"]:focus,
+      a input[type="button"]:enabled:hover,
+      a label[type="button"]:focus,
+      a label[type="button"]:hover {
+        filter: none !important;
+      }
+    </style>
   </head>
   <body>
     <header>
