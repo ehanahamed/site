@@ -1,0 +1,10 @@
+on:
+  push:
+
+jobs:
+  update_src:
+    name: Update src.ehan.dev
+    runs-on: ubuntu-latest
+    steps:
+    - name: work in progress
+      run: echo nothing for now
