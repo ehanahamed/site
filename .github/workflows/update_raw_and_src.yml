@@ -9,7 +9,7 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.REMOTE_RAWEHANDEV_TOKEN }}
     steps:
     - name: Trigger workflow run on raw.ehan.dev
-      run: work in progress for now
+      run: echo work in progress for now
   update_src:
     name: Update src.ehan.dev
     runs-on: ubuntu-latest
