@@ -26,4 +26,4 @@ jobs:
         -H "Authorization: Bearer ${{ secrets.REMOTE_SRCEHANDEV_TOKEN }}" \
         -H "X-GitHub-Api-Version: 2022-11-28" \
         https://api.github.com/repos/EhanAhamed/src.ehan.dev/actions/workflows/update_self.yml/dispatches \
-        -d '{"ref":"main","inputs":{"repo":"yea of course normal HTTP requests work but githubs own cli doesnt, classic microsoft moment"}}'
+        -d '{"ref":"main","inputs":{"repo":"EhanAhamed/ehan.dev"}}'
