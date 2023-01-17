@@ -1,8 +1,6 @@
 name: Update Mirrors (raw.ehan.dev and src.ehan.dev)
-
 on:
   push:
-
 jobs:
   update_raw:
     name: Update raw.ehan.dev
