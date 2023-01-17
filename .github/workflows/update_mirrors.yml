@@ -1,3 +1,5 @@
+name: Update Mirrors (raw.ehan.dev and src.ehan.dev)
+
 on:
   push:
 
