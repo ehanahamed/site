@@ -2,9 +2,19 @@ on:
   push:
 
 jobs:
+  update_raw:
+    name: Update raw.ehan.dev
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.REMOTE_RAWEHANDEV_TOKEN }}
+    steps:
+    - name: Trigger workflow run on raw.ehan.dev
+      run: work in progress for now
   update_src:
     name: Update src.ehan.dev
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.REMOTE_SRCEHANDEV_TOKEN }}
     steps:
-    - name: hmm
-      run: gh --version
+    - name: Trigger workflow run on src.ehan.dev
+      run: echo wait not yet tho
