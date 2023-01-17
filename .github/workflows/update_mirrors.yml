@@ -19,4 +19,4 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.REMOTE_SRCEHANDEV_TOKEN }}
     steps:
     - name: Trigger workflow run on src.ehan.dev
-      run: gh api /repos/EhanAhamed/src.ehan.dev/actions/workflows/update_self.yml/dispatches -F ref="main" -F inputs="{'repo':'IT WORKS'}"
+      run: gh api /repos/EhanAhamed/src.ehan.dev/actions/workflows/update_self.yml/dispatches -F ref="main" -F inputs={"repo":"IT WORKS?"}
