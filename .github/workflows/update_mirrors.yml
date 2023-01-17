@@ -19,4 +19,11 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.REMOTE_SRCEHANDEV_TOKEN }}
     steps:
     - name: Trigger workflow run on src.ehan.dev
-      run: gh api /repos/EhanAhamed/src.ehan.dev/actions/workflows/update_self.yml/dispatches -f ref="main" -f inputs={"repo":"IT WORKS?"}
+      run: |
+        curl \
+        -X POST \
+        -H "Accept: application/vnd.github+json" \
+        -H "Authorization: Bearer ${{ secrets.REMOTE_SRCEHANDEV_TOKEN }}" \
+        -H "X-GitHub-Api-Version: 2022-11-28" \
+        https://api.github.com/repos/EhanAhamed/src.ehan.dev/actions/workflows/update_mirrors.yml/dispatches \
+        -d '{"ref":"main","inputs":{"repo":"yea of course normal HTTP requests work but githubs own cli doesnt, classic microsoft moment"}}'
