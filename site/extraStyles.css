@@ -6,20 +6,18 @@
 */
 
 @keyframes bgSlide {
-  0% {
+  from {
     background-position: 0% center;
   }
-  50% {
+  to {
     background-position: -200% center;
-  }
-  100% {
-    background-position: 0% center;
   }
 }
 
 .animatedGradient1 {
     animation: bgSlide 4s linear infinite;
-    background-image: linear-gradient(90deg, var(--red),var(--orange),var(--yellow),var(--green),var(--blue),var(--purple));
+    -webkit-animation: bgSlide 4s linear infinite;
+    background-image: linear-gradient(90deg, var(--red),var(--orange),var(--yellow),var(--green),var(--blue),var(--purple),var(--blue),var(--green),var(--yellow),var(--orange),var(--red));
     background-size: 200%;
     color: transparent;
     background-clip: text;
