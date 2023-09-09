@@ -23,3 +23,7 @@
     background-clip: text;
     -webkit-background-clip: text;
 }
+
+.bigTitle {
+  font-size: 4rem;
+}
