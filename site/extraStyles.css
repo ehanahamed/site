@@ -1,0 +1,20 @@
+/*
+  ehan.dev
+  Copyright (c) Ehan Ahamed and contributors
+  Licensed under the UPL-1.0 License
+  https://ehan.dev/LICENSE.txt
+*/
+
+.animatedGradient1 {
+    background-image: linear-gradient(90deg, var(--red), var(--orange), var(--yellow), var(--green), var(--blue), var(--purple));
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-animation: move-bg 4s linear infinite;
+    animation: move-bg 4s linear infinite;
+    @keyframes move-bg {
+    to {
+      background-position: 400% 0;
+    }
+  }
+}
