@@ -5,16 +5,19 @@
   https://ehan.dev/LICENSE.txt
 */
 
+@keyframes bgSlide {
+  from {
+    background-position: 0% center;
+  }
+  to {
+    background-position: -200% center;
+  }
+}
+
 .animatedGradient1 {
-    background-image: linear-gradient(90deg, var(--red),var(--orange));
+    background-image: linear-gradient(90deg, var(--red),var(--orange),var(--yellow),var(--green));
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
-    -webkit-animation: move-bg 4s linear infinite;
-    animation: move-bg 4s linear infinite;
-    @keyframes move-bg {
-    to {
-      background-position: 400% 0;
-    }
-  }
+    animation: bgSlide 4s linear infinite;
 }
