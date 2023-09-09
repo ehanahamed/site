@@ -5,6 +5,10 @@
   https://ehan.dev/LICENSE.txt
 */
 
+.extraCustomTitleDiv {
+  padding-left: 2rem;
+}
+
 @keyframes bgSlide {
   from {
     background-position: 0% center;
@@ -14,7 +18,7 @@
   }
 }
 
-.mainTitle {
+.extraCustomTitle {
     font-size: 8rem;
     line-height: 9rem;
     text-align: left;
