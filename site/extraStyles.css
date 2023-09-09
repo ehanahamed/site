@@ -25,3 +25,13 @@
     background-clip: text;
     -webkit-background-clip: text;
 }
+
+.extraCustomExtraH2 {
+    animation: bgSlide 4s linear infinite;
+    -webkit-animation: bgSlide 4s linear infinite;
+    background-image: linear-gradient(90deg, var(--extra),var(--extraAlt),var(--extra));
+    background-size: 200%;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
