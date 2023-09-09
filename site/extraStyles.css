@@ -15,9 +15,9 @@
 }
 
 .animatedGradient1 {
+    animation: bgSlide 3s linear infinite;
     background-image: linear-gradient(90deg, var(--red),var(--orange),var(--yellow),var(--green));
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
-    animation: bgSlide 4s linear infinite;
 }
