@@ -6,7 +6,7 @@
 */
 
 .animatedGradient1 {
-    background-image: linear-gradient(90deg, var(--red), var(--orange), var(--yellow), var(--green), var(--blue), var(--purple));
+    background-image: linear-gradient(90deg, var(--red),var(--orange));
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
