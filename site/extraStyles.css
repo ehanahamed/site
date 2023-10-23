@@ -28,4 +28,18 @@
 
 .extraCustomFullHeight {
     height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.extraCustomFullHeightCenter {
+    grid-row: 2;
+    justify-self: center;
+    align-self: center;
+}
+
+.extraCustomFullHeightCenter {
+    grid-row: 3;
+    justify-self: center;
+    align-self: end;
 }
