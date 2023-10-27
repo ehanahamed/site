@@ -38,7 +38,7 @@
     align-self: center;
 }
 
-.extraCustomFullHeightCenter {
+.extraCustomFullHeightBottom {
     grid-row: 3;
     justify-self: center;
     align-self: end;
