@@ -5,7 +5,7 @@
   https://ehan.dev/LICENSE.txt
 */
 
-@keyframes bgSlide {
+@keyframes colorful {
   from {
     background-position: 0% center;
   }
@@ -17,8 +17,11 @@
 .extraCustomTitle {
     font-size: 8rem;
     line-height: 9rem;
-    animation: bgSlide 4s linear infinite;
-    -webkit-animation: bgSlide 4s linear infinite;
+}
+
+.extraCustomColorful {
+    animation: colorful 4s linear infinite;
+    -webkit-animation: colorful 4s linear infinite;
     background-image: linear-gradient(90deg, var(--red),var(--orange),var(--yellow),var(--green),var(--blue),var(--purple),var(--blue),var(--green),var(--yellow),var(--orange),var(--red));
     background-size: 200%;
     color: transparent;
