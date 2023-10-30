@@ -47,3 +47,6 @@
     align-self: end;
 }
 
+.extraCustomScrolldown {
+  padding-bottom: 2rem;
+}
