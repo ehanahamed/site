@@ -54,11 +54,6 @@
   padding-bottom: 1rem;
 }
 
-body,
 .extraCustomBgExtra {
   background-color: var(--bgExtra);
-}
-
-.extraCustomBg1 {
-  background-color: var(--bg1);
 }
