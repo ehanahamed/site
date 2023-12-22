@@ -35,7 +35,7 @@
     grid-template-rows: 1fr 1fr 1fr;
     border: none;
     padding-bottom: 1rem;
-    margin-bottom: 0px;
+    margin: 0px;
 }
 
 .extraCustomFullHeightCenter {
