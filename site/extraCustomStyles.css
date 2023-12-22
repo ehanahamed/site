@@ -30,6 +30,7 @@
 }
 
 .extraCustomFullHeight {
+    height: 20vh;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     border: none;
