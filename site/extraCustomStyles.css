@@ -8,7 +8,7 @@
 .extraCustomTop {
   background-color: var(--bgExtra);
   padding-top: 4rem;
-  padding-bottom: 0px;
+  padding-bottom: 1rem;
   margin: 0px;
 }
 
