@@ -5,6 +5,18 @@
   https://ehan.dev/LICENSE.txt
 */
 
+.extraCustomTop {
+  background-color: var(--bgExtra);
+  padding-top: 4rem;
+  padding-bottom: 0px;
+  margin: 0px;
+}
+
+.extraCustomTitle {
+    font-size: 8rem;
+    line-height: 9rem;
+}
+
 @keyframes colorful {
   from {
     background-position: 0% center;
@@ -12,11 +24,6 @@
   to {
     background-position: -200% center;
   }
-}
-
-.extraCustomTitle {
-    font-size: 8rem;
-    line-height: 9rem;
 }
 
 .extraCustomColorful {
@@ -27,33 +34,4 @@
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
-}
-
-.extraCustomFullHeight {
-    height: auto;
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    border: none;
-    padding: 1rem;
-    margin: 0px;
-}
-
-.extraCustomFullHeightCenter {
-    grid-row: 2;
-    justify-self: center;
-    align-self: center;
-}
-
-.extraCustomFullHeightBottom {
-    grid-row: 3;
-    justify-self: center;
-    align-self: end;
-}
-
-.extraCustomScrolldown {
-  padding-bottom: 1rem;
-}
-
-.extraCustomBgExtra {
-  background-color: var(--bgExtra);
 }
