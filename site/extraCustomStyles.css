@@ -35,3 +35,8 @@
     background-clip: text;
     -webkit-background-clip: text;
 }
+
+.grid.split > .left,
+.grid.split > .right {
+  border: none;
+}
