@@ -6,6 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clone from Codeberg
-        run: git clone https://codeberg.org/ehanahamed/ehui.git
+        run: git clone https://codeberg.org/ehanahamed/site.git
+      - run: cd site
       - name: Push to GitHub
-        run: git push https://ehanahamed:${{ secrets.GH_TOKEN }}@github.com/ehanahamed/ehui.git --all
+        run: git push https://ehanahamed:${{ secrets.GH_TOKEN }}@github.com/ehanahamed/site.git --all
