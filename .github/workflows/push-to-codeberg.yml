@@ -8,5 +8,6 @@ jobs:
       - name: Clone from GitHub
         run: git clone https://github.com/ehanahamed/site.git
       - run: ls -a
+      - run: ls site -a
       - name: Push to Codeberg
         run: git push https://ehanahamed:${{ secrets.CODEBERG_TOKEN }}@codeberg.org/ehanahamed/site.git --all
