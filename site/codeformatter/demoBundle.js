@@ -32,6 +32,27 @@ var codeFormatter = {
             if (tokens[i].type === "token") {
                 if (tokens[i].token.type.keyword) {
                     result += tokens[i].token.value + " ";
+                } else if (tokens[i].token.type.label === "name") {
+                    if (tokens[i + 1].type === "token") {
+                        if (tokens[i + 1].token.type.label === "=") {
+                            result += tokens[i].token.value + " = ";
+                            i += 1;
+                        } else if (tokens[i + 1].token.type.label == "</>/<=/>=") {
+                            result += tokens[i].token.value + " ";
+                            result += tokens[i + 1].token.value + " ";
+                            i += 1;
+                        } else if (tokens[i + 1].token.type.label === ".") {
+                            result += tokens[i].token.value + "."
+                            i += 1;
+                        }  else if (tokens[i + 1].token.type.label === "(") {
+                            result += tokens[i].token.value + "("
+                            i +=1;
+                        } else {
+                            result += tokens[i].token.value;
+                        }
+                    } else {
+                        result += tokens[i].token.value;
+                    }
                 } else if (tokens[i].token.type.label === "string") {
                     var string = JSON.stringify(tokens[i].token.value).slice(1, -1);
                     result += `"${ string }"`;
