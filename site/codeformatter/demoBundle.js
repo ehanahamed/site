@@ -30,15 +30,17 @@ var codeFormatter = {
         var tokens = codeFormatter.parse(src);
         for (var i = 0; i < tokens.length; i++) {
             if (tokens[i].type === "token") {
-                if (tokens[i].token.type.label === "string") {
+                if (tokens[i].token.type.keyword) {
+                    result += tokens.token.value + " ";
+                } else if (tokens[i].token.type.label === "string") {
                     var string = JSON.stringify(tokens[i].token.value).slice(1, -1);
                     result += `"${ string }"`;
                 } else if (tokens[i].token.type.label === "template") {
-                  if (options.escapeTemplates === true) {
+                  if (options.escapeTemplates === false) {
+                    result += tokens[i].token.value;
+                  } else {
                     var template = JSON.stringify(tokens[i].token.value).slice(1, -1);
                     result += template;
-                  } else {
-                    result += tokens[i].token.value;
                   }
                 } else if (tokens[i].token.type.label === "eof") {
                     result += "\n";
@@ -79,7 +81,9 @@ var codeFormatter = {
       var tokens = codeFormatter.parse(src);
       for (var i = 0; i < tokens.length; i++) {
         if (tokens[i].type === "token") {
-          if (tokens[i].token.type.label === "string") {
+          if (tokens[i].token.type.keyword) {
+            result += tokens.token.value + " ";
+          } else if (tokens[i].token.type.label === "string") {
             result += `"${ tokens[i].token.value }"`;
           } else if (tokens[i].token.type.label === "template") {
             result += tokens[i].token.value;
