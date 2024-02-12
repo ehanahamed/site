@@ -31,7 +31,7 @@ var codeFormatter = {
         for (var i = 0; i < tokens.length; i++) {
             if (tokens[i].type === "token") {
                 if (tokens[i].token.type.keyword) {
-                    result += tokens.token.value + " ";
+                    result += tokens[i].token.value + " ";
                 } else if (tokens[i].token.type.label === "string") {
                     var string = JSON.stringify(tokens[i].token.value).slice(1, -1);
                     result += `"${ string }"`;
@@ -82,7 +82,7 @@ var codeFormatter = {
       for (var i = 0; i < tokens.length; i++) {
         if (tokens[i].type === "token") {
           if (tokens[i].token.type.keyword) {
-            result += tokens.token.value + " ";
+            result += tokens[i].token.value + " ";
           } else if (tokens[i].token.type.label === "string") {
             result += `"${ tokens[i].token.value }"`;
           } else if (tokens[i].token.type.label === "template") {
