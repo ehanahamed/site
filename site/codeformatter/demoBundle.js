@@ -46,9 +46,15 @@ var codeFormatter = {
                             i += 1;
                         }  else if (tokens[i + 1].token.type.label === "(") {
                             result += tokens[i].token.value + "("
-                            i +=1;
+                            i += 1;
+                        } else if (tokens[i + 1].token.type.label === ",") {
+                            result += tokens[i].token.value + ", "
+                            i += 1;
                         } else {
                             result += tokens[i].token.value;
+                        }
+                        if (tokens[i].token.value.length > 10) {
+                            result += "\n"
                         }
                     } else {
                         result += tokens[i].token.value;
