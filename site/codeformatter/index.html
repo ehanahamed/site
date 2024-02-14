@@ -88,6 +88,10 @@ document.getElementById("buttonFormat").addEventListener(
 "  }\n" +
 "}\n" +
 "somethingElseSuperComplex.something();\n"
+      document.getElementById("demoCode").removeAttribute("data-highlighted");
+    hljs.highlightAll();
+  }
+);
   </script>
   <script src="./demoBundle2.js"></script>
 </body>
