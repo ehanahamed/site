@@ -73,6 +73,30 @@ console.log(
         hljs.highlightAll();
       }
     )
+    
+document.getElementById("buttonFormat").addEventListener(
+  "click",
+  function () {
+    document.getElementById("demoCode").innerText = "console.log(\"text goes here\");\n" +
+"function wow(isSomething) {\n" +
+"  if (isSomething) {\n" +
+"    console.log(\"wow!\");\n" +
+"  } else {\n" +
+"    console.log(\"not wow\");\n"+ 
+"  }\n" +
+"}\n" +
+"console.log(\"small string\");\n" +
+"console.log(\n" +
+"  \"really really really really really long string\"\n" +
+");\n" +
+"console.log(123);\n" +
+"console.log(\n"+
+"  3.14159265358979323846264338327950288419716939937510\n"+
+");\n"
+    document.getElementById("demoCode").removeAttribute("data-highlighted");
+    hljs.highlightAll();
+  }
+);
   </script>
   <script src="./demoBundle2.js"></script>
 </body>
