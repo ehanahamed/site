@@ -31,18 +31,20 @@
   </header>
   <main>
     <div class="demoMain">
-<pre><code id="demoCode" class="language-javascript" spellcheck="false" contenteditable="true">console.log("text goes here");
-function wow(isSomething) {
-if (isSomething) {
- console.log("wow!");
-} else {
- console.log("not wow");
+<pre><code id="demoCode" class="language-javascript" spellcheck="false" contenteditable="true">var somethingComplex = [1,2,3,4 ]
+
+for (var i = num; i < somethingComplex.length;i++) {
+console.log(somethingComplex[i]  );
+}
+
+var somethingSuperComplex = {
+ key: "value",
+  something:function () {
+  console.log("something!!!");
 }
 }
-console.log("small string");
-console.log("really really really really really long string");
-console.log(123);
-console.log(3.14159265358979323846264338327950288419716939937510);
+
+somethingElseSuperComplex.something();
 </code></pre>
       <div class="flex">
         <button id="buttonFormat">Format</button>
@@ -73,26 +75,19 @@ console.log(3.14159265358979323846264338327950288419716939937510);
 document.getElementById("buttonFormat").addEventListener(
   "click",
   function () {
-    document.getElementById("demoCode").textContent = "console.log(\"text goes here\");\n" +
-"function wow(isSomething) {\n" +
-"  if (isSomething) {\n" +
-"    console.log(\"wow!\");\n" +
-"  } else {\n" +
-"    console.log(\"not wow\");\n"+ 
+    document.getElementById("demoCode").textContent = "var somethingComplex = [1, 2, 3, 4]\n" +
+"\n" +
+"for (var i = num; i < somethingComplex.length;i++) {\n" +
+"  console.log(somethingComplex[i]);\n" +
+"}\n" +
+"\n" +
+"var somethingSuperComplex = {\n" +
+"  key: \"value\",\n" +
+"  something:function () {\n" +
+"    console.log(\"something!!!\");\n" +
 "  }\n" +
 "}\n" +
-"console.log(\"small string\");\n" +
-"console.log(\n" +
-"  \"really really really really really long string\"\n" +
-");\n" +
-"console.log(123);\n" +
-"console.log(\n"+
-"  3.14159265358979323846264338327950288419716939937510\n"+
-");\n"
-    document.getElementById("demoCode").removeAttribute("data-highlighted");
-    hljs.highlightAll();
-  }
-);
+"somethingElseSuperComplex.something();\n"
   </script>
   <script src="./demoBundle2.js"></script>
 </body>
