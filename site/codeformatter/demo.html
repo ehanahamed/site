@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=10, user-scalable=1">
+  <title>Code Formatter - Demo</title>
+  <link rel="stylesheet" href="./ehui/css/colors.css">
+  <link rel="stylesheet" href="./ehui/css/components.css">
+  <link rel="stylesheet" href="./ehui/css/layouts.css">
+  <link rel="stylesheet" href="./ehui/css/utils.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./highlightjs/tokyo-night-dark.min.css">
+  <link rel="stylesheet" href="https://www.nerdfonts.com/assets/css/webfont.css">
+</head>
+
+<body>
+  <header>
+    <div class="menu nav">
+      <div class="current">
+        <a href="./index.html"> <i class="nf nf-md-cursor_default_click"></i> Demo</a>
+      </div>
+      <!--<div>
+        <a href="./docs.html"> <i class="nf nf-fa-file_text"></i> Docs</a>
+      </div>-->
+      <div>
+        <a href="https://github.com/ehanahamed/codeformatter" target="_blank" rel="noopener noreferrer">
+          <i class="nf nf-cod-github"></i> Source Code
+        </a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="demoMain">
+<pre><code id="demoCode" class="language-javascript" spellcheck="false" contenteditable="true">console.log("text goes here");
+function wow(isSomething) {
+  if (isSomething) {
+    console.log("wow!");
+  } else {
+    console.log("not wow");
+  }
+}
+console.log("small string");
+console.log(
+  "really really really really really long string"
+);
+console.log(123);
+console.log(
+  3.14159265358979323846264338327950288419716939937510
+);
+</code></pre>
+      <div class="flex">
+        <button id="buttonFormat">Format</button>
+        <button id="buttonMinify" class="alt">Minify</button>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <h2>Code Formatter</h2>
+    <p>Ehan Ahamed, Evan Albaz, and Mason Safran</p>
+    <a href="https://github.com/ehanahamed/codeformatter" target="_blank" rel="noopener noreferrer">
+      Source Code
+    </a>
+  </footer>
+  <script src="./ehui/js/ehUi.js"></script>
+  <script src="./highlightjs/highlight.min.js"></script>
+  <script>
+    ehUi.setTheme("darker");
+    hljs.highlightAll();
+    document.getElementById("demoCode").addEventListener(
+      "focusout",
+      function() {
+        document.getElementById("demoCode").removeAttribute("data-highlighted");
+        hljs.highlightAll();
+      }
+    )
+  </script>
+  <script src="./demoBundle2.js"></script>
+</body>
+</html>
