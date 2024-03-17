@@ -22,6 +22,7 @@
         padding: 0px;
       }
       .button {
+        font-size: 4rem;
         height: 20rem;
         width: 20rem;
         border-radius: 50%;
@@ -35,7 +36,6 @@
         outline: none;
       }
       .button.start {
-        font-size: 4rem;
         color: #000088;
         background: #0000ff;
         border: 0.4rem solid #000088;
@@ -49,18 +49,16 @@
       .button.start:active,
       .button.start:focus-visible,
       .button.wait {
-        font-size: 4rem;
         color: #000088;
         background: #0000ff;
         border: 0.4rem solid #000088;
         box-shadow: none;
-        transform: translateY(1rem)
+        transform: translateY(1rem);
       }
       .button.wait::before {
         content: "WAIT";
       }
       .button.click {
-        font-size: 4rem;
         color: #880000;
         background: #ee0000;
         border: 0.4rem solid #880000;
@@ -69,6 +67,13 @@
       }
       .button.click::before {
         content: "CLICK";
+      }
+      .button.click:active {
+        color: #880000;
+        background: #ee0000;
+        border: 0.4rem solid #880000;
+        box-shadow: none;
+        transform: translateY(1rem);
       }
     </style>
   </head>
