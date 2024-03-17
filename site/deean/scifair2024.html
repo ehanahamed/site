@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Science Fair 2024</title>
+    <style>
+      html {
+        font-size: 18px;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+        background: #1e1e28;
+      }
+      .flex {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+      }
+      .button {
+        height: 20rem;
+        width: 20rem;
+        border-radius: 50%;
+        transition-duration: 0.1s;
+      }
+      .button,
+      .button:hover,
+      .button:active,
+      .button:focus-visible,
+      .button:focus {
+        outline: none;
+      }
+      .button.start {
+        font-size: 4rem;
+        color: #000088;
+        background: #0000ff;
+        border: 0.4rem solid #000088;
+        box-shadow: 0px 1rem 0px #0000cc,
+          0px 1.4rem 0px #000088;
+      }
+      .button.start::before {
+        content: "START";
+      }
+      .button.start:hover,
+      .button.start:active,
+      .button.start:focus-visible,
+      .button.wait {
+        font-size: 4rem;
+        color: #000088;
+        background: #0000ff;
+        border: 0.4rem solid #000088;
+        box-shadow: none;
+        transform: translateY(1rem)
+      }
+      .button.wait::before {
+        content: "WAIT";
+      }
+      .button.click {
+        font-size: 4rem;
+        color: #880000;
+        background: #ee0000;
+        border: 0.4rem solid #880000;
+        box-shadow: 0px 1rem 0px #cc0000,
+          0px 1.4rem 0px #880000;
+      }
+      .button.click::before {
+        content: "CLICK";
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex">
+      <button class="button start" id="button"></button>
+    </div>
+    <script>
+      var startTime;
+      var clickTime;
+      var time;
+      document.getElementById("button").addEventListener(
+        "click",
+        function () {
+          if (document.getElementById("button").classList.contains("start")) {
+            document.getElementById("button").classList.remove("start");
+            document.getElementById("button").classList.add("wait");
+            setTimeout(reveal, 2000);
+          } else if (document.getElementById("button").classList.contains("click")) {
+            clickTime = new Date();
+            time = clickTime - startTime;
+            alert(time + "ms");
+            document.getElementById("button").classList.remove("click");
+            document.getElementById("button").classList.add("start");
+          }
+        }
+      );
+      function reveal() {
+        startTime = new Date();
+        document.getElementById("button").classList.remove("wait");
+        document.getElementById("button").classList.add("click");
+      }
+    </script>
+  </body>
+
+</html>
