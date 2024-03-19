@@ -12,11 +12,14 @@
         margin: 0px;
         padding: 0px;
         background: #1e1e28;
+        font-family: sans-serif;
       }
       .flex {
         display: flex;
         justify-content: center;
         align-items: center;
+      }
+      .flex.full {
         height: 100%;
         margin: 0px;
         padding: 0px;
@@ -75,16 +78,135 @@
         box-shadow: none;
         transform: translateY(1rem);
       }
+      p,
+      .h5,
+      .h6 {
+        color: #a3a3b7;
+        line-height: 1.4rem;
+        font-weight: normal;
+      }
+      .h1,
+      .h2,
+      .h3,
+      .h4 {
+        color: #a3a3b7;
+        line-height: 1.2;
+        font-weight: bold;
+      }
+      .h1,
+      p.h1 {
+        font-size: 3.4rem;
+      }
+      .h2,
+      p.h2 {
+        font-size: 2.8rem;
+      }
+      .h3,
+      p.h3 {
+        font-size: 2.2rem;
+      }
+      .h4,
+      p.h4 {
+        font-size: 1.6rem;
+      }
+      p,
+      .h5,
+      p.h5 {
+        font-size: 1rem;
+      }
+      .h6,
+      p.h6,
+      small {
+        font-size: 0.8rem;
+      }
+      .red {
+        color: #ff6666;
+      }
+      .bg3 {
+        color: #5c5c7a;
+      }
+      table {
+        border-collapse: separate;
+        border-spacing: 0px;
+        border-radius: 0.8rem;
+        border: 0.2rem solid #3d3d50;
+        color: #a3a3b7;
+      }
+
+      td {
+        font-weight: normal;
+        text-align: left;
+        padding: 1rem;
+      }
+
+      th {
+        font-weight: bold;
+        text-align: left;
+        padding: 1rem;
+      }
+
+      table.outer td,
+      table.outer th,
+      table.outer thead,
+      table.outer tbody,
+      table.outer tfoot {
+        border: none;
+      }
+
+      table.inner th:not(:last-child),
+      table.inner td:not(:last-child) {
+       border-right: 0.2rem solid #3d3d50;
+      }
+
+      table.inner > thead > tr > th,
+      table.inner > thead > tr > td,
+      table.inner > tbody > tr:not(:last-child) > th,
+      table.inner > tbody > tr:not(:last-child) > td,
+      table.inner > tr:not(:last-child) > td,
+      table.inner > tr:not(:last-child) > th,
+      table.inner > thead:not(:last-child),
+      table.inner > tbody:not(:last-child) {
+        border-bottom: 0.2rem solid #3d3d50;
+      }
+      .hide {
+        display: none;
+      }
     </style>
   </head>
   <body>
-    <div class="flex">
+    <div id="input" class="flex full">
       <button class="button start" id="button"></button>
+    </div>
+    <div id="result" class="flex hide">
+      <div>
+        <div class="flex">
+          <p class="h1" id="resultTime">0 ms</p>
+        </div>
+        <div id="leaderboard" class="hide">
+        <p>Leaderboard:</p>
+          <table id="leaderboardTable" class="outer">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Speed</th>
+                <th>Name</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+          </table>
+        </div>
+        <div id="leaderboardLoad">
+          <p>Updating leaderboard...</p>
+        </div>
+        <div id="leaderboardError" class="hide">
+          <p class="red">Error: Couldn't load leaderboard</p>
+        </div>
+      </div>
     </div>
     <script>
       var startTime;
       var clickTime;
-      var time;
       document.getElementById("button").addEventListener(
         "click",
         function () {
@@ -94,8 +216,7 @@
             setTimeout(reveal, 2000);
           } else if (document.getElementById("button").classList.contains("click")) {
             clickTime = new Date();
-            time = clickTime - startTime;
-            alert(time + "ms");
+            showResults(clickTime - startTime);
             document.getElementById("button").classList.remove("click");
             document.getElementById("button").classList.add("start");
           }
@@ -105,6 +226,59 @@
         startTime = new Date();
         document.getElementById("button").classList.remove("wait");
         document.getElementById("button").classList.add("click");
+      }
+      function showResults(time) {
+        document.getElementById("resultTime").innerText = time + " ms";
+        document.getElementById("input").classList.add("hide");
+        document.getElementById("result").classList.remove("hide");
+        updateResults(time);
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+      const { createClient } = supabase;
+      supabaseClient = createClient(
+        "https://ryovsjcexbtyfygransn.supabase.co",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ5b3ZzamNleGJ0eWZ5Z3JhbnNuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA3NjY1ODYsImV4cCI6MjAyNjM0MjU4Nn0.T1b9KWfY_wnYTrUXYjSB2mc6Udli1Cb2w7cP6B_pfDE"
+      );
+      function getResults() {
+        document.getElementById("tableBody").innerHTML = "";
+        supabaseClient.from("leaderboard").select().order('time', { ascending: true }).then(
+          function (result) {
+            if (result.error) {
+              document.getElementById("leaderboard").classList.add("hide");
+              document.getElementById("leaderboardLoad").classList.add("hide");
+              document.getElementById("leaderboardError").classList.remove("hide");
+            } else {
+              document.getElementById("leaderboard").classList.remove("hide");
+              document.getElementById("leaderboardLoad").classList.add("hide");
+              document.getElementById("leaderboardError").classList.add("hide");
+              for (var i = 0; i < result.data.length; i++) {
+                console.log(result.data[i]);
+                var row = document.getElementById("tableBody").insertRow();
+                var cellPos = row.insertCell(0);
+                var cellTime = row.insertCell(1);
+                var cellName = row.insertCell(2);
+                cellPos.innerText = (i + 1);
+                cellTime.innerText = result.data[i].time + " ms";
+                if (result.data[i].name) {
+                  cellName.innerText = result.data[i].name
+                } else {
+                  cellName.innerHTML = '<span class="bg3">unnamed</span>'
+                }
+              }
+            }
+          }
+        )
+      }
+      function updateResults(time) {
+        supabaseClient.from("leaderboard").insert({
+          time: time
+        }).then(
+          function () {
+            getResults();
+          }
+        )
       }
     </script>
   </body>
