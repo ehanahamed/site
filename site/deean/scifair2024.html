@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1"
+    />
     <title>Science Fair 2024</title>
     <style>
       html {
@@ -135,6 +140,9 @@
       }
       .red {
         color: #ff6666;
+      }
+      .green {
+        color: #52CCA3;
       }
       .bg3 {
         color: #5c5c7a;
@@ -274,8 +282,18 @@
         </div>
         <div id="resultSave" class="flex">
           <div>
-            <input type="text" placeholder="Name (or leave blank)" id="name" />
+            <input type="text" placeholder="Name (or leave blank)" id="name" style="margin-bottom:0.4rem;" />
             <button id="saveResult" class="button alt">Save Result</button>
+          </div>
+        </div>
+        <div id="resultSaveError" class="flex hide">
+          <div>
+            <p class="red">Error: Couldn't update leaderboard</p>
+          </div>
+        </div>
+        <div id="resultSaveDone" class="flex hide">
+          <div>
+            <p class="green">Result saved!</p>
           </div>
         </div>
         <br />
@@ -358,7 +376,6 @@
               document.getElementById("leaderboardLoad").classList.add("hide");
               document.getElementById("leaderboardError").classList.add("hide");
               for (var i = 0; i < result.data.length; i++) {
-                console.log(result.data[i]);
                 var row = document.getElementById("tableBody").insertRow();
                 var cellPos = row.insertCell(0);
                 var cellTime = row.insertCell(1);
@@ -380,8 +397,17 @@
           time: time,
           name: name
         }).then(
-          function () {
+          function (result) {
             getResults();
+            if (result.error) {
+              document.getElementById("resultSave").classList.add("hide");
+              document.getElementById("resultSaveError").classList.remove("hide");
+              document.getElementById("resultSaveDone").classList.add("hide");
+            } else {
+              document.getElementById("resultSave").classList.add("hide");
+              document.getElementById("resultSaveError").classList.add("hide");
+              document.getElementById("resultSaveDone").classList.remove("hide");
+            }
           }
         )
       }
@@ -401,6 +427,12 @@
           document.getElementById("button").classList.remove("wait");
           document.getElementById("button").classList.remove("click");
           document.getElementById("name").value = "";
+          document.getElementById("resultSave").classList.remove("hide");
+          document.getElementById("resultSaveError").classList.add("hide");
+          document.getElementById("resultSaveDone").classList.add("hide");
+          document.getElementById("leaderboard").classList.add("hide");
+          document.getElementById("leaderboardLoad").classList.remove("hide");
+          document.getElementById("leaderboardError").classList.add("hide");
           document.getElementById("input").classList.remove("hide");
           document.getElementById("result").classList.add("hide");
         }
