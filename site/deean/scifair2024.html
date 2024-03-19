@@ -24,57 +24,71 @@
         margin: 0px;
         padding: 0px;
       }
-      .button {
+      .bigButton,
+      button.bigButton {
         font-size: 4rem;
         height: 20rem;
         width: 20rem;
         border-radius: 50%;
         transition-duration: 0.1s;
       }
-      .button,
-      .button:hover,
-      .button:active,
-      .button:focus-visible,
-      .button:focus {
+      .bigButton,
+      .bigButton:hover,
+      .bigButton:active,
+      .bigButton:focus-visible,
+      .bigButton:focus,
+      button.bigButton,
+      button.bigButton:hover,
+      button.bigButton:active,
+      button.bigButton:focus-visible,
+      button.bigButton:focus {
         outline: none;
       }
-      .button.start {
-        color: #000088;
-        background: #0000ff;
-        border: 0.4rem solid #000088;
-        box-shadow: 0px 1rem 0px #0000cc,
-          0px 1.4rem 0px #000088;
+      .bigButton.start,
+      button.bigButton.start {
+        color: #1e1e28;
+        background: #52CCA3;
+        border: 0.4rem solid #3D997A;
+        box-shadow: 0px 1rem 0px #2e5c52;
       }
-      .button.start::before {
+      .bigButton.start::before,
+      button.bigButton.start::before {
         content: "START";
       }
-      .button.start:hover,
-      .button.start:active,
-      .button.start:focus-visible,
-      .button.wait {
-        color: #000088;
-        background: #0000ff;
-        border: 0.4rem solid #000088;
+      .bigButton.start:hover,
+      .bigButton.start:active,
+      .bigButton.start:focus-visible,
+      .bigButton.wait,
+      button.bigButton.start:hover,
+      button.bigButton.start:active,
+      button.bigButton.start:focus-visible,
+      button.bigButton.wait {
+        color: #1e1e28;
+        background: #52CCA3;
+        border: 0.4rem solid #3D997A;
         box-shadow: none;
         transform: translateY(1rem);
       }
-      .button.wait::before {
+      .bigButton.wait::before,
+      button.bigButton.wait::before {
         content: "WAIT";
       }
-      .button.click {
-        color: #880000;
-        background: #ee0000;
-        border: 0.4rem solid #880000;
-        box-shadow: 0px 1rem 0px #cc0000,
-          0px 1.4rem 0px #880000;
+      .bigButton.click,
+      button.bigButton.click {
+        color: #1e1e28;
+        background: #ff6666;
+        border: 0.4rem solid #CC5252;
+        box-shadow: 0px 1rem 0px #75393e;
       }
-      .button.click::before {
+      .bigButton.click::before,
+      button.bigButton.click::before {
         content: "CLICK";
       }
-      .button.click:active {
-        color: #880000;
-        background: #ee0000;
-        border: 0.4rem solid #880000;
+      .bigButton.click:active,
+      button.bigButton.click:active {
+        color: #1e1e28;
+        background: #ff6666;
+        border: 0.4rem solid #CC5252;
         box-shadow: none;
         transform: translateY(1rem);
       }
@@ -168,6 +182,82 @@
       table.inner > tbody:not(:last-child) {
         border-bottom: 0.2rem solid #3d3d50;
       }
+      ::placeholder {
+        color: #5c5c7a;
+        font-size: 1rem;
+        font-family: sans-serif;
+        font-weight: normal;
+        opacity: 1;
+      }
+
+      input[type="text"],
+      input[type="password"],
+      textarea {
+        display: inline-block;
+        appearance: none;
+        align-items: flex-start;
+        box-sizing: border-box;
+        text-align: left;
+        cursor: text;
+        text-decoration: none;
+        font-family: sans-serif;
+        background-color: #181820;
+        color: #a3a3b7;
+        border: 0.2rem solid #7A52CC;
+        border-radius: 0.8rem;
+        padding: 0.4rem 0.8rem;
+        font-size: 1rem;
+        line-height: 1.4;
+        transition-duration: 0.4s;
+      }
+
+      input[type="text"]:hover,
+      input[type="text"]:focus-visible,
+      input[type="password"]:hover,
+      input[type="password"]:focus-visible,
+      textarea:hover,
+      textarea:focus-visible {
+        border-color: #967ACC;
+      }
+
+      input[type="text"]:focus-visible,
+      input[type="password"]:focus-visible,
+      textarea:focus-visible {
+        outline: 0.2rem solid #7a52cc;
+        outline-offset: 0.2rem;
+        transition-duration: 0.1s;
+      }
+      button.button {
+        display: inline-block;
+        appearance: none;
+        align-items: flex-start;
+        box-sizing: border-box;
+        text-align: center;
+        cursor: pointer;
+        text-decoration: none;
+        background-color: #7a52cc;
+        color: #181820;
+        border: 0.2rem solid #7a52cc;
+        border-radius: 0.8rem;
+        padding: 0.4rem 0.8rem;
+        font-size: 1rem;
+        line-height: 1.4;
+        transition-duration: 0.4s;
+      }
+      button.button.alt {
+        background-color: #181820;
+        color: #7a52cc;
+      }
+      button.button:hover,
+      button.button:focus-visible {
+        background-color: #967ACC;
+        color: #181820;
+      }
+      button.button:focus-visible {
+        outline: 0.2rem solid #7a52cc;
+        outline-offset: 0.2rem;
+        transition-duration: 0.1s;
+      }
       .hide {
         display: none;
       }
@@ -175,14 +265,26 @@
   </head>
   <body>
     <div id="input" class="flex full">
-      <button class="button start" id="button"></button>
+      <button class="bigButton start" id="button"></button>
     </div>
     <div id="result" class="flex hide">
       <div>
         <div class="flex">
           <p class="h1" id="resultTime">0 ms</p>
         </div>
-        <div id="leaderboard" class="hide">
+        <div id="resultSave" class="flex">
+          <div>
+            <input type="text" placeholder="Name (or leave blank)" id="name" />
+            <button id="saveResult" class="button alt">Save Result</button>
+          </div>
+        </div>
+        <br />
+        <div class="flex">
+          <button id="reset" class="button">Next Participant</button>
+        </div>
+        <br />
+        <div id="leaderboard" class="flex hide">
+        <div>
         <p>Leaderboard:</p>
           <table id="leaderboardTable" class="outer">
             <thead>
@@ -195,6 +297,8 @@
             <tbody id="tableBody">
             </tbody>
           </table>
+          <br />
+        </div>
         </div>
         <div id="leaderboardLoad">
           <p>Updating leaderboard...</p>
@@ -207,6 +311,7 @@
     <script>
       var startTime;
       var clickTime;
+      var time;
       document.getElementById("button").addEventListener(
         "click",
         function () {
@@ -216,9 +321,8 @@
             setTimeout(reveal, 2000);
           } else if (document.getElementById("button").classList.contains("click")) {
             clickTime = new Date();
-            showResults(clickTime - startTime);
-            document.getElementById("button").classList.remove("click");
-            document.getElementById("button").classList.add("start");
+            time = (clickTime - startTime)
+            showResults(time);
           }
         }
       );
@@ -231,7 +335,7 @@
         document.getElementById("resultTime").innerText = time + " ms";
         document.getElementById("input").classList.add("hide");
         document.getElementById("result").classList.remove("hide");
-        updateResults(time);
+        getResults();
       }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -271,15 +375,36 @@
           }
         )
       }
-      function updateResults(time) {
+      function addResult(time, name) {
         supabaseClient.from("leaderboard").insert({
-          time: time
+          time: time,
+          name: name
         }).then(
           function () {
             getResults();
           }
         )
       }
+      document.getElementById("saveResult").addEventListener(
+        "click",
+        function () {
+          addResult(
+            time,
+            document.getElementById("name").value
+          );
+        }
+      )
+      document.getElementById("reset").addEventListener(
+        "click",
+        function () {
+          document.getElementById("button").classList.add("start");
+          document.getElementById("button").classList.remove("wait");
+          document.getElementById("button").classList.remove("click");
+          document.getElementById("name").value = "";
+          document.getElementById("input").classList.remove("hide");
+          document.getElementById("result").classList.add("hide");
+        }
+      )
     </script>
   </body>
 
