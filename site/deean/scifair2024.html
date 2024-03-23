@@ -192,7 +192,7 @@
       }
       ::placeholder {
         color: #5c5c7a;
-        font-size: 1rem;
+        font-size: 1.2rem;
         font-family: sans-serif;
         font-weight: normal;
         opacity: 1;
@@ -214,7 +214,7 @@
         border: 0.2rem solid #7A52CC;
         border-radius: 0.8rem;
         padding: 0.4rem 0.8rem;
-        font-size: 1rem;
+        font-size: 1.2rem;
         line-height: 1.4;
         transition-duration: 0.4s;
       }
@@ -248,7 +248,7 @@
         border: 0.2rem solid #7a52cc;
         border-radius: 0.8rem;
         padding: 0.4rem 0.8rem;
-        font-size: 1rem;
+        font-size: 1.2rem;
         line-height: 1.4;
         transition-duration: 0.4s;
       }
@@ -266,13 +266,43 @@
         outline-offset: 0.2rem;
         transition-duration: 0.1s;
       }
+      .button.fullWidth {
+        width: 100%;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+      }
+      .button.halfWidth {
+        width: 40%;
+        font-size: 1.2rem;
+        margin-top: 0px;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+      }
       .hide {
         display: none;
       }
     </style>
   </head>
   <body>
-    <div id="input" class="flex full">
+    <div id="askAge" class="flex full">
+      <div>
+      <p class="h2">Select your age group:</p>
+      <button id="askAgeChild" class="button fullWidth">Children</button> <br />
+      <button id="askAgeAdult" class="button fullWidth">Adults</button> <br />
+      <button id="askAgeSenior" class="button fullWidth">Seniors</button>
+      </div>
+    </div>
+    <div id="askGames" class="flex full hide">
+      <div>
+      <p class="h2">Do you play video games often?</p>
+      <div class="flex">
+        <button id="askGamesTrue" class="button halfWidth">Yes</button>
+        <button id="askGamesFalse" class="button halfWidth">No</button>
+      </div>
+      </div>
+    </div>
+    <div id="input" class="flex full hide">
       <button class="bigButton start" id="button"></button>
     </div>
     <div id="result" class="flex hide">
@@ -363,6 +393,52 @@
         "https://ryovsjcexbtyfygransn.supabase.co",
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ5b3ZzamNleGJ0eWZ5Z3JhbnNuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA3NjY1ODYsImV4cCI6MjAyNjM0MjU4Nn0.T1b9KWfY_wnYTrUXYjSB2mc6Udli1Cb2w7cP6B_pfDE"
       );
+    </script>
+    <script>
+      var age;
+      var games;
+      document.getElementById("askAgeChild").addEventListener(
+        "click",
+        function () {
+          age = "child";
+          document.getElementById("askAge").classList.add("hide");
+          document.getElementById("askGames").classList.remove("hide");
+        }
+      )
+      document.getElementById("askAgeAdult").addEventListener(
+        "click",
+        function () {
+          age = "adult";
+          document.getElementById("askAge").classList.add("hide");
+          document.getElementById("askGames").classList.remove("hide");
+        }
+      )
+      document.getElementById("askAgeSenior").addEventListener(
+        "click",
+        function () {
+          age = "senior";
+          document.getElementById("askAge").classList.add("hide");
+          document.getElementById("askGames").classList.remove("hide");
+        }
+      )
+      document.getElementById("askGamesTrue").addEventListener(
+        "click",
+        function () {
+          games = true;
+          document.getElementById("askGames").classList.add("hide");
+          document.getElementById("input").classList.remove("hide");
+        }
+      )
+      document.getElementById("askGamesFalse").addEventListener(
+        "click",
+        function () {
+          games = false;
+          document.getElementById("askGames").classList.add("hide");
+          document.getElementById("input").classList.remove("hide");
+        }
+      )
+    </script>
+    <script>
       function getResults() {
         document.getElementById("tableBody").innerHTML = "";
         supabaseClient.from("leaderboard").select().order('time', { ascending: true }).then(
@@ -392,10 +468,12 @@
           }
         )
       }
-      function addResult(time, name) {
+      function addResult(time, name, age, games) {
         supabaseClient.from("leaderboard").insert({
           time: time,
-          name: name
+          name: name,
+          age: age,
+          games: games
         }).then(
           function (result) {
             getResults();
@@ -416,7 +494,9 @@
         function () {
           addResult(
             time,
-            document.getElementById("name").value
+            document.getElementById("name").value ?? null,
+            age,
+            games
           );
         }
       )
@@ -433,7 +513,9 @@
           document.getElementById("leaderboard").classList.add("hide");
           document.getElementById("leaderboardLoad").classList.remove("hide");
           document.getElementById("leaderboardError").classList.add("hide");
-          document.getElementById("input").classList.remove("hide");
+          document.getElementById("askAge").classList.remove("hide");
+          document.getElementById("askGames").classList.add("hide");
+          document.getElementById("input").classList.add("hide");
           document.getElementById("result").classList.add("hide");
         }
       )
