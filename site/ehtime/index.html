@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ehtime</title>
+    </head>
+    <body>
+        Countdown thingy
+        <p id="time"></p>
+        <script>
+            function updateTime() {
+                document.getElementById("time").innerText = new Date();
+            }
+            setInterval(updateTime, 500);
+        </script>
+    </body>
+</html>
