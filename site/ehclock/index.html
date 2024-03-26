@@ -13,7 +13,7 @@
                 var now = new Date();
                 var diff = (until.getTime() - now.getTime()) / 1000;
                 var diffMin = Math.abs(Math.round((diff / 60)));
-                var diffSec = diff - 
+                var diffSec = (diff - diffMin)
                 document.getElementById("time").innerText = diffMin + ":" diffSec;
             }
             setInterval(updateTime, 100);
