@@ -8,15 +8,23 @@
         <link rel="stylesheet" href="https://ehui.ehan.dev/css/utils.css" />
     </head>
     <body>
-        Countdown thingy
+        Countdown Thingy
         <p id="time"></p>
         <script>
             var until = new Date("Mar 26, 2024 14:06:00");
             function updateTime() {
                 var now = new Date();
-                var diff = (until.getTime() - now.getTime()) / 1000;
-                var diffMin = Math.trunc((diff / 60));
-                var diffSec = Math.round((diff - (diffMin * 60)));
+                var diff = (
+                    (
+                        until.getTime() - now.getTime()
+                    ) / 1000
+                );
+                var diffMin = Math.trunc(
+                    (diff / 60)
+                );
+                var diffSec = Math.round(
+                    (diff - (diffMin * 60))
+                );
                 document.getElementById("time").innerText = diffMin + ":" + diffSec;
             }
             setInterval(updateTime, 500);
