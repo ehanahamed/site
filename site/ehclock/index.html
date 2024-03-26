@@ -8,8 +8,7 @@
         <link rel="stylesheet" href="https://ehui.ehan.dev/css/utils.css" />
     </head>
     <body>
-        Countdown Thingy
-        <p id="time"></p>
+        <p id="time" class="h1"></p>
         <script>
             var until = new Date("Mar 26, 2024 14:06:00");
             function updateTime() {
@@ -22,7 +21,7 @@
                 var diffMin = Math.trunc(
                     (diff / 60)
                 );
-                var diffSec = Math.round(
+                var diffSec = Math.trunc(
                     (diff - (diffMin * 60))
                 );
                 document.getElementById("time").innerText = diffMin + ":" + diffSec;
