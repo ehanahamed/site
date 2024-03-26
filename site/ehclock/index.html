@@ -10,7 +10,9 @@
     <body>
         <p id="time" class="h1"></p>
         <script>
-            var until = new Date("Mar 26, 2024 14:06:00");
+            var today = new Date();
+            var todayMonth = (today.getMonth() + 1)
+            var until = new Date(today.getFullYear() + "-" + todayMonth + "-" + today.getDate() + "T14:06:00");
             function updateTime() {
                 var now = new Date();
                 var diff = (
