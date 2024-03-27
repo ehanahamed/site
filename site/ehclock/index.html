@@ -11,8 +11,8 @@
         <p id="time" class="h1"></p>
         <script>
             var today = new Date();
-            var todayMonth = (today.getMonth() + 1)
-            var until = new Date(today.getFullYear() + "-" + todayMonth + "-" + today.getDate() + "T14:06:00");
+            var todayMonth = (today.getMonth() + 1).toString().padStart(2, "0")
+            var until = new Date(today.getFullYear() + "-" + todayMonth + "-" + today.getDate().padStart(2, "0") + "T14:06:00");
             function updateTime() {
                 var now = new Date();
                 var diff = (
@@ -26,7 +26,7 @@
                 var diffSec = Math.trunc(
                     (diff - (diffMin * 60))
                 );
-                document.getElementById("time").innerText = diffMin + ":" + diffSec;
+                document.getElementById("time").innerText = diffMin + ":" + diffSec.padStart(2, "0");
             }
             setInterval(updateTime, 500);
         </script>
