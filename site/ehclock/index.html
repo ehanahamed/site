@@ -8,19 +8,39 @@
         <link rel="stylesheet" href="https://ehui.ehan.dev/css/utils.css" />
     </head>
     <body>
-        <p id="time" class="h1"></p>
+        <main class="grid screen">
+            <div class="content"> 
+                <div class="flex">
+                    <input id="inputTime" type="text" placeholder="00:00" />
+                    <button id="buttonStart">Start</button>
+                </div>
+                <p id="time" class="h1">00:00:00</p>
+            </div>
+        </main>
         <script>
             var params = new URLSearchParams(window.location.search);
             var until = new Date();
             if (params.get("time")) {
                 until.setHours(params.get("time").split(":")[0]);
                 until.setMinutes(params.get("time").split(":")[1]);
+
             } else {
                 until.setHours("14");
                 until.setMinutes("06");
             }
             until.setSeconds("0");
             until.setMilliseconds("0");
+            document.getElementById("buttonStart").addEventListener(
+                "click",
+                function () {
+                    until.setHours(
+                        document.getElementById("inputTime").value.split(":")[0]
+                    )
+                    until.setMinutes(
+                        document.getElementById("inputTime").value.split(":")[1]
+                    )
+                }
+            );
             function updateTime() {
                 var now = new Date();
                 var diff = (
