@@ -12,8 +12,13 @@
         <script>
             var params = new URLSearchParams(window.location.search);
             var until = new Date();
-            until.setHours(params.get("time").split(":")[0] ?? "14");
-            until.setMinutes(params.get("time").split(":")[1] ?? "06");
+            if (params.get("time")) {
+                until.setHours(params.get("time").split(":")[0]);
+                until.setMinutes(params.get("time").split(":")[1]);
+            } else {
+                until.setHours("14");
+                until.setMinutes("06");
+            }
             until.setSeconds("0");
             until.setMilliseconds("0");
             function updateTime() {
