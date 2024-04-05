@@ -75,8 +75,10 @@
         }
       }
       function updateClock() {
-        document.getElementById("clock").innerText = "wow"
+        var now = new Date();
+        document.getElementById("clock").innerText = now;
       }
+      setInterval(updateClock, 2000);
     </script>
   </body>
 </html>
