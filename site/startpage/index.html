@@ -78,14 +78,13 @@
       var monthNamesShort = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
       var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
       var dayNamesShort = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-      function updateClock() {
-        var now = new Date();
+      var now = new Date();
         var date = settings.dateFormat
           .replaceAll("{YYYY}", now.getFullYear())
-          .replaceAll("{YY}", now.getFullYear().substring(2))
-          .replaceAll("{MM}", (now.getMonth() + 1).padStart(2, "0"))
+          .replaceAll("{YY}", now.getFullYear().toString().substring(2))
+          .replaceAll("{MM}", (now.getMonth() + 1).toString().padStart(2, "0"))
           .replaceAll("{M}", (now.getMonth() + 1))
-          .replaceAll("{DD}", now.getDate().padStart(2, "0"))
+          .replaceAll("{DD}", now.getDate().toString().padStart(2, "0"))
           .replaceAll("{D}", now.getDate())
           .replaceAll("{month}", monthNames[now.getMonth()].toLowerCase())
           .replaceAll("{Month}", monthNames[now.getMonth()])
@@ -99,7 +98,8 @@
           .replaceAll("{dy}", dayNamesShort[now.getDay()].toLowerCase())
           .replaceAll("{Dy}", dayNamesShort[now.getDay()])
           .replaceAll("{DY}", dayNamesShort[now.getDay()].toUpperCase());
-        document.getElementById("clock").innerText = date;
+      function updateClock() {
+        document.getElementById("clock").innerText = "i forgor";
       }
       updateClock();
       setInterval(updateClock, 2000);
