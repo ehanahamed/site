@@ -55,14 +55,14 @@
           {Wd} = capitalized short wekkday name (ex: Fri)
           {WD} = all caps short weekday name (ex: FRI)
         */
-        "dateFormat": "{YYYY}-{MM}-{DD} ({Weekday})"
+        "dateFormat": "{Weekday}, {YYYY}-{MM}-{DD}"
       }
       for (var i = 0; i < Object.keys(defaultSettings).length; i++) {
         if (localStorage.getItem(Object.keys(defaultSettings)[i])) {
         } else {
           localStorage.setItem(Object.keys(defaultSettings)[i], defaultSettings[Object.keys(defaultSettings)[i]]);
         }
-        alert(localStorage.getItem(Object.keys(defaultSettings)[i])
+        alert(localStorage.getItem(Object.keys(defaultSettings)[i]);
       }
       function updateClock() {
         document.getElementById("clock").innerText = "i forgor"
