@@ -76,7 +76,7 @@
       }
       function updateClock() {
         var now = new Date();
-        settings.dateFormat
+        var date = settings.dateFormat
           .replaceAll("{YYYY}", now.getFullYear())
           .replaceAll("{YY}", now.getFullYear().substring(2))
           .replaceAll("{MM}", now.getMonth())
