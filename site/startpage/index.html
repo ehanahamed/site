@@ -22,6 +22,7 @@
   <body>
     <div class="startpageLayout">
       <div class="startpageClock">
+        <p id="clock" class="h2">loading...</p>
       </div>
       <div class="startpageSearch">
       </div>
@@ -29,7 +30,8 @@
       </div>
     </div>
     <script>
-      var defaultSettings = {
+      /* populated with default settings */
+      var settings = {
          /* 12 or 24 */
         "clockFormat": 24,
         /*
@@ -57,17 +59,24 @@
         */
         "dateFormat": "{Weekday}, {YYYY}-{MM}-{DD}"
       }
-      for (var i = 0; i < Object.keys(defaultSettings).length; i++) {
-        if (localStorage.getItem(Object.keys(defaultSettings)[i])) {
-        } else {
-          localStorage.setItem(Object.keys(defaultSettings)[i], defaultSettings[Object.keys(defaultSettings)[i]]);
+      function loadSettings() {
+        for (var i = 0; i < Object.keys(settings).length; i++) {
+          if (localStorage.getItem(Object.keys(settings)[i])) {
+            settings[Object.keys(settings)[i]] = localStorage.getItem(Object.keys(settings)[i])
+          } else {
+            localStorage.setItem(Object.keys(settings)[i], settings[Object.keys(settings)[i]]);
+          }
         }
-        alert(localStorage.getItem(Object.keys(defaultSettings)[i]);
+      }
+      loadSettings();
+      function saveSettings() {
+        for (var i = 0; i < Object.keys(settings).length; i++) {
+          localStorage.setItem(Object.keys(settings)[i], settings[Object.keys(settings)[i]]);
+        }
       }
       function updateClock() {
-        document.getElementById("clock").innerText = "i forgor"
+        document.getElementById("clock").innerText = "wow"
       }
-      updateClock();
     </script>
   </body>
 </html>
