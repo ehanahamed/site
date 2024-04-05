@@ -81,23 +81,23 @@
       function updateClock() {
         var now = new Date();
         var date = settings.dateFormat
-          .replaceAll("{YYYY}", now.getFullYear());
-          .replaceAll("{YY}", now.getFullYear().substring(2));
-          .replaceAll("{MM}", (now.getMonth() + 1).padStart(2, "0"));
-          .replaceAll("{M}", (now.getMonth() + 1));
-          .replaceAll("{DD}", now.getDate().padStart(2, "0"));
-          .replaceAll("{D}", now.getDate());
-          .replaceAll("{month}", monthNames[now.getMonth()].toLowerCase());
-          .replaceAll("{Month}", monthNames[now.getMonth()]);
-          .replaceAll("{MONTH}", monthNames[now.getMonth()].toUpperCase());
-          .replaceAll("{mname}", monthNamesShort[now.getMonth()].toLowerCase());
-          .replaceAll("{Mname}", monthNamesShort[now.getMonth()]);
-          .replaceAll("{MNAME}", monthNamesShort[now.getMonth()].toUpperCase());
-          .replaceAll("{day}", dayNames[now.getDay()].toLowerCase());
-          .replaceAll("{Day}", dayNames[now.getDay()]);
-          .replaceAll("{DAY}", dayNames[now.getDay()].toUpperCase());
-          .replaceAll("{dy}", dayNamesShort[now.getDay()].toLowerCase());
-          .replaceAll("{Dy}", dayNamesShort[now.getDay()]);
+          .replaceAll("{YYYY}", now.getFullYear())
+          .replaceAll("{YY}", now.getFullYear().substring(2))
+          .replaceAll("{MM}", (now.getMonth() + 1).padStart(2, "0"))
+          .replaceAll("{M}", (now.getMonth() + 1))
+          .replaceAll("{DD}", now.getDate().padStart(2, "0"))
+          .replaceAll("{D}", now.getDate())
+          .replaceAll("{month}", monthNames[now.getMonth()].toLowerCase())
+          .replaceAll("{Month}", monthNames[now.getMonth()])
+          .replaceAll("{MONTH}", monthNames[now.getMonth()].toUpperCase())
+          .replaceAll("{mname}", monthNamesShort[now.getMonth()].toLowerCase())
+          .replaceAll("{Mname}", monthNamesShort[now.getMonth()])
+          .replaceAll("{MNAME}", monthNamesShort[now.getMonth()].toUpperCase())
+          .replaceAll("{day}", dayNames[now.getDay()].toLowerCase())
+          .replaceAll("{Day}", dayNames[now.getDay()])
+          .replaceAll("{DAY}", dayNames[now.getDay()].toUpperCase())
+          .replaceAll("{dy}", dayNamesShort[now.getDay()].toLowerCase())
+          .replaceAll("{Dy}", dayNamesShort[now.getDay()])
           .replaceAll("{DY}", dayNamesShort[now.getDay()].toUpperCase());
         document.getElementById("clock").innerText = date;
       }
