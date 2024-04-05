@@ -76,7 +76,12 @@
       }
       function updateClock() {
         var now = new Date();
-        document.getElementById("clock").innerText = now;
+        settings.dateFormat
+          .replaceAll("{YYYY}", now.getFullYear())
+          .replaceAll("{YY}", now.getFullYear().substring(2))
+          .replaceAll("{MM}", now.getMonth())
+        
+        document.getElementById("clock").innerText = ;
       }
       setInterval(updateClock, 2000);
     </script>
