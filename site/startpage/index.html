@@ -80,9 +80,17 @@
         var hours;
         var amPm = "";
         if (settings.clockFormat == 24) {
-          hours = (now.getHours + 1)
+          hours = now.getHours.toString().padStart(2, "0");
         } else if (settings.clockFormat == 12) {
-          if ((now.getHours + 1) >= 12) 
+          if (now.getHours >= 12) {
+            amPm = "PM"
+          } else {
+            amPm = "AM"
+          }
+          if (now.getHours == 0) {
+            hours 
+          } else {
+            hours = now.getHours().toString().padStart(2, "0");
         }
         document.getElementById("clock").innerText = hours ":" + now.getMinutes() + " " + amPm;
       }
