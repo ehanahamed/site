@@ -41,21 +41,21 @@
           {YY} = last 2 digits of year (ex: 24)
           {MM} = 2 digit month number (ex: 04)
           {M} = month number (ex: 4)
-          {DD} = 2 digit day (ex: 05)
-          {D} = day (ex: 5)
+          {DD} = 2 digit date (ex: 05)
+          {D} = date (ex: 5)
           names:
           {month} = month name (ex: april)
           {Month} = capitalized month name (ex: April)
           {MONTH} = all caps month name (ex: APRIL)
-          {mn} = short month name (ex: apr)
-          {Mn} = capitalized short month name (ex: Apr)
-          {MN} = all caps short month name (ex: APR)
-          {weekday} = full weekday name (ex: friday)
-          {Weekday} = capitalized full weekday name (ex: Friday)
-          {WEEKDAY} = all caps full weekday name (ex: FRIDAY)
-          {wd} = short weekday name (ex: fri)
-          {Wd} = capitalized short wekkday name (ex: Fri)
-          {WD} = all caps short weekday name (ex: FRI)
+          {mname} = short month name (ex: apr)
+          {Mname} = capitalized short month name (ex: Apr)
+          {MNAME} = all caps short month name (ex: APR)
+          {day} = day of the week (ex: friday)
+          {Day} = capitalized day of the week (ex: Friday)
+          {DAY} = all caps day of the week (ex: FRIDAY)
+          {dy} = short day of the week (ex: fri)
+          {Dy} = capitalized short day of the week (ex: Fri)
+          {DY} = all caps short day of the week (ex: FRI)
         */
         "dateFormat": "{Weekday}, {YYYY}-{MM}-{DD}"
       }
@@ -74,15 +74,34 @@
           localStorage.setItem(Object.keys(settings)[i], settings[Object.keys(settings)[i]]);
         }
       }
+      var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      var monthNamesShort = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      var dayNamesShort = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
       function updateClock() {
         var now = new Date();
         var date = settings.dateFormat
-          .replaceAll("{YYYY}", now.getFullYear())
-          .replaceAll("{YY}", now.getFullYear().substring(2))
-          .replaceAll("{MM}", now.getMonth())
-        
-        document.getElementById("clock").innerText = ;
+          .replaceAll("{YYYY}", now.getFullYear());
+          .replaceAll("{YY}", now.getFullYear().substring(2));
+          .replaceAll("{MM}", (now.getMonth() + 1).padStart(2, "0"));
+          .replaceAll("{M}", (now.getMonth() + 1));
+          .replaceAll("{DD}", now.getDate().padStart(2, "0"));
+          .replaceAll("{D}", now.getDate());
+          .replaceAll("{month}", monthNames[now.getMonth()].toLowerCase());
+          .replaceAll("{Month}", monthNames[now.getMonth()]);
+          .replaceAll("{MONTH}", monthNames[now.getMonth()].toUpperCase());
+          .replaceAll("{mname}", monthNamesShort[now.getMonth()].toLowerCase());
+          .replaceAll("{Mname}", monthNamesShort[now.getMonth()]);
+          .replaceAll("{MNAME}", monthNamesShort[now.getMonth()].toUpperCase());
+          .replaceAll("{day}", dayNames[now.getDay()].toLowerCase());
+          .replaceAll("{Day}", dayNames[now.getDay()]);
+          .replaceAll("{DAY}", dayNames[now.getDay()].toUpperCase());
+          .replaceAll("{dy}", dayNamesShort[now.getDay()].toLowerCase());
+          .replaceAll("{Dy}", dayNamesShort[now.getDay()]);
+          .replaceAll("{DY}", dayNamesShort[now.getDay()].toUpperCase());
+        document.getElementById("clock").innerText = date;
       }
+      updateClock();
       setInterval(updateClock, 2000);
     </script>
   </body>
