@@ -80,17 +80,26 @@
         var hours;
         var amPm = "";
         if (settings.clockFormat == 24) {
-          hours = now.getHours.toString().padStart(2, "0");
+          hours = now.getHours().toString().padStart(2, "0");
         } else if (settings.clockFormat == 12) {
-          if (now.getHours >= 12) {
+          if (now.getHours() >= 12) {
             amPm = "PM"
+            // 11:00 is 11 AM, 12:00 is 12 PM
+            // the PM-ness starts at 12:00
           } else {
             amPm = "AM"
           }
-          if (now.getHours == 0) {
-            hours 
+          if (now.getHours() == 0) {
+            hours = "12"
+            amPm = "AM"
+            // 23:00 is 11 PM, 00:00 is 12 AM
+            // "AM-ness" starts at 00:00
+          } else if (now.getHours() > 12) {
+            hours = (now.getHours() - 12).toString()
+            // it resets to 1 PM at 13:00
+            // so subtract 12
           } else {
-            hours = now.getHours().toString().padStart(2, "0");
+            hours = now.getHours().toString()
           }
         }
         document.getElementById("clock").innerText = hours + ":" + now.getMinutes() + " " + amPm;
