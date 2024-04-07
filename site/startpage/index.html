@@ -105,7 +105,7 @@
         document.getElementById("clock").innerText = hours + ":" + now.getMinutes() + " " + amPm;
       }
       updateClock();
-      setInterval(updateClock, 2000);
+      setInterval(updateClock, 1000);
       var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
       var monthNamesShort = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
       var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -134,7 +134,7 @@
         document.getElementById("date").innerText = date;
       }
       updateDate();
-      setInterval(updateDate, 2000);
+      setInterval(updateDate, 1000);
     </script>
   </body>
 </html>
