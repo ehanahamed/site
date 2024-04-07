@@ -133,6 +133,8 @@
           .replaceAll("{DY}", dayNamesShort[now.getDay()].toUpperCase());
         document.getElementById("date").innerText = date;
       }
+      updateDate();
+      setInterval(updateDate, 2000);
     </script>
   </body>
 </html>
