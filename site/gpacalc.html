@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=10, user-scalable=1"
+    />
+    <title>gpa calculator thingy</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="stylesheet" href="https://ehui.ehan.dev/next/css/themes.css" />
+    <link rel="stylesheet" href="https://ehui.ehan.dev/next/css/components.css" />
+    <link rel="stylesheet" href="https://ehui.ehan.dev/next/css/layouts.css" />
+    <link rel="stylesheet" href="https://ehui.ehan.dev/next/css/utils.css" />
+    <link
+      rel="stylesheet"
+      href="https://www.nerdfonts.com/assets/css/webfont.css"
+    />
+    <style>
+      .customLayout {
+        display: grid;
+        grid-template-rows: auto auto;
+        grid-template-columns: auto auto;
+        grid-template-areas:
+          "options result"
+          "grades result";
+      }
+      .gpacalcLayout > .options {
+      }
+    </style>
+  </head>
+  <body>
+    <div class="customLayout hide">
+      <div class="options">
+        <div class="flex">
+          <button id="unweighted" class="">Unweighted</button>
+          <button id="weighted" class="alt">Standard Weights</button>
+          <button id="customWeights" class="alt">Custom Weights</button>
+        </div>
+        <div class="flex">
+          <button id="letters" class="">Letter Grades</button>
+          <button id="percents" class="alt">Percentages</button>
+        </div>
+      </div>
+      <div class="grades">
+        table goes here
+      </div>
+      <div class="result">
+        123
+      </div>
+    </div>
+    <script>
+      
+    </script>
+  </body>
+</html>
