@@ -29,6 +29,7 @@
             if (params.get("time")) {
                 until.setMinutes(params.get("time").split(":")[1]);
                 until.setHours(params.get("time").split(":")[0]);
+                updateTime();
                 setInterval(updateTime, 500);
                 document.getElementById("sectionStart").classList.add("hide");
                 document.getElementById("sectionTime").classList.remove("hide");
@@ -44,6 +45,7 @@
                         until.setHours(
                             document.getElementById("inputTime").value.split(":")[0]
                         )
+                        updateTime();
                         setInterval(updateTime, 500);
                     }
                 );
