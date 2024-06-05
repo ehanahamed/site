@@ -40,18 +40,33 @@
       .customSmallTxt {
         width: 6rem;
       }
+      .customCombo {
+        display: flex;
+        gap: 0px;
+      }
+      .customCombo > .left {
+        margin-right: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+      }
+      .customCombo > .mid {
+        margin-left: 0px;
+        margin-right: 0px;
+        border-radius: 0px;
+      }
+      .customCombo > .right {
+        margin-left: 0px;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+      }
     </style>
   </head>
   <body>
     <div class="customLayout">
       <div class="options">
-        <div class="flex">
-          <button id="unweighted">Unweighted</button>
-          <!--
-          <button id="weighted" class="alt">Standard Weights</button>
-          <button id="customWeights" class="alt">Custom Weights</button>
-          -->
-          <button id="frhsd" class="alt">FRHSD's weights</button>
+        <div class="customCombo">
+          <button id="unweighted" class="left">Unweighted</button>
+          <button id="frhsd" class="right alt">FRHSD's weights</button>
         </div>
       </div>
       <div class="grades">
