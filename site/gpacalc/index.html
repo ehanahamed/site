@@ -10,7 +10,10 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="stylesheet" href="https://ehan.dev/ehui/dev/css/ehui.css" />
+    <link rel="stylesheet" href="https://ehan.dev/ehui/css/colors.css" />
+    <link rel="stylesheet" href="https://ehan.dev/ehui/css/components.css" />
+    <link rel="stylesheet" href="https://ehan.dev/ehui/css/layouts.css" />
+    <link rel="stylesheet" href="https://ehan.dev/ehui/css/utils.css" />
     <link
       rel="stylesheet"
       href="https://www.nerdfonts.com/assets/css/webfont.css"
@@ -40,13 +43,12 @@
     <div class="customLayout">
       <div class="options">
         <div class="flex">
-          <button id="unweighted" class="">Unweighted</button>
+          <button id="unweighted">Unweighted</button>
+          <!--
           <button id="weighted" class="alt">Standard Weights</button>
           <button id="customWeights" class="alt">Custom Weights</button>
-        </div>
-        <div class="flex">
-          <button id="letters" class="">Letter Grades</button>
-          <button id="percents" class="alt">Percentages</button>
+          -->
+          <button id="frhsd" class="alt">FRHSD's weights</button>
         </div>
       </div>
       <div class="grades">
@@ -57,7 +59,65 @@
       </div>
     </div>
     <script>
-      
+      var weighted = false;
+      var weights = null;
+      var frhsdWeights = {
+        ap: {
+          "A+": 6.1,
+          "A": 5.8,
+          "A-": 5.5,
+          "B+": 5.1,
+          "B": 4.8,
+          "B-": 4.5,
+          "C+": 4.1,
+          "C": 3.8,
+          "C-": 3.5,
+          "D+": 3.1,
+          "D": 2.8,
+          "E": 0
+        },
+        honors: {
+          "A+": 5.6,
+          "A": 5.3,
+          "A-": 5,
+          "B+": 4.6,
+          "B": 4.3,
+          "B-": 4,
+          "C+": 3.6,
+          "C": 3.3,
+          "C-": 3,
+          "D+": 2.6,
+          "D": 2.3,
+          "E": 0
+        },
+        "A+": 4.6,
+        "A": 4.3,
+        "A-": 4,
+        "B+": 3.6,
+        "B": 3.3,
+        "B-": 3,
+        "C+": 2.6,
+        "C": 2.3,
+        "C-": 2,
+        "D+": 1.6,
+        "D": 1.3,
+        "E": 0
+      }
+      document.getElementById("unweighted").addEventListener("click",
+        function () {
+          document.getElementById("unweighted").classList.remove("alt");
+          document.getElementById("frhsd").classList.add("alt");
+          weighted = false;
+        }
+      )
+      document.getElementById("frhsd").addEventListener("click",
+        function () {
+          document.getElementById("unweighted").classList.add("alt");
+          document.getElementById("frhsd").classList.remove("alt");
+          weighted = true;
+          weights = frhsdWeights;
+        }
+      )
     </script>
   </body>
 </html>
