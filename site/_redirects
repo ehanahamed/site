@@ -1,2 +1,2 @@
-/ehui/*    https://ehui.netlify.app/:splat  200
-/timefall  /timeFall.html                   200
+/ehui/*      https://ehui.netlify.app/:splat      200
+/timeFall/*  https://timefall.netlify.app/:splat  200
