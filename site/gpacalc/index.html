@@ -127,19 +127,19 @@
           /*actions.innerHTML =
             "<div class='flex center'><button> <i class='nf nf-cod-arrow_up'></i> Move Up </button><button> <i class='nf nf-cod-arrow_down'></i> Move Down </button><button class='red'> <i class='nf nf-fa-trash_o'></i> Remove </button></div>";
           actions.children[0].children[0].addEventListener("click", function (event) {
-            edit.move(
+            tableStuff.move(
               event.target.parentElement.parentElement.parentElement.rowIndex,
               event.target.parentElement.parentElement.parentElement.rowIndex - 1,
             );
           });
           actions.children[0].children[1].addEventListener("click", function (event) {
-            edit.move(
+            tableStuff.move(
               event.target.parentElement.parentElement.parentElement.rowIndex,
               event.target.parentElement.parentElement.parentElement.rowIndex + 2,
             );
           });
           actions.children[0].children[2].addEventListener("click", function (event) {
-            edit.remove(
+            tableStuff.delete(
               event.target.parentElement.parentElement.parentElement.rowIndex,
             );
           });*/
@@ -148,6 +148,9 @@
           tableStuff.insert(
             document.getElementById("gradesTable").rows.length - 1,
           );
+        },
+        delete: function (index) {
+          document.getElementById("gradesTable").deleteRow(index);
         },
         move: function (index, newIndex) {
           /*
@@ -173,9 +176,9 @@
             document.getElementById("gradesTable").rows[
               newIndex
             ].children[0].children[0].value = document.getElementById(
-              ui.elements.inputs.edit.table,
+              "gradesTable"
             ).rows[newOldIndex].children[0].children[0].value;
-            edit.remove(newOldIndex);
+            tableStuff.delete(newOldIndex);
             if (document.getElementById("gradesTable").rows[
                 newOldIndex
               ].children[0].children[2].children[0].classList.contains("alt")) {
@@ -200,15 +203,15 @@
             document.getElementById("gradesTable").rows[
               newIndex
             ].children[1].children[0].value = document.getElementById(
-              ui.elements.inputs.edit.table,
+              "gradesTable"
             ).rows[newOldIndex].children[1].children[0].value;
-            edit.remove(newOldIndex);
+            tableStuff.delete(newOldIndex);
             document.getElementById("gradesTable").rows[
               newIndex
             ].children[2].children[0].value = document.getElementById(
-              ui.elements.inputs.edit.table,
+              "gradesTable"
             ).rows[newOldIndex].children[2].children[0].value;
-            edit.remove(newOldIndex);
+            tableStuff.delete(newOldIndex);
           }
         },
         makeArrayFromTable: function (element) {
@@ -228,7 +231,7 @@
           for (var i = 0; i < array.length; i++) {
             var row = array[i];
           
-            edit.add();
+            tableStuff.add();
           
             table.rows[i + 1].children[0].children[0].value = row[0];
             table.rows[i + 1].children[1].children[0].value = row[1];
@@ -275,9 +278,14 @@
           weights = frhsdWeights;
         }
       )
+      document.getElementById("add").addEventListener("click",
+        function () {
+          tableStuff.add()
+        }
+      )
       document.getElementById("calc").addEventListener("click",
         function () {
-          document.getElementById("table")
+          console.log("idk")
         }
       )
     </script>
