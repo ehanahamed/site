@@ -122,10 +122,9 @@
             "  <button class='mid alt'>Honors</button>"+
             "  <button class='right alt'>AP</button>"+
             "</div>";
-          newRow.insertCell(1).innerHTML =
-            "<textarea class='vertical' rows='2' placeholder='Definition'></textarea>";
-          var actions = newRow.insertCell(2);
-          actions.innerHTML =
+          newRow.insertCell(1).innerHTML = "<input type='text' class='customSmallTxt' placeholder='5.0'>";
+          newRow.insertCell(2).innerHTML = "<input type='text' class='customSmallTxt' placeholder='A+'>";
+          /*actions.innerHTML =
             "<div class='flex center'><button> <i class='nf nf-cod-arrow_up'></i> Move Up </button><button> <i class='nf nf-cod-arrow_down'></i> Move Down </button><button class='red'> <i class='nf nf-fa-trash_o'></i> Remove </button></div>";
           actions.children[0].children[0].addEventListener("click", function (event) {
             edit.move(
@@ -143,29 +142,12 @@
             edit.remove(
               event.target.parentElement.parentElement.parentElement.rowIndex,
             );
-          });
+          });*/
         },
         add: function () {
-          edit.insert(
-            document.getElementById(ui.elements.inputs.edit.table).rows.length - 1,
+          tableStuff.insert(
+            document.getElementById("gradesTable").rows.length - 1,
           );
-        },
-        save: function () {
-          if (document.getElementById(ui.elements.inputs.edit.name).value) {
-            sessionData.studySetData.name = document.getElementById(
-              ui.elements.inputs.edit.name,
-            ).value;
-          } else {
-            sessionData.studySetData.name = "Untitled Study Set";
-          }
-          sessionData.studySetData.data = edit.makeArrayFromTable(
-            document.getElementById(ui.elements.inputs.edit.table),
-          );
-          /* temporarily disabled: */
-          // exportLocal.save();
-        },
-        remove: function (index) {
-          document.getElementById(ui.elements.inputs.edit.table).deleteRow(index);
         },
         move: function (index, newIndex) {
           /*
@@ -176,27 +158,56 @@
             ((index > newIndex && index !== 1) || index < newIndex) &&
             ((index < newIndex &&
               index <
-                document.getElementById(ui.elements.inputs.edit.table).rows.length -
+                document.getElementById("gradesTable").rows.length -
                   2) ||
               index > newIndex)
           ) {
-            edit.insert(newIndex);
+            tableStuff.insert(newIndex);
             var newOldIndex;
             if (index > newIndex) {
               newOldIndex = index + 1;
             } else if (index < newIndex) {
               newOldIndex = index;
             }
-            document.getElementById(ui.elements.inputs.edit.table).rows[
+
+            document.getElementById("gradesTable").rows[
               newIndex
             ].children[0].children[0].value = document.getElementById(
               ui.elements.inputs.edit.table,
             ).rows[newOldIndex].children[0].children[0].value;
-            document.getElementById(ui.elements.inputs.edit.table).rows[
+            edit.remove(newOldIndex);
+            if (document.getElementById("gradesTable").rows[
+                newOldIndex
+              ].children[0].children[2].children[0].classList.contains("alt")) {
+              document.getElementById("gradesTable").rows[
+                newIndex
+              ].children[0].children[2].children[0].classList.add("alt")
+            }
+            if (document.getElementById("gradesTable").rows[
+                newOldIndex
+              ].children[0].children[2].children[1].classList.contains("alt")) {
+              document.getElementById("gradesTable").rows[
+                newIndex
+              ].children[0].children[2].children[1].classList.add("alt")
+            }
+            if (document.getElementById("gradesTable").rows[
+                newOldIndex
+              ].children[0].children[2].children[2].classList.contains("alt")) {
+              document.getElementById("gradesTable").rows[
+                newIndex
+              ].children[0].children[2].children[2].classList.add("alt")
+            }
+            document.getElementById("gradesTable").rows[
               newIndex
             ].children[1].children[0].value = document.getElementById(
               ui.elements.inputs.edit.table,
             ).rows[newOldIndex].children[1].children[0].value;
+            edit.remove(newOldIndex);
+            document.getElementById("gradesTable").rows[
+              newIndex
+            ].children[2].children[0].value = document.getElementById(
+              ui.elements.inputs.edit.table,
+            ).rows[newOldIndex].children[2].children[0].value;
             edit.remove(newOldIndex);
           }
         },
