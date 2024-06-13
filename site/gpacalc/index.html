@@ -216,8 +216,10 @@
           for (var i = 1; i < element.rows.length; i++) {
             var row = [];
             var tableCells = element.rows[i].children;
-          
-            row.push(tableCells[0].children[0].value);
+            /* course name from textbox (0th child) */
+            row.push(tableCells[0].children[0].value)
+            /* course type (ap, honors, regular) from combo select (1st child) */
+            if (tableCells[0].children[0].value)
             row.push(tableCells[1].children[0].value);
           
             tableArray.push(row);
