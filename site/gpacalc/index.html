@@ -84,6 +84,7 @@
           </thead>
           <tbody>
             <tr>
+              <!--
               <td>
                 <input type="text" placeholder="Course Name"> <br/>
                 <div class="customCombo">
@@ -98,6 +99,7 @@
               <td>
                 <input type="text" class="customSmallTxt" placeholder="A+">
               </td>
+              -->
             </tr>
           </tbody>
         </table>
@@ -146,7 +148,7 @@
         },
         add: function () {
           tableStuff.insert(
-            document.getElementById("gradesTable").rows.length - 1,
+            document.getElementById("gradesTable").rows.length,
           );
         },
         delete: function (index) {
@@ -159,7 +161,7 @@
             ((index < newIndex &&
               index <
                 document.getElementById("gradesTable").rows.length -
-                  2) ||
+                  1) ||
               index > newIndex)
           ) {
             tableStuff.insert(newIndex);
@@ -175,7 +177,6 @@
             ].children[0].children[0].value = document.getElementById(
               "gradesTable"
             ).rows[newOldIndex].children[0].children[0].value;
-            tableStuff.delete(newOldIndex);
             if (document.getElementById("gradesTable").rows[
                 newOldIndex
               ].children[0].children[2].children[0].classList.contains("alt")) {
@@ -202,7 +203,6 @@
             ].children[1].children[0].value = document.getElementById(
               "gradesTable"
             ).rows[newOldIndex].children[1].children[0].value;
-            tableStuff.delete(newOldIndex);
             document.getElementById("gradesTable").rows[
               newIndex
             ].children[2].children[0].value = document.getElementById(
@@ -213,7 +213,7 @@
         },
         makeArrayFromTable: function (element) {
           var tableArray = [];
-          for (var i = 1; i < element.rows.length - 1; i++) {
+          for (var i = 1; i < element.rows.length; i++) {
             var row = [];
             var tableCells = element.rows[i].children;
           
@@ -235,6 +235,7 @@
           }
         },
       };
+      tableStuff.add()
     </script>
     <script>
       var weighted = false;
