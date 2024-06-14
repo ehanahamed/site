@@ -38,13 +38,13 @@
   margin-top: 0px;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
-  border-right: 0.1rem;
+  border-right-width: 0.1rem;
 }
 .customCombo > .mid {
   margin: 0px;
   border-radius: 0px;
-  border-left: 0.1rem;
-  border-right: 0.1rem;
+  border-left-width: 0.1rem;
+  border-right-width: 0.1rem;
 }
 .customCombo > .right {
   margin-left: 0px;
@@ -52,5 +52,5 @@
   margin-top: 0px;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
-  border-left: 0.1rem;
+  border-left-width: 0.1rem;
 }
