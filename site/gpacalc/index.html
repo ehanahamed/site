@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="darker">
+<html lang="en" class="newcolors">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -18,61 +18,17 @@
       rel="stylesheet"
       href="https://www.nerdfonts.com/assets/css/webfont.css"
     />
-    <style>
-      .customLayout {
-        display: grid;
-        grid-template-rows: auto auto;
-        grid-template-columns: auto auto;
-        grid-template-areas:
-          "options result"
-          "grades result";
-        padding: 2rem;
-      }
-      .customLayout > .options {
-        grid-area: options;
-      }
-      .customLayout > .grades {
-        grid-area: grades;
-      }
-      .customLayout > .result {
-        grid-area: result;
-      }
-      .customSmallTxt {
-        width: 6rem;
-      }
-      .customCombo {
-        display: flex;
-        gap: 0px;
-        align-items: center;
-      }
-      .customCombo > .left {
-        margin-right: 0px;
-        margin-bottom: 0px;
-        margin-top: 0px;
-        border-top-right-radius: 0px;
-        border-bottom-right-radius: 0px;
-      }
-      .customCombo > .mid {
-        margin: 0px;
-        border-radius: 0px;
-      }
-      .customCombo > .right {
-        margin-left: 0px;
-        margin-bottom: 0px;
-        margin-top: 0px;
-        border-top-left-radius: 0px;
-        border-bottom-left-radius: 0px;
-      }
-    </style>
+    <link
+      rel="stylesheet"
+      href="newColors.css"
+    />
+    <link
+      rel="stylesheet"
+      href="newStuff.css"
+    />
   </head>
   <body>
     <div class="customLayout">
-      <div class="options">
-        <div class="customCombo">
-          <button id="unweighted" class="left">Unweighted</button>
-          <button id="frhsd" class="right alt">FRHSD's weights</button>
-        </div>
-      </div>
       <div class="grades">
         <table id="gradesTable">
           <thead>
@@ -106,6 +62,12 @@
         <div class="flex">
           <button id="add">Add Course</button>
           <button id="calc" class="green">Calculate!</button>
+        </div>
+      </div>
+      <div class="options">
+        <div class="customCombo">
+          <button id="unweighted" class="left">Unweighted</button>
+          <button id="frhsd" class="right alt">FRHSD's weights</button>
         </div>
       </div>
       <div class="result">

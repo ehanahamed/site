@@ -1,0 +1,54 @@
+.customLayout {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto auto;
+  grid-template-areas:
+    "grades options"
+    "grades result";
+  padding: 2rem;
+}
+@media only screen and (max-width: 800px) {
+  .customLayout {
+    grid-template-rows: auto auto auto;
+    grid-template-columns: auto;
+    grid-template-areas:
+      "grades"
+      "result"
+      "options"
+  }
+}
+.customLayout > .options {
+  grid-area: options;
+}
+.customLayout > .grades {
+  grid-area: grades;
+}
+.customLayout > .result {
+  grid-area: result;
+}
+.customSmallTxt {
+  width: 6rem;
+}
+.customCombo {
+  display: flex;
+  gap: 0px;
+  align-items: center;
+}
+.customCombo > .left {
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.customCombo > .mid {
+  margin: 0px;
+  border-radius: 0px;
+}
+.customCombo > .right {
+  margin-left: 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
