@@ -43,9 +43,11 @@ button,
 button,
 .button {
   background-color: var(--bg2);
+  color: var(--fg);
 }
 
 button.main,
 .button.main {
   background-color: var(--main);
+  color: var(--bg1);
 }
