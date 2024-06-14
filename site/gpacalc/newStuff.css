@@ -66,3 +66,11 @@
   color: var(--bg1);
   border-color: var(--main);
 }
+
+.customCombo .indicator {
+  visibility: visible;
+}
+
+.customCombo > .selected > .indicator {
+  visibility: visible;
+}
