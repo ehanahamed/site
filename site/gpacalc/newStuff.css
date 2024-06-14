@@ -68,7 +68,7 @@
 }
 
 .customCombo .indicator {
-  visibility: visible;
+  visibility: hidden;
 }
 
 .customCombo > .selected > .indicator {
