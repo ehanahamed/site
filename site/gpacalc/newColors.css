@@ -33,6 +33,7 @@
   --bg1Alt: #282835;
   --bg1: #1e1e28;
   --main: #7a52cc;
+  --mainAlt: #967acc;
 }
 
 button,
@@ -46,8 +47,24 @@ button,
   color: var(--fg);
 }
 
+button:hover,
+.button:hover,
+button:focus-visible,
+.button:focus-visible {
+  background-color: var(--main);
+  color: var(--bg1);
+}
+
 button.main,
 .button.main {
-  background-color: var(--main);
+  background-color: var(--mainAlt);
+  color: var(--bg1);
+}
+
+button.main:hover,
+.button.main:hover,
+button.main:focus-visible,
+.button.main:focus-visible {
+  background-color: var(--mainAlt);
   color: var(--bg1);
 }
