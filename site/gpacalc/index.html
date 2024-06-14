@@ -67,8 +67,8 @@
       <div class="result">
         <p class="h1">123</p>
         <div class="customCombo">
-          <button id="unweighted" class="left">Unweighted</button>
-          <button id="frhsd" class="right alt">FRHSD's weights</button>
+          <button id="unweighted" class="left selected">Unweighted</button>
+          <button id="frhsd" class="right">FRHSD's weights</button>
         </div>
       </div>
     </div>
@@ -80,9 +80,9 @@
             .insertRow(index);
           newRow.insertCell(0).innerHTML = "<input type='text' placeholder='Course Name'> <br/>"+
             "<div class='customCombo'>"+
-            "  <button class='left'>Regular</button>"+
-            "  <button class='mid alt'>Honors</button>"+
-            "  <button class='right alt'>AP</button>"+
+            "  <button class='left selected'>Regular</button>"+
+            "  <button class='mid'>Honors</button>"+
+            "  <button class='right'>AP</button>"+
             "</div>";
           newRow.insertCell(1).innerHTML = "<input type='text' class='customSmallTxt' placeholder='5.0'>";
           newRow.insertCell(2).innerHTML = "<input type='text' class='customSmallTxt' placeholder='A+'>";
@@ -139,24 +139,24 @@
             ).rows[newOldIndex].children[0].children[0].value;
             if (document.getElementById("gradesTable").rows[
                 newOldIndex
-              ].children[0].children[2].children[0].classList.contains("alt")) {
+              ].children[0].children[2].children[0].classList.contains("selected")) {
               document.getElementById("gradesTable").rows[
                 newIndex
-              ].children[0].children[2].children[0].classList.add("alt")
+              ].children[0].children[2].children[0].classList.add("selected")
             }
             if (document.getElementById("gradesTable").rows[
                 newOldIndex
-              ].children[0].children[2].children[1].classList.contains("alt")) {
+              ].children[0].children[2].children[1].classList.contains("selected")) {
               document.getElementById("gradesTable").rows[
                 newIndex
-              ].children[0].children[2].children[1].classList.add("alt")
+              ].children[0].children[2].children[1].classList.add("selected")
             }
             if (document.getElementById("gradesTable").rows[
                 newOldIndex
-              ].children[0].children[2].children[2].classList.contains("alt")) {
+              ].children[0].children[2].children[2].classList.contains("selected")) {
               document.getElementById("gradesTable").rows[
                 newIndex
-              ].children[0].children[2].children[2].classList.add("alt")
+              ].children[0].children[2].children[2].classList.add("selected")
             }
             document.getElementById("gradesTable").rows[
               newIndex
@@ -224,15 +224,15 @@
       }
       document.getElementById("unweighted").addEventListener("click",
         function () {
-          document.getElementById("unweighted").classList.remove("alt");
-          document.getElementById("frhsd").classList.add("alt");
+          document.getElementById("unweighted").classList.add("selected");
+          document.getElementById("frhsd").classList.remove("selected");
           weighted = false;
         }
       )
       document.getElementById("frhsd").addEventListener("click",
         function () {
-          document.getElementById("unweighted").classList.add("alt");
-          document.getElementById("frhsd").classList.remove("alt");
+          document.getElementById("unweighted").classList.remove("selected");
+          document.getElementById("frhsd").classList.add("selected");
           weighted = true;
           weights = frhsdWeights;
         }
