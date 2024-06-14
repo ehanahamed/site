@@ -44,7 +44,7 @@ button,
 button,
 .button {
   background-color: var(--bg2);
-  color: var(--fg);
+  color: var(--mainAlt);
 }
 
 button:hover,
