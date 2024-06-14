@@ -68,9 +68,9 @@
 }
 
 .customCombo .indicator {
-  visibility: hidden;
+  display: none;
 }
 
 .customCombo > .selected > .indicator {
-  visibility: visible;
+  display: inline;
 }
