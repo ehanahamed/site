@@ -67,8 +67,14 @@
       <div class="result">
         <p class="h1">123</p>
         <div class="customCombo">
-          <button id="unweighted" class="left selected">Unweighted</button>
-          <button id="frhsd" class="right">FRHSD's weights</button>
+          <button id="unweighted" class="left selected">
+            <i class="indicator nf-oct-check"></i>
+            Unweighted
+          </button>
+          <button id="frhsd" class="right">
+            <i class="indicator nf-oct-check"></i>
+            FRHSD's weights
+          </button>
         </div>
       </div>
     </div>
@@ -80,8 +86,14 @@
             .insertRow(index);
           newRow.insertCell(0).innerHTML = "<input type='text' placeholder='Course Name'> <br/>"+
             "<div class='customCombo'>"+
-            "  <button class='left selected'>Regular</button>"+
-            "  <button class='mid'>Honors</button>"+
+            "  <button class='left selected'>"+
+            "    <i class='indicator nf-oct-check'></i>"+
+            "    Regular"+
+            "  </button>"+
+            "  <button class='mid'>"+
+            "    <i class='indicator nf-oct-check'></i>"+
+            "    Honors"+
+            "  </button>"+
             "  <button class='right'>AP</button>"+
             "</div>";
           newRow.insertCell(1).innerHTML = "<input type='text' class='customSmallTxt' placeholder='5.0'>";
