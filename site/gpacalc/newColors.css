@@ -51,13 +51,13 @@ button:hover,
 .button:hover,
 button:focus-visible,
 .button:focus-visible {
-  background-color: var(--main);
+  background-color: var(--mainAlt);
   color: var(--bg1);
 }
 
 button.main,
 .button.main {
-  background-color: var(--mainAlt);
+  background-color: var(--main);
   color: var(--bg1);
 }
 
