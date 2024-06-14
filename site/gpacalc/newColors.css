@@ -34,6 +34,11 @@
   --bg1: #1e1e28;
 }
 
+button,
+.button {
+  border-radius: 2rem;
+}
+
 button.alt,
 .button.alt {
   background-color: var(--bg2)
