@@ -84,8 +84,8 @@
           var newRow = document
             .getElementById("gradesTable")
             .insertRow(index);
-          var newRowCell0 = newRow.insertCell(0);
-          newRowCell0.innerHTML = "<input type='text' placeholder='Course Name'> <br/>"+
+          newRow.insertCell(0);
+          document.getElementById("gradesTable").rows[index].children[0].innerHTML = "<input type='text' placeholder='Course Name'> <br/>"+
             "<div class='customCombo'>"+
             "  <button class='left selected'>"+
             "    <i class='indicator nf nf-oct-check'></i>"+
@@ -100,21 +100,21 @@
             "    AP"+
             "  </button>"+
             "</div>";
-          newRowCell0.children[1].children[0].addEventListener("click",
+            document.getElementById("gradesTable").rows[index].children[0].children[1].children[0].addEventListener("click",
               function (event) {
                 event.target.parentElement.children[0].classList.add("selected");
                 event.target.parentElement.children[1].classList.remove("selected");
                 event.target.parentElement.children[2].classList.remove("selected");
               }
           );
-          newRowCell0.children[1].children[1].addEventListener("click",
+          document.getElementById("gradesTable").rows[index].children[0].children[1].children[1].addEventListener("click",
               function (event) {
                 event.target.parentElement.children[0].classList.remove("selected");
                 event.target.parentElement.children[1].classList.add("selected");
                 event.target.parentElement.children[2].classList.remove("selected");
               }
           );
-          newRowCell0.children[1].children[2].addEventListener("click",
+          document.getElementById("gradesTable").rows[index].children[0].children[1].children[2].addEventListener("click",
               function (event) {
                 event.target.parentElement.children[0].classList.remove("selected");
                 event.target.parentElement.children[1].classList.remove("selected");
