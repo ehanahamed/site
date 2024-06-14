@@ -50,3 +50,10 @@
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
+
+.customCombo > button.selected
+.customCombo > .button.selected {
+  background-color: var(--main);
+  color: var(--bg1);
+  border-color: var(--main);
+}
