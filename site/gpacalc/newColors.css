@@ -45,6 +45,7 @@ button,
 .button {
   background-color: var(--bg2);
   color: var(--mainAlt);
+  border-color: var(--bg2);
 }
 
 button:hover,
@@ -53,12 +54,14 @@ button:focus-visible,
 .button:focus-visible {
   background-color: var(--mainAlt);
   color: var(--bg1);
+  border-color: var(--main);
 }
 
 button.main,
 .button.main {
   background-color: var(--main);
   color: var(--bg1);
+  border-color: var(--main);
 }
 
 button.main:hover,
@@ -67,4 +70,5 @@ button.main:focus-visible,
 .button.main:focus-visible {
   background-color: var(--mainAlt);
   color: var(--bg1);
+  border-color: var(--main);
 }
