@@ -65,6 +65,7 @@
       <div class="result">
         <p class="h1" id="gpa">...</p>
         <p class="bg3" id="recalcWarning">Click "calculate" to update</p>
+        <p class="red" id="calcError">There was an error, check what you entered again</p>
         <div class="customCombo">
           <button id="unweighted" class="left selected">
             <i class="indicator nf nf-oct-check"></i>
@@ -153,13 +154,19 @@
         }
         /* multiply by 10 before truncating, then divide by 10 again to get only 1 decimal place */
         var gpa = (Math.trunc((gradePoints / credits) * 10)) / 10;
-        /*
-          toFixed converts to string
-          and adds trailing 0s
-          (1 for 1 decimal place)
-        */
-        document.getElementById("gpa").innerText = gpa.toFixed(1);
-        document.getElementById("recalcWarning").classList.add("hide");
+        if (typeof gpa == "number") {
+          /*
+            toFixed converts to string
+            and adds trailing 0s
+            (1 for 1 decimal place)
+          */
+          document.getElementById("gpa").innerText = gpa.toFixed(1);
+          document.getElementById("recalcWarning").classList.add("hide");
+          document.getElementById("calcError").classList.add("hide");
+        } else {
+          document.getElementById("gpa").innerText = "..."
+          document.getElementById("calcError").classList.remove("hide");
+        }
       }
 
       document.getElementById("unweighted").addEventListener("click",
