@@ -21,6 +21,7 @@ var tableStuff = {
             "input",
             function () {
                 document.getElementById("recalcWarning").classList.remove("hide");
+                document.getElementById("calcError").classList.add("hide");
             }
         )
         newRowCell0.children[1].children[0].addEventListener(
@@ -56,6 +57,7 @@ var tableStuff = {
             "input",
             function () {
                 document.getElementById("recalcWarning").classList.remove("hide");
+                document.getElementById("calcError").classList.add("hide");
             }
         )
         var newRowCell2 = newRow.insertCell(2)
@@ -64,6 +66,7 @@ var tableStuff = {
             "input",
             function () {
                 document.getElementById("recalcWarning").classList.remove("hide");
+                document.getElementById("calcError").classList.add("hide");
             }
         )
         /*actions.innerHTML =
