@@ -17,7 +17,7 @@ var tableStuff = {
             "    AP" +
             "  </button>" +
             "</div>";
-        newRowCell0.children[0].children[0].addEventListener(
+        newRowCell0.children[0].addEventListener(
             "input",
             function () {
                 document.getElementById("recalcWarning").classList.remove("hide");
