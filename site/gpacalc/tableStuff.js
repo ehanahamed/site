@@ -158,9 +158,22 @@ var tableStuff = {
             var row = array[i];
 
             tableStuff.add();
-
-            table.rows[i + 1].children[0].children[0].value = row[0];
-            table.rows[i + 1].children[1].children[0].value = row[1];
+            table.rows[i + 1].children[0].children[0].value = row.name;
+            if (row.type == "ap") {
+                table.rows[i + 1].children[0].children[1].children[0].classList.add("selected");
+                table.rows[i + 1].children[0].children[1].children[1].classList.remove("selected");
+                table.rows[i + 1].children[0].children[1].children[2].classList.remove("selected");
+            } else if (row.type == "honors") {
+                table.rows[i + 1].children[0].children[1].children[0].classList.remove("selected");
+                table.rows[i + 1].children[0].children[1].children[1].classList.add("selected");
+                table.rows[i + 1].children[0].children[1].children[2].classList.remove("selected");
+            } else {
+                table.rows[i + 1].children[0].children[1].children[0].classList.remove("selected");
+                table.rows[i + 1].children[0].children[1].children[1].classList.remove("selected");
+                table.rows[i + 1].children[0].children[1].children[2].classList.add("selected");
+            }
+            table.rows[i + 1].children[1].children[0].value = row.credits;
+            table.rows[i + 1].children[2].children[0].value = row.grade;
         }
     },
 };
