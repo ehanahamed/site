@@ -154,7 +154,16 @@
         }
         /* multiply by 10 before truncating, then divide by 10 again to get only 1 decimal place */
         var gpa = (Math.trunc((gradePoints / credits) * 10)) / 10;
-        if (typeof gpa == "number") {
+        /*
+        number.isNaN() returns true if it's NaN, it only works with numbers
+        (NaN's type is "number" btw 💀)
+        isNaN(number) returns true if it is anything other than a number, it works with all types
+        so we use isNaN(number)
+        */
+        if (isNaN(gpa)) {
+          document.getElementById("gpa").innerText = "..."
+          document.getElementById("calcError").classList.remove("hide");
+        } else {
           /*
             toFixed converts to string
             and adds trailing 0s
@@ -163,9 +172,6 @@
           document.getElementById("gpa").innerText = gpa.toFixed(1);
           document.getElementById("recalcWarning").classList.add("hide");
           document.getElementById("calcError").classList.add("hide");
-        } else {
-          document.getElementById("gpa").innerText = "..."
-          document.getElementById("calcError").classList.remove("hide");
         }
       }
 
