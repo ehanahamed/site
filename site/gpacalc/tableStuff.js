@@ -17,12 +17,19 @@ var tableStuff = {
             "    AP" +
             "  </button>" +
             "</div>";
+        newRowCell0.children[0].children[0].addEventListener(
+            "input",
+            function () {
+                document.getElementById("recalcWarning").classList.remove("hide");
+            }
+        )
         newRowCell0.children[1].children[0].addEventListener(
             "click",
             function (event) {
                 event.target.parentElement.children[0].classList.add("selected");
                 event.target.parentElement.children[1].classList.remove("selected");
                 event.target.parentElement.children[2].classList.remove("selected");
+                calculateGpa()
             }
         );
         newRowCell0.children[1].children[1].addEventListener(
@@ -31,6 +38,7 @@ var tableStuff = {
                 event.target.parentElement.children[0].classList.remove("selected");
                 event.target.parentElement.children[1].classList.add("selected");
                 event.target.parentElement.children[2].classList.remove("selected");
+                calculateGpa()
             }
         );
         newRowCell0.children[1].children[2].addEventListener(
@@ -39,10 +47,25 @@ var tableStuff = {
                 event.target.parentElement.children[0].classList.remove("selected");
                 event.target.parentElement.children[1].classList.remove("selected");
                 event.target.parentElement.children[2].classList.add("selected");
+                calculateGpa()
             }
         );
-        newRow.insertCell(1).innerHTML = "<input type='text' class='customSmallTxt' placeholder='5.0'>";
-        newRow.insertCell(2).innerHTML = "<input type='text' class='customSmallTxt' placeholder='A+'>";
+        var newRowCell1 = newRow.insertCell(1);
+        newRowCell1.innerHTML = "<input type='text' class='customSmallTxt' placeholder='5.0'>";
+        newRowCell1.children[0].addEventListener(
+            "input",
+            function () {
+                document.getElementById("recalcWarning").classList.remove("hide");
+            }
+        )
+        var newRowCell2 = newRow.insertCell(2)
+        newRowCell2.innerHTML = "<input type='text' class='customSmallTxt' placeholder='A+'>";
+        newRowCell2.children[0].addEventListener(
+            "input",
+            function () {
+                document.getElementById("recalcWarning").classList.remove("hide");
+            }
+        )
         /*actions.innerHTML =
           "<div class='flex center'><button> <i class='nf nf-cod-arrow_up'></i> Move Up </button><button> <i class='nf nf-cod-arrow_down'></i> Move Down </button><button class='red'> <i class='nf nf-fa-trash_o'></i> Remove </button></div>";
         actions.children[0].children[0].addEventListener("click", function (event) {
