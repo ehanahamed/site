@@ -88,3 +88,12 @@ input[type="text"]:focus,
 textarea:focus {
   border-color: var(--main);
 }
+
+input[type="text"],
+textarea,
+input[type="text"]:focus,
+textarea:focus,
+input[type="text"]:focus-visible,
+textarea:focus-visible {
+  outline: none;
+}
