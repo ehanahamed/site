@@ -129,22 +129,31 @@ var tableStuff = {
             tableStuff.delete(newOldIndex);
         }
     },
-    makeArrayFromTable: function (element) {
+    arrayFromTable: function (element) {
         var tableArray = [];
         for (var i = 1; i < element.rows.length; i++) {
-            var row = [];
+            var row = {};
             var tableCells = element.rows[i].children;
             /* course name from textbox (0th child) */
-            row.push(tableCells[0].children[0].value)
+            row.name = tableCells[0].children[0].value
             /* course type (ap, honors, regular) from combo select (1st child) */
-            if (tableCells[0].children[0].value)
-                row.push(tableCells[1].children[0].value);
-
+            /* ap is 0th, honors is 1st, regular is 2nd */
+            if (tableCells[0].children[1].children[0].classList.contains("selected")) {
+                row.type = "ap";
+            } else if (tableCells[0].children[1].children[1].classList.contains("selected")) {
+                row.type = "honors";
+            } else if (tableCells[0].children[1].children[2].classList.contains("selected")) {
+                row.type = "regular";
+            }
+            /* credits from textbox (1st child) */
+            row.credits = tableCells[1].children[0].value;
+            /* grade from textbox (2nd child) */
+            row.grade = tableCells[2].children[0].value;
             tableArray.push(row);
         }
         return tableArray;
     },
-    makeTableFromArray: function (array, table) {
+    tableFromArray: function (array, table) {
         for (var i = 0; i < array.length; i++) {
             var row = array[i];
 
