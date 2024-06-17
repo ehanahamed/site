@@ -63,7 +63,8 @@
         </div>
       </div>
       <div class="result">
-        <p class="h1" id="gpa">123</p>
+        <p class="h1" id="gpa">...</p>
+        <p class="bg3" id="recalcWarning">Click "calculate" to update</p>
         <div class="customCombo">
           <button id="unweighted" class="left selected">
             <i class="indicator nf nf-oct-check"></i>
@@ -158,6 +159,7 @@
           (1 for 1 decimal place)
         */
         document.getElementById("gpa").innerText = gpa.toFixed(1);
+        document.getElementById("recalcWarning").classList.add("hide");
       }
 
       document.getElementById("unweighted").addEventListener("click",
@@ -185,7 +187,9 @@
         }
       )
       document.getElementById("calc").addEventListener("click",
-        calculateGpa()
+        function () {
+          calculateGpa()
+        }
       )
     </script>
   </body>
