@@ -73,3 +73,18 @@ button.main:focus-visible,
   color: var(--bg1);
   border-color: var(--main);
 }
+
+input[type="text"],
+textarea {
+  border-color: var(--bg3);
+}
+
+input[type="text"]:hover,
+textarea:hover {
+  border-color: var(--mainAlt);
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  border-color: var(--main);
+}
