@@ -119,15 +119,15 @@
         }
       )
 
-      tableStuff.add()
+      tableStuff.add(document.getElementById("gradesTable"));
       document.getElementById("add").addEventListener("click",
         function () {
-          tableStuff.add()
+          tableStuff.add(document.getElementById("gradesTable"));
         }
       )
       document.getElementById("calc").addEventListener("click",
         function () {
-          console.log("idk")
+          var grades = tableStuff.arrayFromTable(document.getElementById("gradesTable"));
         }
       )
     </script>
