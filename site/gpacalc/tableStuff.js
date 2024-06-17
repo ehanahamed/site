@@ -130,13 +130,13 @@ var tableStuff = {
             /* course name from textbox (0th child) */
             row.name = tableCells[0].children[0].value
             /* course type (ap, honors, regular) from combo select (1st child) */
-            /* ap is 0th, honors is 1st, regular is 2nd */
+            /* regular is 0th, honors is 1st, ap is 2nd */
             if (tableCells[0].children[1].children[0].classList.contains("selected")) {
-                row.type = "ap";
+                row.type = "regular";
             } else if (tableCells[0].children[1].children[1].classList.contains("selected")) {
                 row.type = "honors";
             } else if (tableCells[0].children[1].children[2].classList.contains("selected")) {
-                row.type = "regular";
+                row.type = "ap";
             }
             /* credits from textbox (1st child) */
             row.credits = tableCells[1].children[0].value;
@@ -152,18 +152,22 @@ var tableStuff = {
 
             tableStuff.add();
             table.rows[i + 1].children[0].children[0].value = row.name;
+            /*
+            ap is 2nd, honors is 1st, regular is 0th
+            regular (so 0) is the "default"
+            */
             if (row.type == "ap") {
-                table.rows[i + 1].children[0].children[1].children[0].classList.add("selected");
+                table.rows[i + 1].children[0].children[1].children[0].classList.remove("selected");
                 table.rows[i + 1].children[0].children[1].children[1].classList.remove("selected");
-                table.rows[i + 1].children[0].children[1].children[2].classList.remove("selected");
+                table.rows[i + 1].children[0].children[1].children[2].classList.add("selected");
             } else if (row.type == "honors") {
                 table.rows[i + 1].children[0].children[1].children[0].classList.remove("selected");
                 table.rows[i + 1].children[0].children[1].children[1].classList.add("selected");
                 table.rows[i + 1].children[0].children[1].children[2].classList.remove("selected");
             } else {
-                table.rows[i + 1].children[0].children[1].children[0].classList.remove("selected");
+                table.rows[i + 1].children[0].children[1].children[0].classList.add("selected");
                 table.rows[i + 1].children[0].children[1].children[1].classList.remove("selected");
-                table.rows[i + 1].children[0].children[1].children[2].classList.add("selected");
+                table.rows[i + 1].children[0].children[1].children[2].classList.remove("selected");
             }
             table.rows[i + 1].children[1].children[0].value = row.credits;
             table.rows[i + 1].children[2].children[0].value = row.grade;
