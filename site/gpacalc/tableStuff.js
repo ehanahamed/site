@@ -1,8 +1,6 @@
 var tableStuff = {
-    insert: function (index) {
-        var newRow = document
-            .getElementById("gradesTable")
-            .insertRow(index);
+    insert: function (table, index) {
+        var newRow = table.insertRow(index);
         var newRowCell0 = newRow.insertCell(0);
         newRowCell0.innerHTML = "<input type='text' placeholder='Course Name' />" +
             "<div class='customCombo'>" +
@@ -65,68 +63,63 @@ var tableStuff = {
           );
         });*/
     },
-    add: function () {
+    add: function (table) {
         tableStuff.insert(
-            document.getElementById("gradesTable").rows.length,
+            table,
+            table.rows.length,
         );
     },
-    delete: function (index) {
-        document.getElementById("gradesTable").deleteRow(index);
+    delete: function (table, index) {
+        table.deleteRow(index);
     },
-    move: function (index, newIndex) {
+    move: function (table, index, newIndex) {
         if (
             index !== newIndex &&
             ((index > newIndex && index !== 1) || index < newIndex) &&
             ((index < newIndex &&
                 index <
-                document.getElementById("gradesTable").rows.length -
+                table.rows.length -
                 1) ||
                 index > newIndex)
         ) {
-            tableStuff.insert(newIndex);
+            tableStuff.insert(table, newIndex);
             var newOldIndex;
             if (index > newIndex) {
                 newOldIndex = index + 1;
             } else if (index < newIndex) {
                 newOldIndex = index;
             }
-            document.getElementById("gradesTable").rows[
+            table.rows[
                 newIndex
-            ].children[0].children[0].value = document.getElementById(
-                "gradesTable"
-            ).rows[newOldIndex].children[0].children[0].value;
-            if (document.getElementById("gradesTable").rows[
+            ].children[0].children[0].value = table.rows[newOldIndex].children[0].children[0].value;
+            if (table.rows[
                 newOldIndex
             ].children[0].children[2].children[0].classList.contains("selected")) {
-                document.getElementById("gradesTable").rows[
+                table.rows[
                     newIndex
                 ].children[0].children[2].children[0].classList.add("selected")
             }
-            if (document.getElementById("gradesTable").rows[
+            if (table.rows[
                 newOldIndex
             ].children[0].children[2].children[1].classList.contains("selected")) {
-                document.getElementById("gradesTable").rows[
+                table.rows[
                     newIndex
                 ].children[0].children[2].children[1].classList.add("selected")
             }
-            if (document.getElementById("gradesTable").rows[
+            if (table.rows[
                 newOldIndex
             ].children[0].children[2].children[2].classList.contains("selected")) {
-                document.getElementById("gradesTable").rows[
+                table.rows[
                     newIndex
                 ].children[0].children[2].children[2].classList.add("selected")
             }
-            document.getElementById("gradesTable").rows[
+            table.rows[
                 newIndex
-            ].children[1].children[0].value = document.getElementById(
-                "gradesTable"
-            ).rows[newOldIndex].children[1].children[0].value;
-            document.getElementById("gradesTable").rows[
+            ].children[1].children[0].value = table.rows[newOldIndex].children[1].children[0].value;
+            table.rows[
                 newIndex
-            ].children[2].children[0].value = document.getElementById(
-                "gradesTable"
-            ).rows[newOldIndex].children[2].children[0].value;
-            tableStuff.delete(newOldIndex);
+            ].children[2].children[0].value = table.rows[newOldIndex].children[2].children[0].value;
+            tableStuff.delete(table, newOldIndex);
         }
     },
     arrayFromTable: function (element) {
