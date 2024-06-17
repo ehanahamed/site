@@ -161,7 +161,8 @@
         so we use isNaN(number)
         */
         if (isNaN(gpa)) {
-          document.getElementById("gpa").innerText = "..."
+          document.getElementById("gpa").innerText = "...";
+          document.getElementById("recalcWarning").classList.add("hide");
           document.getElementById("calcError").classList.remove("hide");
         } else {
           /*
