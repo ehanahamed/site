@@ -129,13 +129,43 @@
       /*
         weights will be set to one of the populated objects above when the user selects a district,
         so that weights always has the values we need
+        (unweighted is selected by default)
       */
       var weights = unweighted;
+
+      function calculateGpa() {
+        var courses = tableStuff.arrayFromTable(document.getElementById("gradesTable"));
+        var gradePoints = 0;
+        var credits = 0;
+        for (var i = 0; i < courses.length; i++) {
+          /*
+            weights.type.grade returns decimal value of gpa
+            for example weights.ap["A+"] returns 6.1 on frhsd weights & 4.0 unweighted
+            the whole weights object changes when the user selected a different district's weights,
+            so weights is already only populated with the weights we need in this loop
+          */
+          gradePoints += (
+            weights[courses[i].type][courses[i].grade] *
+            courses[i].credits
+          );
+          credits += courses[i].credits;
+        }
+        /* multiply by 10 before truncating, then divide by 10 again to get only 1 decimal place */
+        var gpa = (Math.trunc((gradePoints / credits) * 10)) / 10;
+        /*
+          toFixed converts to string
+          and adds trailing 0s
+          (1 for 1 decimal place)
+        */
+        document.getElementById("gpa").innerText = gpa.toFixed(1);
+      }
+
       document.getElementById("unweighted").addEventListener("click",
         function () {
           document.getElementById("unweighted").classList.add("selected");
           document.getElementById("frhsd").classList.remove("selected");
           weights = unweighted;
+          calculateGpa()
         }
       )
       document.getElementById("frhsd").addEventListener("click",
@@ -144,6 +174,7 @@
           document.getElementById("frhsd").classList.add("selected");
           weighted = true;
           weights = frhsdWeights;
+          calculateGpa()
         }
       )
 
@@ -154,33 +185,7 @@
         }
       )
       document.getElementById("calc").addEventListener("click",
-        function () {
-          var courses = tableStuff.arrayFromTable(document.getElementById("gradesTable"));
-          var gradePoints = 0;
-          var credits = 0;
-          for (var i = 0; i < courses.length; i++) {
-            /*
-              weights.type.grade returns decimal value of gpa
-              for example weights.ap["A+"] returns 6.1 on frhsd weights & 4.0 unweighted
-
-              the whole weights object changes when the user selected a different district's weights,
-              so weights is already only populated with the weights we need in this loop
-            */
-            gradePoints += (
-              weights[courses[i].type][courses[i].grade] *
-              courses[i].credits
-            );
-            credits += courses[i].credits;
-          }
-          /* multiply by 10 before truncating, then divide by 10 again to get only 1 decimal place */
-          var gpa = (Math.trunc((gradePoints / credits) * 10)) / 10;
-          /*
-            toFixed converts to string
-            and adds trailing 0s
-            (1 for 1 decimal place)
-          */
-          document.getElementById("gpa").innerText = gpa.toFixed(1);
-        }
+        calculateGpa()
       )
     </script>
   </body>
