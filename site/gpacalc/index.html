@@ -78,13 +78,10 @@
         </div>
       </div>
     </div>
+    <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+    <script>eruda.init();</script>
     <script src="tableStuff.js"></script>
     <script>
-      /*
-        weights will be set to a populated object when the user selects a district,
-        so that weights always has the values we need
-      */
-      var weights = null;
       var unweighted = {
         ap: {
           "A+": 4.0, "A": 4.0, "A-": 3.7,
@@ -131,6 +128,11 @@
           "E": 0, "F": 0
         }
       }
+      /*
+        weights will be set to one of the populated objects above when the user selects a district,
+        so that weights always has the values we need
+      */
+      var weights = unweighted;
       document.getElementById("unweighted").addEventListener("click",
         function () {
           document.getElementById("unweighted").classList.add("selected");
