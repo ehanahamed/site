@@ -65,7 +65,7 @@
         </div>
       </div>
       <div class="result">
-        <p class="h1">123</p>
+        <p class="h1" id="gpa">123</p>
         <div class="customCombo">
           <button id="unweighted" class="left selected">
             <i class="indicator nf nf-oct-check"></i>
@@ -80,34 +80,62 @@
     </div>
     <script src="tableStuff.js"></script>
     <script>
-      var weighted = false;
+      /*
+        weights will be set to a populated object when the user selects a district,
+        so that weights always has the values we need
+      */
       var weights = null;
+      var unweighted = {
+        ap: {
+          "A+": 4.0, "A": 4.0, "A-": 3.7,
+          "B+": 3.3, "B": 3.0, "B-": 2.7,
+          "C+": 2.3, "C": 2.0, "C-": 1.7,
+          "D+": 1.3, "D": 1.0,
+          "E": 0, "F": 0
+        },
+        honors: {
+          "A+": 4.0, "A": 4.0, "A-": 3.7,
+          "B+": 3.3, "B": 3.0, "B-": 2.7,
+          "C+": 2.3, "C": 2.0, "C-": 1.7,
+          "D+": 1.3, "D": 1.0,
+          "E": 0, "F": 0
+        },
+        regular: {
+          "A+": 4.0, "A": 4.0, "A-": 3.7,
+          "B+": 3.3, "B": 3.0, "B-": 2.7,
+          "C+": 2.3, "C": 2.0, "C-": 1.7,
+          "D+": 1.3, "D": 1.0,
+          "E": 0, "F": 0
+        },
+      };
       var frhsdWeights = {
         ap: {
           "A+": 6.1, "A": 5.8, "A-": 5.5,
           "B+": 5.1, "B": 4.8, "B-": 4.5,
           "C+": 4.1, "C": 3.8, "C-": 3.5,
           "D+": 3.1, "D": 2.8,
-          "E": 0
+          "E": 0, "F": 0
         },
         honors: {
           "A+": 5.6, "A": 5.3, "A-": 5,
           "B+": 4.6, "B": 4.3, "B-": 4,
           "C+": 3.6, "C": 3.3, "C-": 3,
           "D+": 2.6, "D": 2.3,
-          "E": 0
+          "E": 0, "F": 0
         },
-        "A+": 4.6, "A": 4.3, "A-": 4,
-        "B+": 3.6, "B": 3.3, "B-": 3,
-        "C+": 2.6, "C": 2.3, "C-": 2,
-        "D+": 1.6, "D": 1.3,
-        "E": 0
+        regular: {
+          "A+": 4.6, "A": 4.3, "A-": 4,
+          "B+": 3.6, "B": 3.3, "B-": 3,
+          "C+": 2.6, "C": 2.3, "C-": 2,
+          "D+": 1.6, "D": 1.3,
+          "E": 0, "F": 0
+        }
       }
       document.getElementById("unweighted").addEventListener("click",
         function () {
           document.getElementById("unweighted").classList.add("selected");
           document.getElementById("frhsd").classList.remove("selected");
-          weighted = false;
+          weights = unweighted;
         }
       )
       document.getElementById("frhsd").addEventListener("click",
@@ -127,7 +155,26 @@
       )
       document.getElementById("calc").addEventListener("click",
         function () {
-          var grades = tableStuff.arrayFromTable(document.getElementById("gradesTable"));
+          var courses = tableStuff.arrayFromTable(document.getElementById("gradesTable"));
+          var gradePoints = 0;
+          var credits = 0;
+          for (var i = 0; i < grades.length; i++) {
+            /*
+              weights.type.grade returns decimal value of gpa
+              for example weights.ap["A+"] returns 6.1 on frhsd weights & 4.0 unweighted
+
+              the whole weights object changes when the user selected a different district's weights,
+              so weights is already only populated with the weights we need in this loop
+            */
+            gradePoints += (
+              weights[courses[i].type][courses[i].grade] *
+              courses[i].credits
+            );
+            credits += courses[i].credits;
+          }
+          /* multiply by 10 before truncating, then divide by 10 again to get only 1 decimal place */
+          var gpa = (Math.trunc((gradePoints / credits) * 10)) / 10;
+          document.getElementById("gpa").innerText = gpa.toString();
         }
       )
     </script>
