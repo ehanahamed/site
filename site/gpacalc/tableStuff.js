@@ -116,23 +116,23 @@ var tableStuff = {
     move: function (index, newIndex) {
     },
     objectFromRow: function (row) {
-        var row = {};
+        var rowObject = {};
         /* course name from textbox (0th child) */
-        row.name = row.cells[0].children[0].value
+        rowObject.name = row.cells[0].children[0].value
         /* course type (ap, honors, regular) from combo select (1st child) */
         /* regular is 0th, honors is 1st, ap is 2nd */
         if (row.cells[0].children[1].children[0].classList.contains("selected")) {
-            row.type = "regular";
+            rowObject.type = "regular";
         } else if (row.cells[0].children[1].children[1].classList.contains("selected")) {
-            row.type = "honors";
+            rowObject.type = "honors";
         } else if (row.cells[0].children[1].children[2].classList.contains("selected")) {
-            row.type = "ap";
+            rowObject.type = "ap";
         }
         /* credits from textbox (1st child) */
-        row.credits = row.cells[1].children[0].value;
+        rowObject.credits = row.cells[1].children[0].value;
         /* grade from textbox (2nd child) */
-        row.grade = row.cells[2].children[0].value;
-        return row;
+        rowObject.grade = row.cells[2].children[0].value;
+        return rowObject;
     },
     arrayFromTable: function () {
         var tableArray = [];
