@@ -91,7 +91,7 @@ var tableStuff = {
                 tableStuff.move(
                     table,
                     event.target.parentElement.parentElement.parentElement.rowIndex,
-                    event.target.parentElement.parentElement.parentElement.rowIndex + 2,
+                    event.target.parentElement.parentElement.parentElement.rowIndex + 1,
                 );
             }
         );
@@ -115,76 +115,30 @@ var tableStuff = {
         table.deleteRow(index);
     },
     move: function (table, index, newIndex) {
-        if (
-            index !== newIndex &&
-            ((index > newIndex && index !== 1) || index < newIndex) &&
-            ((index < newIndex &&
-                index <
-                table.rows.length -
-                1) ||
-                index > newIndex)
-        ) {
-            tableStuff.insert(table, newIndex);
-            var newOldIndex;
-            if (index > newIndex) {
-                newOldIndex = index + 1;
-            } else if (index < newIndex) {
-                newOldIndex = index;
-            }
-            table.rows[
-                newIndex
-            ].children[0].children[0].value = table.rows[newOldIndex].children[0].children[0].value;
-            if (table.rows[
-                newOldIndex
-            ].children[0].children[2].children[0].classList.contains("selected")) {
-                table.rows[
-                    newIndex
-                ].children[0].children[2].children[0].classList.add("selected")
-            }
-            if (table.rows[
-                newOldIndex
-            ].children[0].children[2].children[1].classList.contains("selected")) {
-                table.rows[
-                    newIndex
-                ].children[0].children[2].children[1].classList.add("selected")
-            }
-            if (table.rows[
-                newOldIndex
-            ].children[0].children[2].children[2].classList.contains("selected")) {
-                table.rows[
-                    newIndex
-                ].children[0].children[2].children[2].classList.add("selected")
-            }
-            table.rows[
-                newIndex
-            ].children[1].children[0].value = table.rows[newOldIndex].children[1].children[0].value;
-            table.rows[
-                newIndex
-            ].children[2].children[0].value = table.rows[newOldIndex].children[2].children[0].value;
-            tableStuff.delete(table, newOldIndex);
+    },
+    objectFromRow: function (row) {
+        var row = {};
+        /* course name from textbox (0th child) */
+        row.name = row.cells[0].children[0].value
+        /* course type (ap, honors, regular) from combo select (1st child) */
+        /* regular is 0th, honors is 1st, ap is 2nd */
+        if (row.cells[0].children[1].children[0].classList.contains("selected")) {
+            row.type = "regular";
+        } else if (row.cells[0].children[1].children[1].classList.contains("selected")) {
+            row.type = "honors";
+        } else if (row.cells[0].children[1].children[2].classList.contains("selected")) {
+            row.type = "ap";
         }
+        /* credits from textbox (1st child) */
+        row.credits = row.cells[1].children[0].value;
+        /* grade from textbox (2nd child) */
+        row.grade = row.cells[2].children[0].value;
+        return row;
     },
     arrayFromTable: function (element) {
         var tableArray = [];
         for (var i = 1; i < element.rows.length; i++) {
-            var row = {};
-            var tableCells = element.rows[i].children;
-            /* course name from textbox (0th child) */
-            row.name = tableCells[0].children[0].value
-            /* course type (ap, honors, regular) from combo select (1st child) */
-            /* regular is 0th, honors is 1st, ap is 2nd */
-            if (tableCells[0].children[1].children[0].classList.contains("selected")) {
-                row.type = "regular";
-            } else if (tableCells[0].children[1].children[1].classList.contains("selected")) {
-                row.type = "honors";
-            } else if (tableCells[0].children[1].children[2].classList.contains("selected")) {
-                row.type = "ap";
-            }
-            /* credits from textbox (1st child) */
-            row.credits = tableCells[1].children[0].value;
-            /* grade from textbox (2nd child) */
-            row.grade = tableCells[2].children[0].value;
-            tableArray.push(row);
+            tableArray.push(tableStuff.objectFromRow(element.rows[i]));
         }
         return tableArray;
     },
