@@ -70,7 +70,7 @@ var tableStuff = {
             }
         )
         var newRowCell3 = newRow.insertCell(3);
-        newRowCell3.innerHtml = "<div class='flex center'>" +
+        newRowCell3.innerHTML = "<div class='flex center'>" +
             "   <button><i class='nf nf-cod-arrow_up'></i></button>" +
             "   <button><i class='nf nf-cod-arrow_down'></i></button>" +
             "   <button class='red'><i class='nf nf-fa-trash_o'></i></button>" +
