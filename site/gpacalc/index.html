@@ -148,9 +148,14 @@
           */
           gradePoints += (
             weights[courses[i].type][courses[i].grade] *
-            courses[i].credits
+            parseFloat(courses[i].credits)
           );
-          credits += courses[i].credits;
+          /*
+            everything entered into a texbox is a string,
+            the letter grade is already "mapped" to a number from the weights object,
+            but we need to convert the credits string to a number, so we use parseFloat()
+          */
+          credits += parseFloat(courses[i].credits);
         }
         /* multiply by 10 before truncating, then divide by 10 again to get only 1 decimal place */
         var gpa = (Math.trunc((gradePoints / credits) * 10)) / 10;
