@@ -114,6 +114,13 @@ var tableStuff = {
         document.getElementById("gradesTableBody").innerHTML = "";
     },
     move: function (index, newIndex) {
+        var table = document.getElementById("gradesTableBody")
+        var oldRow = tableStuff.objectFromRow(
+            table.rows[index]
+        );
+
+        tableStuff.insert(newIndex);
+        tableStuff.rowFromObject(table.rows[newIndex]);
     },
     objectFromRow: function (row) {
         var rowObject = {};
@@ -142,33 +149,36 @@ var tableStuff = {
         }
         return tableArray;
     },
+    rowFromObject: function (row, rowObject) {
+        row.children[0].children[0].value = rowObject.name;
+        /*
+        ap is 2nd, honors is 1st, regular is 0th
+        regular (so 0) is the "default"
+        */
+        if (rowObject.type == "ap") {
+            row.children[0].children[1].children[0].classList.remove("selected");
+            row.children[0].children[1].children[1].classList.remove("selected");
+            row.children[0].children[1].children[2].classList.add("selected");
+        } else if (rowObject.type == "honors") {
+            row.children[0].children[1].children[0].classList.remove("selected");
+            row.children[0].children[1].children[1].classList.add("selected");
+            row.children[0].children[1].children[2].classList.remove("selected");
+        } else {
+            row.children[0].children[1].children[0].classList.add("selected");
+            row.children[0].children[1].children[1].classList.remove("selected");
+            row.children[0].children[1].children[2].classList.remove("selected");
+        }
+        row.children[1].children[0].value = rowObject.credits;
+        row.children[2].children[0].value = rowObject.grade;
+    },
     tableFromArray: function (array) {
         tableStuff.deleteAll();
         for (var i = 0; i < array.length; i++) {
-            var row = array[i];
+            var rowObject = array[i];
             var table = document.getElementById("gradesTableBody");
 
             tableStuff.add();
-            table.rows[i].children[0].children[0].value = row.name;
-            /*
-            ap is 2nd, honors is 1st, regular is 0th
-            regular (so 0) is the "default"
-            */
-            if (row.type == "ap") {
-                table.rows[i].children[0].children[1].children[0].classList.remove("selected");
-                table.rows[i].children[0].children[1].children[1].classList.remove("selected");
-                table.rows[i].children[0].children[1].children[2].classList.add("selected");
-            } else if (row.type == "honors") {
-                table.rows[i].children[0].children[1].children[0].classList.remove("selected");
-                table.rows[i].children[0].children[1].children[1].classList.add("selected");
-                table.rows[i].children[0].children[1].children[2].classList.remove("selected");
-            } else {
-                table.rows[i].children[0].children[1].children[0].classList.add("selected");
-                table.rows[i].children[0].children[1].children[1].classList.remove("selected");
-                table.rows[i].children[0].children[1].children[2].classList.remove("selected");
-            }
-            table.rows[i].children[1].children[0].value = row.credits;
-            table.rows[i].children[2].children[0].value = row.grade;
+            tableStuff.rowFromObject(table.rows[i], rowObject);
         }
     },
 };
