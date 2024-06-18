@@ -69,25 +69,41 @@ var tableStuff = {
                 document.getElementById("calcError").classList.add("hide");
             }
         )
-        /*actions.innerHTML =
-          "<div class='flex center'><button> <i class='nf nf-cod-arrow_up'></i> Move Up </button><button> <i class='nf nf-cod-arrow_down'></i> Move Down </button><button class='red'> <i class='nf nf-fa-trash_o'></i> Remove </button></div>";
-        actions.children[0].children[0].addEventListener("click", function (event) {
-          tableStuff.move(
-            event.target.parentElement.parentElement.parentElement.rowIndex,
-            event.target.parentElement.parentElement.parentElement.rowIndex - 1,
-          );
-        });
-        actions.children[0].children[1].addEventListener("click", function (event) {
-          tableStuff.move(
-            event.target.parentElement.parentElement.parentElement.rowIndex,
-            event.target.parentElement.parentElement.parentElement.rowIndex + 2,
-          );
-        });
-        actions.children[0].children[2].addEventListener("click", function (event) {
-          tableStuff.delete(
-            event.target.parentElement.parentElement.parentElement.rowIndex,
-          );
-        });*/
+        var newRowCell3 = newRow.insertCell(3);
+        newRowCell3.innerHtml = "<div class='flex center'>" +
+            "   <button><i class='nf nf-cod-arrow_up'></i></button>" +
+            "   <button><i class='nf nf-cod-arrow_down'></i></button>" +
+            "   <button class='red'><i class='nf nf-fa-trash_o'></i></button>" +
+            "</div>";
+        newRowCell3.children[0].children[0].addEventListener(
+            "click",
+            function (event) {
+                tableStuff.move(
+                    table,
+                    event.target.parentElement.parentElement.parentElement.rowIndex,
+                    event.target.parentElement.parentElement.parentElement.rowIndex - 1,
+                )
+            }
+        );
+        newRowCell3.children[0].children[1].addEventListener(
+            "click",
+            function (event) {
+                tableStuff.move(
+                    table,
+                    event.target.parentElement.parentElement.parentElement.rowIndex,
+                    event.target.parentElement.parentElement.parentElement.rowIndex + 2,
+                );
+            }
+        );
+        newRowCell3.children[0].children[2].addEventListener(
+            "click",
+            function (event) {
+                tableStuff.delete(
+                    table,
+                    event.target.parentElement.parentElement.parentElement.rowIndex,
+                );
+            }
+        );
     },
     add: function (table) {
         tableStuff.insert(
