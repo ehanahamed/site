@@ -1,6 +1,6 @@
 var tableStuff = {
-    insert: function (table, index) {
-        var newRow = table.insertRow(index);
+    insert: function (index) {
+        var newRow = document.getElementById("gradesTableBody").insertRow(index);
         var newRowCell0 = newRow.insertCell(0);
         newRowCell0.innerHTML = "<input type='text' placeholder='Course Name' />" +
             "<div class='customCombo'>" +
@@ -79,7 +79,6 @@ var tableStuff = {
             "click",
             function (event) {
                 tableStuff.move(
-                    table,
                     event.target.parentElement.parentElement.parentElement.rowIndex,
                     event.target.parentElement.parentElement.parentElement.rowIndex - 1,
                 )
@@ -89,7 +88,6 @@ var tableStuff = {
             "click",
             function (event) {
                 tableStuff.move(
-                    table,
                     event.target.parentElement.parentElement.parentElement.rowIndex,
                     event.target.parentElement.parentElement.parentElement.rowIndex + 1,
                 );
@@ -99,22 +97,20 @@ var tableStuff = {
             "click",
             function (event) {
                 tableStuff.delete(
-                    table,
                     event.target.parentElement.parentElement.parentElement.rowIndex,
                 );
             }
         );
     },
-    add: function (table) {
+    add: function () {
         tableStuff.insert(
-            table,
-            table.rows.length,
+            document.getElementById("gradesTableBody").rows.length,
         );
     },
-    delete: function (table, index) {
-        table.deleteRow(index);
+    delete: function (index) {
+        document.getElementById("gradesTableBody").deleteRow(index);
     },
-    move: function (table, index, newIndex) {
+    move: function (index, newIndex) {
     },
     objectFromRow: function (row) {
         var row = {};
@@ -135,16 +131,18 @@ var tableStuff = {
         row.grade = row.cells[2].children[0].value;
         return row;
     },
-    arrayFromTable: function (element) {
+    arrayFromTable: function () {
         var tableArray = [];
-        for (var i = 1; i < element.rows.length; i++) {
+        var element = document.getElementById("gradesTableBody");
+        for (var i = 0; i < element.rows.length; i++) {
             tableArray.push(tableStuff.objectFromRow(element.rows[i]));
         }
         return tableArray;
     },
-    tableFromArray: function (array, table) {
+    tableFromArray: function (array) {
         for (var i = 0; i < array.length; i++) {
             var row = array[i];
+            var table = document.getElementById("gradesTableBody");
 
             tableStuff.add();
             table.rows[i + 1].children[0].children[0].value = row.name;
