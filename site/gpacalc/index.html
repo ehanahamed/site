@@ -39,22 +39,6 @@
             </tr>
           </thead>
           <tbody id="gradesTableBody">
-            <!--
-            <td>
-              <input type="text" placeholder="Course Name"> <br/>
-              <div class="customCombo">
-                <button class="left">Regular</button>
-                <button class="mid alt">Honors</button>
-                <button class="right alt">AP</button>
-              </div>
-            </td>
-            <td>
-              <input type="text" class="customSmallTxt" placeholder="5.0">
-            </td>
-            <td>
-              <input type="text" class="customSmallTxt" placeholder="A+">
-            </td>
-            -->
           </tbody>
         </table>
         <div class="flex" style="margin-bottom: 2rem">
@@ -136,7 +120,7 @@
       var weights = unweighted;
 
       function calculateGpa() {
-        var courses = tableStuff.arrayFromTable(document.getElementById("gradesTable"));
+        var courses = tableStuff.arrayFromTable();
         var gradePoints = 0;
         var credits = 0;
         for (var i = 0; i < courses.length; i++) {
@@ -199,10 +183,10 @@
         }
       )
 
-      tableStuff.add(document.getElementById("gradesTable"));
+      tableStuff.add();
       document.getElementById("add").addEventListener("click",
         function () {
-          tableStuff.add(document.getElementById("gradesTable"));
+          tableStuff.add();
         }
       )
       document.getElementById("calc").addEventListener("click",
