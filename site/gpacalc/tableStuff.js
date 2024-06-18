@@ -110,6 +110,9 @@ var tableStuff = {
     delete: function (index) {
         document.getElementById("gradesTableBody").deleteRow(index);
     },
+    deleteAll: function () {
+        document.getElementById("gradesTableBody").innerHTML = "";
+    },
     move: function (index, newIndex) {
     },
     objectFromRow: function (row) {
@@ -140,31 +143,32 @@ var tableStuff = {
         return tableArray;
     },
     tableFromArray: function (array) {
+        tableStuff.deleteAll();
         for (var i = 0; i < array.length; i++) {
             var row = array[i];
             var table = document.getElementById("gradesTableBody");
 
             tableStuff.add();
-            table.rows[i + 1].children[0].children[0].value = row.name;
+            table.rows[i].children[0].children[0].value = row.name;
             /*
             ap is 2nd, honors is 1st, regular is 0th
             regular (so 0) is the "default"
             */
             if (row.type == "ap") {
-                table.rows[i + 1].children[0].children[1].children[0].classList.remove("selected");
-                table.rows[i + 1].children[0].children[1].children[1].classList.remove("selected");
-                table.rows[i + 1].children[0].children[1].children[2].classList.add("selected");
+                table.rows[i].children[0].children[1].children[0].classList.remove("selected");
+                table.rows[i].children[0].children[1].children[1].classList.remove("selected");
+                table.rows[i].children[0].children[1].children[2].classList.add("selected");
             } else if (row.type == "honors") {
-                table.rows[i + 1].children[0].children[1].children[0].classList.remove("selected");
-                table.rows[i + 1].children[0].children[1].children[1].classList.add("selected");
-                table.rows[i + 1].children[0].children[1].children[2].classList.remove("selected");
+                table.rows[i].children[0].children[1].children[0].classList.remove("selected");
+                table.rows[i].children[0].children[1].children[1].classList.add("selected");
+                table.rows[i].children[0].children[1].children[2].classList.remove("selected");
             } else {
-                table.rows[i + 1].children[0].children[1].children[0].classList.add("selected");
-                table.rows[i + 1].children[0].children[1].children[1].classList.remove("selected");
-                table.rows[i + 1].children[0].children[1].children[2].classList.remove("selected");
+                table.rows[i].children[0].children[1].children[0].classList.add("selected");
+                table.rows[i].children[0].children[1].children[1].classList.remove("selected");
+                table.rows[i].children[0].children[1].children[2].classList.remove("selected");
             }
-            table.rows[i + 1].children[1].children[0].value = row.credits;
-            table.rows[i + 1].children[2].children[0].value = row.grade;
+            table.rows[i].children[1].children[0].value = row.credits;
+            table.rows[i].children[2].children[0].value = row.grade;
         }
     },
 };
