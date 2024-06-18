@@ -120,7 +120,7 @@ var tableStuff = {
         );
 
         tableStuff.insert(newIndex);
-        tableStuff.rowFromObject(table.rows[newIndex]);
+        tableStuff.rowFromObject(table.rows[newIndex], oldRow);
     },
     objectFromRow: function (row) {
         var rowObject = {};
