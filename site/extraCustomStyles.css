@@ -6,7 +6,6 @@
 */
 
 .extraCustomTop {
-  background-color: var(--bgExtra);
   padding-top: 4rem;
   padding-bottom: 1rem;
   margin: 0px;
@@ -29,7 +28,7 @@
 .extraCustomColorful {
     animation: colorful 4s linear infinite;
     -webkit-animation: colorful 4s linear infinite;
-    background-image: linear-gradient(90deg, var(--red),var(--orange),var(--yellow),var(--green),var(--blue),var(--purple),var(--blue),var(--green),var(--yellow),var(--orange),var(--red));
+    background-image: linear-gradient(90deg, #66CCFF, #FF99BB, #66CCFF, #FF99BB, #66CCFF);
     background-size: 200%;
     color: transparent;
     background-clip: text;
