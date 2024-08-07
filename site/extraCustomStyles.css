@@ -26,9 +26,9 @@
 }
 
 .extraCustomColorful {
-    animation: colorful 4s linear infinite;
-    -webkit-animation: colorful 4s linear infinite;
-    background-image: linear-gradient(90deg, #9966FF, #BB99FF, #9966FF, #BB99FF, #9966FF);
+    animation: colorful 1s linear infinite;
+    -webkit-animation: colorful 1s linear infinite;
+    background-image: linear-gradient(90deg, #FF6666, #FFAA66, #FFDD66, #66FFCC, #6699FF, #9966FF, #FF6666);
     background-size: 200%;
     color: transparent;
     background-clip: text;
