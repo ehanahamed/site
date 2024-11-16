@@ -1,9 +1,9 @@
-My website is [ehan.dev](https://ehan.dev), this repository has its source code :3
+This repository has the source code of my website, [ehan.dev](https://ehan.dev) :3
 
 [Codeberg](https://codeberg.org/ehanahamed/site) · [GitHub](https://github.com/ehanahamed/site)
 
-Some of my projects, like [EhUI](https://ehan.dev/ehui), are under ehan.dev, like [ehan.dev/ehui](https://ehan.dev/ehui)
+Some of my projects, like [EhUI](https://ehan.dev/ehui), have their website under ehan.dev, like [ehan.dev/ehui](https://ehan.dev/ehui)
 
-This repository includes copies of those projects' websites' files, but those projects' actual source code and their website's source code are in each project's own seperate repository.
+This repository includes those projects' websites' files, but those projects' actual source code and their site's source code are in each project's own, seperate, repository.
 
-Some of my other, really epic, projects have their own domain, like [quizfreely.com](https://quizfreely.com)
+Some of my other, really epic, projects have their own domains, like [quizfreely.com](https://quizfreely.com)
