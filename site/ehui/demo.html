@@ -534,16 +534,16 @@
           <br />
           <br />
           <h2>Button boxes</h2>
-          <p>We have fancy styling for button boxes with <code>&lt;button class="box"&gt;...&lt;button&gt;</code> or <code>&lt;a class="button box"&gt;...&lt;a&gt;</code></p>
+          <p>We have fancy styling for button boxes with <code>&lt;button class="button-box"&gt;...&lt;button&gt;</code> or <code>&lt;a class="button button-box"&gt;...&lt;a&gt;</code></p>
           <p>You/we can add `.selected` for a fancy outline</p>
           <div class="flex">
-            <button class="box selected" id="button-box-1">
+            <button class="button-box selected" id="button-box-1">
               Something
             </button>
-            <button class="box" id="button-box-2">
+            <button class="button-box" id="button-box-2">
               Something Else
             </button>
-            <button class="box" id="button-box-3">
+            <button class="button-box" id="button-box-3">
               Another Thing
             </button>
           </div>
@@ -552,17 +552,53 @@
             (and with <code>.no-clickable-effect</code> to disable scale effect/animation on hover)
           </p>
           <div class="grid list">
-            <button class="box selected no-clickable-effect" id="button-box-w-img-1">
+            <button class="button-box selected no-clickable-effect" id="button-box-w-img-1">
               <img src="./img/imgExample1.png" style="width:100%;border-radius:0.8rem">
               <p>Example 1</p>
             </button>
-            <button class="box no-clickable-effect" id="button-box-w-img-2">
+            <button class="button-box no-clickable-effect" id="button-box-w-img-2">
               <img src="./img/imgExample2.png" style="width:100%;border-radius:0.8rem">
               <p>Example 2</p>
             </button>
-            <button class="box no-clickable-effect" id="button-box-w-img-3">
+            <button class="button-box no-clickable-effect" id="button-box-w-img-3">
               <img src="./img/imgExample3.png" style="width:100%;border-radius:0.8rem">
               <p>Example 3</p>
+            </button>
+          </div>
+          <p>We can apply color classes <code>.yay</code> and <code>.ohno</code> to button boxes too</p>
+          <div class="flex">
+            <button class="button-box">
+              Plain
+            </button>
+            <button class="button-box ohno">
+              Red (ohno)
+            </button>
+            <button class="button-box">
+              Plain
+            </button>
+          </div>
+          <div class="flex">
+            <button class="button-box">
+              Plain
+            </button>
+            <button class="button-box">
+              Plain
+            </button>
+            <button class="button-box yay">
+              Green (yay)
+            </button>
+          </div>
+          <p>We can apply color classes after being clicked.<br>
+          You can do this with JavaScript using <code>element.classList.add(...)</code> and <code>element.classList.remove(...)</code> in <code>element.addEventListener("click", ...)</code></p>
+          <div class="flex">
+            <button class="button-box" id="button-box-correct">
+              Correct
+            </button>
+            <button class="button-box" id="button-box-incorrect-1">
+              Incorrect
+            </button>
+            <button class="button-box" id="button-box-incorrect-2">
+              Incorrect
             </button>
           </div>
         </div>
@@ -674,6 +710,25 @@
         document.getElementById("button-box-w-img-1").classList.remove("selected");
         document.getElementById("button-box-w-img-2").classList.remove("selected");
         document.getElementById("button-box-w-img-3").classList.add("selected");
+      })
+
+      document.getElementById("button-box-correct").addEventListener("click", function () {
+        document.getElementById("button-box-correct").classList.add("yay");
+        document.getElementById("button-box-correct").classList.add("selected");
+        document.getElementById("button-box-incorrect-1").classList.remove("selected");
+        document.getElementById("button-box-incorrect-2").classList.remove("selected");
+      })
+      document.getElementById("button-box-incorrect-1").addEventListener("click", function () {
+        document.getElementById("button-box-correct").classList.remove("selected");
+        document.getElementById("button-box-incorrect-1").classList.add("ohno");
+        document.getElementById("button-box-incorrect-1").classList.add("selected");
+        document.getElementById("button-box-incorrect-2").classList.remove("selected");
+      })
+      document.getElementById("button-box-incorrect-2").addEventListener("click", function () {
+        document.getElementById("button-box-correct").classList.remove("selected");
+        document.getElementById("button-box-incorrect-1").classList.remove("selected");
+        document.getElementById("button-box-incorrect-2").classList.add("ohno");
+        document.getElementById("button-box-incorrect-2").classList.add("selected");
       })
     </script>
   </body>
