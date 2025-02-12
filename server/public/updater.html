@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" sizes="32x32">
+        <link rel="icon" href="/icon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <link rel="stylesheet" href="/ehui/css/ehui.min.css" />
+        <link rel="stylesheet" href="/ehui/themes/auto.min.css" />
+        <link rel="stylesheet" href="/ehui/fonts/fonts.css" />
+        <title>Eh-site Updater</title>
+    </head>
+    <body>
+        <div class="grid page">
+            <div class="content">
+                <input type="password" placeholder="Password" id="password-input">
+                <button id="update-button">Update site</button>
+            </div>
+        </div>
+        <script>
+            document.getElementById("update-button").addEventListener("click", function () {
+                fetch("/update", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: {
+                        password: document.getElementById("password-input")
+                    }
+                }).then(function (response) {
+                    response.text().then(function (resTxt) {
+                        alert(resTxt);
+                    })
+                })
+            })
+        </script>
+    </body>
+</html>
