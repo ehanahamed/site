@@ -7,7 +7,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "gen-password-hash": "node genPasswordHash.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
