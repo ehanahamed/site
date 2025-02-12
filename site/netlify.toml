@@ -5,3 +5,7 @@
     Access-Control-Allow-Origin = "*"
     Cross-Origin-Opener-Policy = "same-origin"
     Cross-Origin-Embedder-Policy = "require-corp"
+[[redirects]]
+  from = "/ehui/*"
+  to = "/ehui/404.html"
+  status = 404
