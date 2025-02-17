@@ -21,24 +21,15 @@
   </head>
 
   <body>
-    <main>
-      <div class="extraCustomTop background-extra-bg">
-        <h1 class="extraCustomTitle center text main">Ehan</h1>
-        <p class="center">
-          It's <span class="yay">"Ehan"</span>, not
-          <span class="ohno">"Ethan"</span>
-        </p>
-      </div>
-      <div class="wave-bottom extra-bg"></div>
-      <div class="grid page">
-        <div class="grid content">
-          <h2 id="stuff" class="h2 center extraCustomColorful">I make cool stuff</h2>
-        </div>
-      </div>
-      <div class="grid split">
-        <div class="left" style="margin-bottom:1rem">
-          <h3 id="links" class="h2">Links & info</h3>
-          <div class="flex col">
+    <div class="background-extra-bg" style="display: flex; align-items: center; gap: 1rem; padding: 1rem 4rem;">
+      <img src="./pfp.png" style="width: 4rem; height: 4rem;">
+      <h1>Ehan</h1>
+    </div>
+    <!--<div class="wave-bottom extra-bg"></div>-->
+    <div class="grid page">
+      <div class="content">
+        <div class="flex col">
+          <div class="flex" style="gap: 2rem;">
             <div class="flex compact-gap align-end">
               <p>
                 <span class=""><i class="nf nf-linux-codeberg"></i> Codeberg:</span>
@@ -59,6 +50,8 @@
                 <i class="nf nf-fa-external_link"></i>
               </a>
             </div>
+          </div>
+          <div class="flex" style="gap: 2rem;">
             <div class="flex compact-gap align-end">
               <p>
                 <span class=""><i class="nf nf-oct-mail"></i> Email:</span>
@@ -75,36 +68,35 @@
             </div>
           </div>
         </div>
-        <div class="right">
-          <h3 id="projects" class="h2">Projects</h3>
-          <div class="grid list">
-            <div class="box">
-              <h3>Quizfreely</h3>
-              <p>A free & open source studying tool</p>
-              <div class="flex">
-                <a href="https://quizfreely.com/" class="button"
-                  >Website</a
-                >
-                <a
-                  href="https://quizfreely.com/sourcecode"
-                  class="button alt"
-                  >Source Code</a
-                >
-              </div>
+        <br>
+        <h2 class="h3">Projects</h2>
+        <div class="grid list">
+          <div class="box">
+            <h3>Quizfreely</h3>
+            <p>A free & open source studying tool</p>
+            <div class="flex">
+              <a href="https://quizfreely.org/" class="button"
+                >Website</a
+              >
+              <a
+                href="https://codeberg.org/ehanahamed/quizfreely"
+                class="button alt"
+                >Source Code</a
+              >
             </div>
-            <div class="box">
-              <h3>EhUI</h3>
-              <p>Customizable and themeable UI kit</p>
-              <div class="flex">
-                <a href="https://ehan.dev/ehui" class="button">Website</a>
-                <a href="https://ehan.dev/ehui/sourcecode" class="button alt"
-                  >Source Code</a
-                >
-              </div>
+          </div>
+          <div class="box">
+            <h3>EhUI</h3>
+            <p>Customizable and themeable UI kit</p>
+            <div class="flex">
+              <a href="https://ehan.dev/ehui" class="button">Website</a>
+              <a href="https://codeberg.org/ehanahamed/ehui" class="button alt"
+                >Source Code</a
+              >
             </div>
           </div>
         </div>
       </div>
-    </main>
+    </div>
   </body>
 </html>
