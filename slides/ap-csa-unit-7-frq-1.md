@@ -7,6 +7,9 @@ title: AP CSA Unit 7 FRQ 1 Delimiters
 transition: slide-left
 # enable MDC Syntax: https://sli.dev/features/mdc
 mdc: true
+fonts:
+    sans: Nunito
+    mono: Fira Mono
 ---
 
 Solution for part (a)
