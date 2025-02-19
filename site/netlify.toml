@@ -12,6 +12,11 @@ to = "/ehui/404.html"
 status = 404
 
 [[redirects]]
+from = "/ap-csa-stuff/unit-7-frq-1/*"
+to = "/ap-csa-stuff/unit-7-frq-1/index.html"
+status = 200
+
+[[redirects]]
 from = "/*"
 to = "/404.html"
 status = 404
