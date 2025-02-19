@@ -84,7 +84,6 @@ public int countElectronicsByMaker(String maker) {
 }
 ```
 
-
 ```java
 public int countElectronicsByMaker(String maker) {
     for (Gizmo purchase : purchases) {
@@ -105,7 +104,36 @@ public int countElectronicsByMaker(String maker) {
 public int countElectronicsByMaker(String maker) {
     for (int index = 0; index < purchases.size(); index++) {
         // each element is `purchases.get(index)`
-        // NOT purchases[index]
+        // NOT `purchases[index]`
+    }
+}
+```
+
+```java
+public int countElectronicsByMaker(String maker) {
+    for (int index = 0; index < purchases.size(); index++) {
+        // each element is `purchases.get(index)`
+        // NOT `purchases[index]`
+        // Arrays use `array[index]`, ArrayLists use `array.get(index)`
+    }
+}
+```
+
+```java
+public int countElectronicsByMaker(String maker) {
+    for (int index = 0; index < purchases.size(); index++) {
+        // each element is `purchases.get(index)`
+        // NOT `purchases[index]`
+        // Arrays use `array[index]`, ArrayLists use `array.get(index)`
+        // `purchases` is an ArrayList (the question told us)
+    }
+}
+```
+
+```java
+public int countElectronicsByMaker(String maker) {
+    for (int index = 0; index < purchases.size(); index++) {
+        // each element is `purchases.get(index)`
     }
 }
 ```
@@ -113,8 +141,13 @@ public int countElectronicsByMaker(String maker) {
 ```java
 public int countElectronicsByMaker(String maker) {
     for (Gizmo purchase : purchases) {
-        // purchase
+        // each element is `purchase`
     }
 }
 ```
 ````
+
+---
+
+Part (a)
+![image](./screenshot1.png)
