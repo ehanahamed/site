@@ -9,7 +9,7 @@ transition: slide-left
 mdc: true
 ---
 
-Part (a)
+Solution for part (a)
 ```java
 public ArrayList<String> getDelimitersList(String[] tokens) {
     ArrayList<String> delimitersList = new ArrayList<String>();
@@ -24,7 +24,22 @@ public ArrayList<String> getDelimitersList(String[] tokens) {
 
 ---
 
-Part (b)
+Solution for part (a)
+```java {3,7}
+public ArrayList<String> getDelimitersList(String[] tokens) {
+    ArrayList<String> delimitersList = new ArrayList<String>();
+    for (String token : tokens) {
+        if (openDel.equals(token) || closeDel.equals(token)) {
+            delimitersList.add(token);
+        }
+    }
+    return delimitersList;
+}
+```
+
+---
+
+Solution for part (b)
 ```java
 public boolean isBalanced(ArrayList<String> delimiters) {
     int currentOpenDels = 0;
