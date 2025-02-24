@@ -6,4 +6,4 @@ Some of my projects, like [EhUI](https://ehan.dev/ehui), have their website unde
 
 This repository includes those projects' websites' files, but those projects' actual source code and their site's source code are in each project's own, seperate, repository.
 
-Some of my other, really epic, projects have their own domains, like [quizfreely.com](https://quizfreely.com)
+Some of my other, really epic, projects have their own domains, like [quizfreely.org](https://quizfreely.org)
