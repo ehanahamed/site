@@ -13,7 +13,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="stylesheet" href="/ehui/css/ehui-auto.min.css"/>
+    <link rel="stylesheet" href="https://ehan.dev/ehui/css/ehui.min.css" />
+    <link rel="stylesheet" href="https://ehan.dev/ehui/themes/auto.min.css" />
     <link rel="stylesheet" href="/ehui/fonts/fonts.css" />
     <link
       rel="stylesheet"
@@ -23,25 +24,24 @@
 
   <body>
     <header>
-      <div class="menu nav">
-        <div class="full-sidebar-menu">
-            <button class="icon-only-button">
-              <i class="nf nf-fa-bars"></i>
-            </button>
-            <div class="content">
-              <a href="./index.html">Home</a>
-              <a href="./demo.html">Demo</a>
-              <a href="./docs.html">Docs</a>
-            </div>
-        </div>
-        <div class="current">
-          <a href="./index.html" class="clickable-effect">Home</a>
-        </div>
-        <div>
-          <a href="./demo.html" class="clickable-effect">Demo</a>
-        </div>
-        <div>
-          <a href="./docs.html" class="clickable-effect">Docs</a>
+      <div class="menu">
+        <input type="checkbox" class="nav-menu-toggle" id="nav-menu-toggle">
+        <label for="nav-menu-toggle" class="nav-menu-open">
+          <i class="nf nf-fa-bars"></i>
+        </label>
+        <label for="nav-menu-toggle" class="nav-menu-close">
+          <i class="nf nf-fa-close"></i>
+        </label>
+        <div class="nav-menu">
+          <div>
+            <a href="./index.html" class="clickable-effect">Home</a>
+          </div>
+          <div>
+            <a href="./demo.html" class="clickable-effect">Demo</a>
+          </div>
+          <div>
+            <a href="./docs.html" class="clickable-effect">Docs</a>
+          </div>
         </div>
       </div>
     </header>
