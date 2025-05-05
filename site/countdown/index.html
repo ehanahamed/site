@@ -30,9 +30,9 @@
                 document.getElementById("hours").setAttribute("aria-label", hours);
                 document.getElementById("mins").setAttribute("aria-label", mins);
                 document.getElementById("secs").setAttribute("aria-label", secs);
-                document.getElementById("hours").innerText("aria-label", hours);
-                document.getElementById("mins").innerText("aria-label", mins);
-                document.getElementById("secs").innerText("aria-label", secs);
+                document.getElementById("hours").innerText = hours;
+                document.getElementById("mins").innerText = mins;
+                document.getElementById("secs").innerText = secs;
                 document.title = hours + ":" + mins + ":" + secs;
             }
             countdown();
