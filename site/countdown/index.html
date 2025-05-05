@@ -28,7 +28,7 @@
                 if (timeDifference > 0) {
                     secs = Math.floor((timeDifference / 1000) % 60);
                     mins = Math.floor((timeDifference / (1000 * 60)) % 60);
-                    hours = Math.floor((timeDifference / (1000 * 60 * 60)) % 24);
+                    hours = Math.floor(timeDifference / (1000 * 60 * 60));
                 }
                 document.getElementById("hours").style.setProperty("--value", hours);
                 document.getElementById("mins").style.setProperty("--value", mins);
