@@ -9,13 +9,13 @@
     </head>
     <body>
         <span class="countdown font-mono text-2xl">
-            <span style="--value:10;" aria-live="polite" aria-label="10" id="hours">10</span>
+            <span style="--value:0;" aria-live="polite" aria-label="0" id="hours">0</span>
             :
-            <span style="--value:24;" aria-live="polite" aria-label="24" id="mins">24</span>
+            <span style="--value:0;" aria-live="polite" aria-label="0" id="mins">0</span>
             :
-            <span style="--value:59;" aria-live="polite" aria-label="59" id="secs">59</span>
+            <span style="--value:0;" aria-live="polite" aria-label="0" id="secs">0</span>
           </span>
-        <script>
+        <script> 
             function countdown() {
                 var now = Date.now()
                 var apTest = new Date("2025-05-06T13:00:00Z") /* 08 ET is 13 UTC */
