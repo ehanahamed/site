@@ -16,29 +16,25 @@
             <span style="--value:59;" aria-live="polite" aria-label="59" id="secs">59</span>
           </span>
         <script>
-            var now = Date.now()
-            var apTest = new Date("2025-05-06T13:00:00Z") /* 08 ET is 13 UTC */
-            var hours = Math.floor( (apTest - now) / 3600000 ).toString()
-            var mins = Math.floor( (apTest - now) / 60000).toString()
-            var secs = Math.floor( (apTest - now) / 1000).toString()
-            document.getElementById("hours").style.setProperty("--value", hours);
-            document.getElementById("mins").style.setProperty("--value", mins);
-            document.getElementById("secs").style.setProperty("--value", secs);
-            document.getElementById("hours").setAttribute("aria-label", hours);
-            document.getElementById("mins").setAttribute("aria-label", mins);
-            document.getElementById("secs").setAttribute("aria-label", secs);
-            document.getElementById("hours").innerText("aria-label", hours);
-            document.getElementById("mins").innerText("aria-label", mins);
-            document.getElementById("secs").innerText("aria-label", secs);
-            document.title = hours + ":" + mins + ":" + secs;
-            setInterval(function () {
+            function countdown() {
                 var now = Date.now()
                 var apTest = new Date("2025-05-06T13:00:00Z") /* 08 ET is 13 UTC */
                 var hours = Math.floor( (apTest - now) / 3600000 ).toString()
                 var mins = Math.floor( (apTest - now) / 60000).toString()
                 var secs = Math.floor( (apTest - now) / 1000).toString()
+                document.getElementById("hours").style.setProperty("--value", hours);
+                document.getElementById("mins").style.setProperty("--value", mins);
+                document.getElementById("secs").style.setProperty("--value", secs);
+                document.getElementById("hours").setAttribute("aria-label", hours);
+                document.getElementById("mins").setAttribute("aria-label", mins);
+                document.getElementById("secs").setAttribute("aria-label", secs);
+                document.getElementById("hours").innerText("aria-label", hours);
+                document.getElementById("mins").innerText("aria-label", mins);
+                document.getElementById("secs").innerText("aria-label", secs);
                 document.title = hours + ":" + mins + ":" + secs;
-            }, 500)
+            }
+            countdown();
+            setInterval(countdown, 500)
         </script>
     </body>
 </html>
