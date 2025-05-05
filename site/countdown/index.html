@@ -19,6 +19,13 @@
           </span>
           <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
           <script>eruda.init();</script>
+          <script>
+            const urlString = window.location.search; // Gets the query string part of the URL
+            const urlParams = new URLSearchParams(urlString);
+            if (urlParams.has('theme')) {
+                document.documentElement.dataset.theme = urlParams.get("theme");
+            }
+          </script>
         <script> 
             var target = new Date("2025-05-06T13:00:00Z") /* 08 ET is 13 UTC */
             var timeDifference;
