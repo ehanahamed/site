@@ -1,1 +1,35 @@
-
+<!DOCTYPE html>
+<html lang="ën">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Countdown</title>
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>    
+    </head>
+    <body>
+        <span class="countdown font-mono text-2xl">
+            <span style="--value:10;" aria-live="polite" aria-label="10" id="hours">10</span>
+            :
+            <span style="--value:24;" aria-live="polite" aria-label="24" id="mins">24</span>
+            :
+            <span style="--value:59;" aria-live="polite" aria-label="59" id="secs">59</span>
+          </span>
+        <script>
+            var now = Date.now()
+            var apTest = new Date("2025-05-06T13:00:00Z") /* 08 ET is 13 UTC */
+            var hours = Math.floor( (apTest - now) / 3600000 )
+            var mins = Math.floor( (apTest - now) / 60000)
+            var secs = Math.floor( (apTest - now) / 1000)
+            document.getElementById("hours").style.setProperty("--value", hours.toString());
+            document.getElementById("mins").style.setProperty("--value", mins.toString());
+            document.getElementById("secs").style.setProperty("--value", secs.toString());
+            document.getElementById("hours").setAttribute("aria-label", hours.toString());
+            document.getElementById("mins").setAttribute("aria-label", mins.toString());
+            document.getElementById("secs").setAttribute("aria-label", secs.toString());
+            document.getElementById("hours").innerText("aria-label", hours.toString());
+            document.getElementById("mins").innerText("aria-label", mins.toString());
+            document.getElementById("secs").innerText("aria-label", secs.toString());
+        </script>
+    </body>
+</html>
