@@ -18,12 +18,18 @@
           <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
           <script>eruda.init();</script>
         <script> 
+            var target = new Date("2025-05-06T13:00:00Z") /* 08 ET is 13 UTC */
+            var timeDifference;
             function countdown() {
-                var now = Date.now()
-                var apTest = new Date("2025-05-06T13:00:00Z") /* 08 ET is 13 UTC */
-                var hours = Math.floor( (apTest - now) / 3600000 ).toString()
-                var mins = Math.floor( (apTest - now) / 60000).toString()
-                var secs = Math.floor( (apTest - now) / 1000).toString()
+                timeDifference = target - Date.now();
+                var hours = 0;
+                var mins = 0;
+                var secs = 0;
+                if (timeDifference > 0) {
+                    secs = Math.floor((timeDifference / 1000) % 60);
+                    mins = Math.floor((timeDifference / (1000 * 60)) % 60);
+                    hours = Math.floor((timeDifference / (1000 * 60 * 60)) % 24);
+                }
                 document.getElementById("hours").style.setProperty("--value", hours);
                 document.getElementById("mins").style.setProperty("--value", mins);
                 document.getElementById("secs").style.setProperty("--value", secs);
