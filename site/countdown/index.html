@@ -31,6 +31,14 @@
             document.getElementById("mins").innerText("aria-label", mins);
             document.getElementById("secs").innerText("aria-label", secs);
             document.title = hours + ":" + mins + ":" + secs;
+            setInterval(function () {
+                var now = Date.now()
+                var apTest = new Date("2025-05-06T13:00:00Z") /* 08 ET is 13 UTC */
+                var hours = Math.floor( (apTest - now) / 3600000 ).toString()
+                var mins = Math.floor( (apTest - now) / 60000).toString()
+                var secs = Math.floor( (apTest - now) / 1000).toString()
+                document.title = hours + ":" + mins + ":" + secs;
+            }, 500)
         </script>
     </body>
 </html>
