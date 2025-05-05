@@ -35,8 +35,6 @@
             <span style="--value:0;" aria-live="polite" aria-label="0" id="secs">0</span>
           </span>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
-<script>eruda.init();</script>
           <script>
             const urlString = window.location.search; // Gets the query string part of the URL
             const urlParams = new URLSearchParams(urlString);
@@ -66,7 +64,7 @@
                 document.getElementById("hours").innerText = hours;
                 document.getElementById("mins").innerText = mins;
                 document.getElementById("secs").innerText = secs;
-                document.title = hours.padStart(2, "0") + ":" + mins.padStart(2, "0") + ":" + secs.padStart(2, "0");
+                document.title = hours.toString().padStart(2, "0") + ":" + mins.toString().padStart(2, "0") + ":" + secs.toString().padStart(2, "0");
             }
             countdown();
             setInterval(countdown, 500)
