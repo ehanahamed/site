@@ -27,7 +27,7 @@
     </head>
     <body>
         <div class="flex-container-thingy">
-        <span class="countdown font-mono text-9xl">
+        <span class="countdown font-mono text-9xl" id="countdown">
             <span style="--value:0;" aria-live="polite" aria-label="0" id="hours">0</span>
             :
             <span style="--value:0;" aria-live="polite" aria-label="0" id="mins">0</span>
@@ -40,6 +40,9 @@
             const urlParams = new URLSearchParams(urlString);
             if (urlParams.has('theme')) {
                 document.documentElement.dataset.theme = urlParams.get("theme");
+            }
+            if (urlParams.has("color")) {
+                document.getElementById("countdown").classList.add(urlParams.get("color"));
             }
           </script>
         <script> 
