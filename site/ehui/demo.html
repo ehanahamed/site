@@ -14,12 +14,22 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png" />
     <link rel="stylesheet" href="./css/ehui.min.css" />
-    <link rel="stylesheet" href="./themes/auto.min.css" />
-    <link rel="stylesheet" href="./fonts/fonts.css" />
+    <link rel="stylesheet" href="./themes/auto-all.min.css" />
+    <link rel="stylesheet" href="./fonts/inter.css" />
     <link
       rel="stylesheet"
       href="https://www.nerdfonts.com/assets/css/webfont.css"
     />
+    <script>
+        if (window.localStorage) {
+            const theme = localStorage.getItem("ehuidemo:theme");
+            if (theme) {
+                document.documentElement.classList.add(
+                    "theme-" + theme
+                );
+            }
+        }
+    </script>
   </head>
 
   <body>
@@ -51,8 +61,8 @@
           <p class="h1">Heading</p>
           <p>Text text text text</p>
           <div class="flex center">
-            <button class="large">Button</button>
-            <button class="large alt">Button</button>
+            <button class="button large">Button</button>
+            <button class="button large alt">Button</button>
           </div>
         </div>
         <div class="logo">
@@ -82,6 +92,24 @@
       </div>
       <div class="grid page">
         <div class="content">
+          <p>Select theme</p>
+          <div class="grid list">
+            <button class="button-box" id="theme-auto-button">
+              Auto
+            </button>
+            <button class="button-box" id="theme-light-button">
+              Light
+            </button>
+            <button class="button-box" id="theme-dark-button">
+              Dark
+            </button>
+            <button class="button-box" id="theme-monochrome-button">
+              Monochrome
+            </button>
+            <button class="button-box" id="theme-midnight-button">
+              Midnight
+            </button>
+          </div>
           <h1>Heading 1</h1>
           <h2>Heading 2</h2>
           <h3>Heading 3</h3>
@@ -106,19 +134,19 @@
           </ol>
           <p>Text, <a href="https://ehui.ehan.dev">link</a>.</p>
           <div class="flex">
-            <button>Button</button>
-            <button class="alt">Alt button</button>
+            <button class="button">Button</button>
+            <button class="button alt">Alt button</button>
           </div>
           <div class="flex">
-            <button class="yay">Yay</button>
-            <button class="alt yay">Yay alt</button>
+            <button class="button yay">Yay</button>
+            <button class="button alt yay">Yay alt</button>
           </div>
           <div class="flex">
-            <button class="ohno">Ohno</button>
-            <button class="alt ohno">Ohno alt</button>
+            <button class="button ohno">Ohno</button>
+            <button class="button alt ohno">Ohno alt</button>
           </div>
           <div class="flex">
-            <button>Button</button>
+            <button class="button">Button</button>
             <a href="https://ehui.ehan.dev" class="button">Link button</a>
           </div>
           <p>Default text</p>
@@ -226,6 +254,65 @@
               <i class="combo-selected-icon nf nf-fa-check"></i>
               Option B
             </button>
+          </div>
+          <p><code>combo-buttons</code> class (similar to combo-select, but with no selected/unselected styles)</p>
+          <div>
+              <div class="combo-buttons">
+                  <button class="left">
+                      Left
+                  </button>
+                  <button class="mid">
+                      Mid
+                  </button>
+                  <button class="right">
+                      Right
+                  </button>
+              </div>
+              <div class="combo-buttons">
+                  <button class="left">
+                      Left
+                  </button>
+                  <button class="right">
+                      Right
+                  </button>
+              </div>
+              <div class="combo-buttons">
+                  <button class="left">
+                      Left
+                  </button>
+                  <button class="mid">
+                      Mid
+                  </button>
+                  <button class="mid">
+                      Mid
+                  </button>
+                  <button class="right">
+                      Right
+                  </button>
+              </div>
+          </div>
+                    <p>Combo-buttons with alt buttons inside</p>
+                    <div>
+              <div class="combo-buttons">
+                  <button class="left alt">
+                      Left
+                  </button>
+                  <button class="mid alt">
+                      Mid
+                  </button>
+                  <button class="right alt">
+                      Right
+                  </button>
+              </div>
+                    </div>
+          <p>Dropdown select</p>
+          <div class="select-wrapper">
+            <select>
+              <option value="">Select an example</option>
+              <option value="example1">Example 1</option>
+              <option value="example2">Example 2</option>
+              <option value="example3">Example 3</option>
+            </select>
           </div>
           <p>Searchbars</p>
           <div style="display:inline-block">
@@ -797,6 +884,58 @@
         document.getElementById("button-box-incorrect-2").classList.add("ohno");
         document.getElementById("button-box-incorrect-2").classList.toggle("selected");
       })
+    </script>
+    <script>
+      document.getElementById("theme-auto-button").addEventListener("click", function () {
+        if (window.localStorage) {
+          localStorage.setItem("ehuidemo:theme", "auto");
+        }
+        document.documentElement.classList.remove("light");
+        document.documentElement.classList.remove("dark");
+        document.documentElement.classList.remove("monochrome");
+        document.documentElement.classList.remove("midnight");
+        document.documentElement.classList.add("auto");
+      });
+      document.getElementById("theme-light-button").addEventListener("click", function () {
+        if (window.localStorage) {
+          localStorage.setItem("ehuidemo:theme", "light");
+        }
+        document.documentElement.classList.remove("auto");
+        document.documentElement.classList.remove("dark");
+        document.documentElement.classList.remove("monochrome");
+        document.documentElement.classList.remove("midnight");
+        document.documentElement.classList.add("light");
+      });
+      document.getElementById("theme-dark-button").addEventListener("click", function () {
+        if (window.localStorage) {
+          localStorage.setItem("ehuidemo:theme", "dark");
+        }
+        document.documentElement.classList.remove("auto");
+        document.documentElement.classList.remove("light");
+        document.documentElement.classList.remove("monochrome");
+        document.documentElement.classList.remove("midnight");
+        document.documentElement.classList.add("dark");
+      });
+      document.getElementById("theme-monochrome-button").addEventListener("click", function () {
+        if (window.localStorage) {
+          localStorage.setItem("ehuidemo:theme", "monochrome");
+        }
+        document.documentElement.classList.remove("auto");
+        document.documentElement.classList.remove("light");
+        document.documentElement.classList.remove("dark");
+        document.documentElement.classList.remove("midnight");
+        document.documentElement.classList.add("monochrome");
+      });
+      document.getElementById("theme-midnight-button").addEventListener("click", function () {
+        if (window.localStorage) {
+          localStorage.setItem("ehuidemo:theme", "midnight");
+        }
+        document.documentElement.classList.remove("auto");
+        document.documentElement.classList.remove("light");
+        document.documentElement.classList.remove("dark");
+        document.documentElement.classList.remove("monochrome");
+        document.documentElement.classList.add("midnight");
+      });
     </script>
   </body>
 </html>
