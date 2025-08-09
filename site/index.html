@@ -20,7 +20,9 @@
     />
     <style>
       button:hover .fg0,
-      button:focus .fg0 {
+      button:focus .fg0,
+      .button:hover .fg0,
+      .button:focus .fg0 {
         color: var(--main);
       }
     </style>
@@ -96,7 +98,7 @@
               <a href="https://quizfreely.org/"
                 class="button faint"
                 style="margin-top: 0.2rem;"
-              ><span><span class="fg0">https://</span>quizfreely.org<span class="fg0">/</span></span></a>
+              ><span><span class="fg0">https://</span>quizfreely.org</span></a>
             </div>
             <div>
               <p class="fg0" style="margin-bottom: 0px;">Source Code:</p>
@@ -115,11 +117,25 @@
           <div class="box">
             <h3>EhUI</h3>
             <p>Customizable and themeable UI kit</p>
-            <div class="flex">
-              <a href="https://ehan.dev/ehui" class="button">Website</a>
-              <a href="https://codeberg.org/ehanahamed/ehui" class="button alt"
-                >Source Code</a
-              >
+            <div>
+              <p class="fg0" style="margin-bottom: 0px;">Website:</p>
+              <a href="https://ehan.dev/ehui"
+                class="button faint"
+                style="margin-top: 0.2rem;"
+              ><span><span class="fg0">https://</span>ehan.dev/ehui</span></a>
+            </div>
+            <div>
+              <p class="fg0" style="margin-bottom: 0px;">Source Code:</p>
+              <div class="flex" style="margin-top: 0.2rem;"> 
+                <a href="https://codeberg.org/ehanahamed/ehui"
+                  class="button faint"
+                ><i class="nf nf-linux-codeberg"></i> Codeberg</a>
+                <a
+                  href="https://github.com/ehanahamed/ehui"
+                  class="button faint"
+                  ><i class="nf nf-dev-github_badge"></i> GitHub</a
+                >
+              </div>
             </div>
           </div>
         </div>
