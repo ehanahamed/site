@@ -19,10 +19,20 @@
       href="https://www.nerdfonts.com/assets/css/webfont.css"
     />
     <style>
-      button:hover .fg0,
-      button:focus .fg0,
-      .button:hover .fg0,
-      .button:focus .fg0 {
+      button span,
+      .button span,
+      button span .fg0,
+      .button span .fg0 {
+        transition: color 0.4s ease-out;
+      }
+      button:hover span,
+      button:focus span,
+      .button:hover span,
+      .button:focus span,
+      button:hover span .fg0,
+      button:focus span .fg0,
+      .button:hover span .fg0,
+      .button:focus span .fg0 {
         color: var(--main-alt);
       }
     </style>
