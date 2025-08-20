@@ -174,7 +174,7 @@
             </div>
             <div class="dropdown" tabindex="0">
               <button class="dropdown-toggle">
-                <i class="nf nf-md-dots"></i>
+                <i class="nf nf-md-dots_vertical"></i>
               </button>
               <div class="content">
                 <button>Button 1</button>
@@ -193,7 +193,7 @@
                 <button>Button 3</button>
               </div>
             </div>
-            <div class="dropdown" tabindex="0">
+            <div class="dropdown ohno" tabindex="0">
               <button class="ohno">Ohno Dropdown</button>
               <div class="content">
                 <button class="ohno">Button 1</button>
@@ -401,56 +401,12 @@
               placeholder="Green textarea"
             ></textarea>
           </div>
-          <p>Radio select</p>
-          <div class="flex col">
-            <div class="radio">
-              <label>
-                <input type="radio" name="radioExample">
-                <span aria-label="Example 1">Example 1</span>
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="radioExample">
-                <span aria-label="Example 2">Example 2</span>
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="radioExample" disabled="disabled">
-                <span aria-label="Example 3 Disabled">Example 3 (Disabled)</span>
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="radioExample" disabled="disabled" checked="checked">
-                <span aria-label="Example 4 Disabled">Example 4 (Disabled)</span>
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="radioExample">
-                <span aria-label="Example 5">Example 5</span>
-              </label>
-            </div>
-          </div>
-          <p>Checkbox select</p>
-          <div class="checkbox">
-            <input type="checkbox" name="checkbox" id="checkbox0" />
-            <label for="checkbox0">Checkbox 0</label>
-          </div>
-          <div class="checkbox">
-            <input type="checkbox" name="checkbox" id="checkbox1" />
-            <label for="checkbox1">Checkbox 1</label>
-          </div>
-          <div class="checkbox">
-            <input type="checkbox" name="checkbox" id="checkbox2" />
-            <label for="checkbox2">Checkbox 2</label>
-          </div>
           <p>File input</p>
           <div>
-            <label for="file" class="button">Select File</label>
-            <input type="file" name="file" id="file" class="invisible" />
+            <label for="file" class="button">
+                Select File
+                <input type="file" name="file" id="file" class="invisible" />
+            </label>
           </div>
           <h2>Tables</h2>
           <p>Inner table</p>
