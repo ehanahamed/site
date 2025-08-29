@@ -154,6 +154,17 @@
             <button class="button">Button</button>
             <a href="https://ehui.ehan.dev" class="button">Link button</a>
           </div>
+        <p>Disabled buttons with <code>disabled</code> attribute (for buttons) & <code>disabled</code> class (for link-buttons)</p>
+        <div class="flex">
+            <button disabled>Disabled button</button>
+            <a class="button disabled">Disabled link-button</a>
+        </div>
+        <div class="flex">
+            <button class="yay" disabled>Yay button</button>
+            <a class="button ohno disabled">Ohno link-button</a>
+            <button class="yay alt" disabled>Yay alt</button>
+            <button class="ohno alt" disabled>Ohno alt</button>
+        </div>
           <p>Default text</p>
           <p class="ohno">Ohno text</p>
           <p class="yay">Yay text</p>
@@ -678,6 +689,37 @@
               Incorrect
             </button>
           </div>
+          <p>We can also make button boxes disabled</p>
+          <div class="flex">
+            <button class="button-box selected" disabled>
+              Disabled & Selected
+            </button>
+            <button class="button-box" disabled>
+              Disabled
+            </button>
+            <a class="button button-box disabled">
+              Disabled Link-Button-Box
+            </a>
+          </div>
+          <div class="flex">
+            <button class="button-box yay selected" disabled>
+              Yay disabled (selected)
+            </button>
+            <button class="button-box yay" disabled>
+              Yay disabled
+            </button>
+            <button class="button-box ohno" disabled>
+              Ohno Disabled
+            </button>
+          </div>
+          <div class="flex">
+            <button class="button-box ohno selected" disabled>
+              Ohno disabled (selected)
+            </button>
+            <button class="button-box" disabled>
+              Disabled
+            </button>
+          </div>
         <br>
         <br>
         <p>You can use the <code>button-box-selected-icon</code> class to show/hide icons when selected</p>
@@ -702,7 +744,10 @@
         </div>
         <br>
         <br>
-        <p>You can use classes <code>button-box</code> and <code>with-bordercolor-border</code> when button boxes are inside of div elements that have <code>class="box"</code></p>
+        <p>
+            You can use classes <code>button-box</code> and <code>with-bordercolor-border</code> when button boxes are inside of div elements that have <code>class="box"</code><br>
+            This example also applies/resets <code>disabled</code> attributes when answers are submitted/reset.
+        </p>
         <div class="box">
             <p class="fg0">Select the matching definition</p>
             <p class="h4">ammonium</p>
@@ -829,10 +874,18 @@
 
             if (anySelected) {
                 buttonBoxWBorderAnswerSubmitted = true;
+                buttonBoxWBorderIncorrect1.setAttribute("disabled", "");
+                buttonBoxWBorderCorrect.setAttribute("disabled", "");
+                buttonBoxWBorderIncorrect2.setAttribute("disabled", "");
+                buttonBoxWBorderIncorrect3.setAttribute("disabled", "");
             }
         })
         buttonBoxWBorderReset.addEventListener("click", () => {
             buttonBoxWBorderAnswerSubmitted = false;
+            buttonBoxWBorderIncorrect1.removeAttribute("disabled");
+            buttonBoxWBorderCorrect.removeAttribute("disabled");
+            buttonBoxWBorderIncorrect2.removeAttribute("disabled");
+            buttonBoxWBorderIncorrect3.removeAttribute("disabled");
             buttonBoxWBorderIncorrect1.classList.remove("ohno");
             buttonBoxWBorderCorrect.classList.remove("yay");
             buttonBoxWBorderIncorrect2.classList.remove("ohno");
