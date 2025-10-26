@@ -348,12 +348,26 @@
                 <input type="text" placeholder="Search" />
             </div>
           </div>
-          <p>Searchbar with example autocomplete</p>
+          <p>Searchbar with autocomplete</p>
           <div style="display:inline-block">
             <div class="searchbar with-autocomplete">
                 <i class="nf nf-fa-search searchbar-icon"></i>
                 <input type="text" placeholder="Search" />
-                <div class="searchbar-autocomplete">
+                <div class="searchbar-autocomplete" style="z-index: 100;">
+                  <a href="/docs">Docs & Tutorials</a>
+                  <a href="/">text texttext</a>
+                  <a href="/">abc defg hijkl</a>
+                </div>
+            </div>
+          </div>
+          <br />
+          <br />
+          <p>Searchbar with raw-autocomplete</p>
+          <div style="display:inline-block">
+            <div class="searchbar with-raw-autocomplete">
+                <i class="nf nf-fa-search searchbar-icon"></i>
+                <input type="text" placeholder="Search" id="raw-autocomplete-input" />
+                <div class="searchbar-raw-autocomplete hide" id="raw-autocomplete">
                   <a href="/docs">Docs & Tutorials</a>
                   <a href="/">text texttext</a>
                   <a href="/">abc defg hijkl</a>
@@ -1291,6 +1305,29 @@
             hearticon.classList.add("nf-fa-heart")
           }
       });
+    </script>
+    <script>
+        function outsideClick(e) {
+            if (!document.getElementById("raw-autocomplete-input").contains(e.target) && !document.getElementById("raw-autocomplete").contains(e.target)) {
+                document.getElementById("raw-autocomplete").classList.add("hide");
+                window.removeEventListener("click", outsideClick);
+            }
+        }
+        function searchbarInteraction(e) {
+            if (e.target.value.length > 0) {
+                document.getElementById("raw-autocomplete").classList.remove("hide");
+                window.addEventListener("click", outsideClick);
+            } else {
+                document.getElementById("raw-autocomplete").classList.add("hide");
+                window.removeEventListener("click", outsideClick);
+            }
+        }
+        document.getElementById("raw-autocomplete-input").addEventListener(
+            "input", searchbarInteraction
+        );
+        document.getElementById("raw-autocomplete-input").addEventListener(
+            "focus", searchbarInteraction
+        );
     </script>
   </body>
 </html>
