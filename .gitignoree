@@ -1,5 +1,5 @@
 # build output
-# dist/
+dist/
 
 # generated types
 .astro/
@@ -22,11 +22,3 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
-
-# slidev
-slides/node_modules
-slides/dist
-slides/*.local
-slides/.vite-inspect
-slides/.remote-assets
-slides/components.d.ts
