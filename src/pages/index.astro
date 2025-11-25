@@ -13,26 +13,18 @@ import GitHubIcon from '../components/icons/GitHub.astro';
         grid-template-columns: 1fr;
     }
 }
-.customflexlistthing {
-    flex-direction: row;
-}
-@media only screen and (max-width: 420px) {
-    .customflexlistthing {
-        flex-direction: column;
-    }
-}
 </style>
 <Layout>
-    <div class="background-extra-bg grid page" style="padding-top:2rem;padding-bottom:1rem;">
+    <div class="background-extra-bg grid page" style="padding-top:3rem;padding-bottom:1rem;">
         <div class="content">
-            <h1>Ehan</h1>
+            <p style="font-size: 1.6rem;">Hi, I'm</p>
+            <h1 style="margin-top: 0px;">Ehan</h1>
         </div>
     </div>
     <!--<div class="wave-bottom extra-bg"></div>-->
     <div class="grid page" style="padding-top: 1rem; margin-bottom: 8rem;">
         <div class="content">
-            <div class="flex col">
-                <div class="flex customflexlistthing" style="column-gap: 2rem;">
+            <div class="flex">
                     <div>
                         <p class="fg0" style="padding-left: 0.8rem;">Codeberg:</p>
                         <a class="button faint" style="margin-top: 0px;" href="https://codeberg.org/ehanahamed">
@@ -47,23 +39,14 @@ import GitHubIcon from '../components/icons/GitHub.astro';
                             ehanahamed
                         </a>
                     </div>
-                </div>
-                <div class="flex customflexlistthing" style="column-gap: 2rem;">
                     <div>
                         <p class="fg0" style="padding-left: 0.8rem;">Email:</p>
-                        <div style="margin-top: 0px; padding: 0.6rem 1rem;" href="https://codeberg.org/ehanahamed">
+                        <div style="margin-top: 0px; padding: 0.6rem 1rem;">
                             ehan@ehan.dev
                         </div>
                     </div>
-                    <div>
-                        <p class="fg0" style="padding-left: 0.8rem;">Discord:</p>
-                        <div style="margin-top: 0px; padding: 0.6rem 1rem;" href="https://codeberg.org/ehanahamed">
-                            @thisisnotehan
-                        </div>
-                    </div>
-                </div>
             </div>
-        <h2 class="h3" style="margin-top: 2rem;">Projects</h2>
+        <h2 class="h3" style="margin-top: 3rem;">Projects</h2>
         <div class="grid customgridlist">
           <div class="box">
             <h3>Quizfreely</h3>
