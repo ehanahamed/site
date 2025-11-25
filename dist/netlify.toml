@@ -1,0 +1,39 @@
+# netlify.toml
+[[headers]]
+  for = "/timefall/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Cross-Origin-Opener-Policy = "same-origin"
+    Cross-Origin-Embedder-Policy = "require-corp"
+
+[[headers]]
+  for = "/tsa-game-2025/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Cross-Origin-Opener-Policy = "same-origin"
+    Cross-Origin-Embedder-Policy = "require-corp"
+
+[[redirects]]
+from = "/ehui/*"
+to = "/ehui/404.html"
+status = 404
+
+[[redirects]]
+from = "/ap-csa-stuff/unit-7-frq-1/*"
+to = "/ap-csa-stuff/unit-7-frq-1/index.html"
+status = 200
+
+[[redirects]]
+from = "/ap-csa-stuff/unit-7-frq-3/*"
+to = "/ap-csa-stuff/unit-7-frq-3/index.html"
+status = 200
+
+[[redirects]]
+from = "/*"
+to = "/404.html"
+status = 404
+
+[[headers]]
+  for = "/immutable/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

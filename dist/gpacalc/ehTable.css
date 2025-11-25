@@ -1,0 +1,38 @@
+.table,
+.table.rows {
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 1rem;
+}
+
+.table > .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 1rem;
+}
+
+.table > .row > .col {
+    margin-top: 0px;
+}
+
+.table.cols {
+    flex-direction: row;
+}
+
+.table.cols > .col {
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 1rem;
+}
+
+.table.cols > .col > .row {
+    margin-top: 0px;
+}
+
+.table .row,
+.table .col {
+    margin-top: 0px;
+}
