@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CodebergIcon from '../components/icons/Codeberg.astro';
+import GitHubIcon from '../components/icons/GitHub.astro';
+---
+<style>
+.customgridlist {
+    gap: 1rem;
+    grid-template-columns: 1fr;
+}
+</style>
+<Layout title="Ehan A - Portfolio">
+    <div class="background-extra-bg grid page" style="padding-top:3rem;padding-bottom:1rem;">
+        <div class="content">
+            <p class="fg0" style="font-size: 1.8rem;">Ehan Ahamed</p>
+            <p style="font-size: 1.8rem; margin-top: 0.4rem;">Hands-on Project Portfolio</p>
+        </div>
+    </div>
+    <!--<div class="wave-bottom extra-bg"></div>-->
+    <div class="grid page" style="padding-top: 1rem; margin-bottom: 8rem;">
+        <div class="content">
+        <div class="grid customgridlist">
+          <div class="box">
+            <h3>Quizfreely</h3>
+            <p>Free & open source nonprofit studying tool</p>
+            <div>
+              <p class="fg0" style="margin-bottom: 0px;">Website:</p>
+              <a href="https://quizfreely.org/"
+                class="button alt no-box-shadow"
+                style="margin-top: 0.2rem;"
+              >quizfreely.org</a>
+            </div>
+            <div>
+              <p class="fg0" style="margin-bottom: 0px;">Source Code:</p>
+              <div class="flex compact-gap" style="margin-top: 0.2rem;"> 
+                <a href="https://codeberg.org/quizfreely/quizfreely"
+                  class="button faint"
+                ><CodebergIcon></CodebergIcon> Codeberg</a>
+                <a
+                  href="https://github.com/quizfreely/quizfreely"
+                  class="button faint"
+                ><GitHubIcon></GitHubIcon> GitHub</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="box">
+            <h3>EhUI</h3>
+            <p>Customizable and themeable UI kit</p>
+            <div>
+              <p class="fg0" style="margin-bottom: 0px;">Website:</p>
+              <a href="https://ehan.dev/ehui"
+                class="button alt no-box-shadow"
+                style="margin-top: 0.2rem;"
+              >ehan.dev/ehui</a>
+            </div>
+            <div>
+              <p class="fg0" style="margin-bottom: 0px;">Source Code:</p>
+              <div class="flex compact-gap" style="margin-top: 0.2rem;"> 
+                <a href="https://codeberg.org/ehanahamed/ehui"
+                  class="button faint"
+                ><CodebergIcon></CodebergIcon> Codeberg</a>
+                <a
+                  href="https://github.com/ehanahamed/ehui"
+                  class="button faint"
+                            ><GitHubIcon></GitHubIcon> GitHub</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</Layout>
