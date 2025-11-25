@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<style>
+.customgridlist {
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+}
+@media only screen and (max-width: 1000px) {
+    .customgridlist {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+<Layout>
+    <div class="grid page" style="margin-top: 4rem;">
+        <div class="content">
+            <p class="fg0" style="font-size: 1.6rem;">404</p>
+            <h1 class="h2" style="margin-top: 0px;">Not Found</h1>
+            <p>Sorry, that page doesn't exist.</p>
+            <a class="button alt" href="/">View Homepage?</a>
+        </div>
+    </div>
+</Layout>
