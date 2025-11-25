@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html data-theme="dark">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Countdown</title>
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>    
+        <style>
+            html, body {
+                height: 100%;
+                width: 100%;
+                margin: 0px;
+                padding: 0px;
+            }
+            .flex-container-thingy {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                align-content: center;
+                justify-items: center;
+                justify-content: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-container-thingy">
+        <span class="countdown font-mono text-9xl" id="countdown">
+            <span style="--value:0;" aria-live="polite" aria-label="0" id="hours">0</span>
+            :
+            <span style="--value:0;" aria-live="polite" aria-label="0" id="mins">0</span>
+            :
+            <span style="--value:0;" aria-live="polite" aria-label="0" id="secs">0</span>
+          </span>
+        </div>
+          <script>
+            const urlString = window.location.search; // Gets the query string part of the URL
+            const urlParams = new URLSearchParams(urlString);
+            if (urlParams.has('theme')) {
+                document.documentElement.dataset.theme = urlParams.get("theme");
+            }
+            if (urlParams.has("text")) {
+                document.getElementById("countdown").classList.add(urlParams.get("text"));
+            }
+          </script>
+        <script> 
+            var target = new Date("2025-05-27T23:59:00-04:00")
+            var timeDifference;
+            function countdown() {
+                timeDifference = target - Date.now();
+                var hours = 0;
+                var mins = 0;
+                var secs = 0;
+                if (timeDifference > 0) {
+                    secs = Math.floor((timeDifference / 1000) % 60);
+                    mins = Math.floor((timeDifference / (1000 * 60)) % 60);
+                    hours = Math.floor(timeDifference / (1000 * 60 * 60));
+                }
+                document.getElementById("hours").style.setProperty("--value", hours);
+                document.getElementById("mins").style.setProperty("--value", mins);
+                document.getElementById("secs").style.setProperty("--value", secs);
+                document.getElementById("hours").setAttribute("aria-label", hours);
+                document.getElementById("mins").setAttribute("aria-label", mins);
+                document.getElementById("secs").setAttribute("aria-label", secs);
+                document.getElementById("hours").innerText = hours;
+                document.getElementById("mins").innerText = mins;
+                document.getElementById("secs").innerText = secs;
+                document.title = hours.toString().padStart(2, "0") + ":" + mins.toString().padStart(2, "0") + ":" + secs.toString().padStart(2, "0");
+            }
+            countdown();
+            setInterval(countdown, 500)
+        </script>
+    </body>
+</html>

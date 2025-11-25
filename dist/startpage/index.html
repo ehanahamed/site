@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=10, user-scalable=1"
+    />
+    <title>ehstartpage</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="stylesheet" href="https://ehan.dev/ehui/dev/css/ehui.css" />
+    <link
+      rel="stylesheet"
+      href="https://www.nerdfonts.com/assets/css/webfont.css"
+    />
+  </head>
+  <body>
+    <div class="startpageLayout">
+      <div class="startpageClock">
+        <p id="clock" class="h2">loading...</p>
+        <p id="date" class="h3">loading...</p>
+      </div>
+      <div class="startpageSearch">
+      </div>
+      <div class="startpageLinks">
+      </div>
+    </div>
+    <script>
+      /* populated with default settings */
+      var settings = {
+         /* 12 or 24 */
+        "clockFormat": 24,
+        /*
+          .dateFormat syntax:
+          numbers:
+          {YYYY} = 4 digit year (ex: 2024)
+          {YY} = last 2 digits of year (ex: 24)
+          {MM} = 2 digit month number (ex: 04)
+          {M} = month number (ex: 4)
+          {DD} = 2 digit date (ex: 05)
+          {D} = date (ex: 5)
+          names:
+          {month} = month name (ex: april)
+          {Month} = capitalized month name (ex: April)
+          {MONTH} = all caps month name (ex: APRIL)
+          {mname} = short month name (ex: apr)
+          {Mname} = capitalized short month name (ex: Apr)
+          {MNAME} = all caps short month name (ex: APR)
+          {day} = day of the week (ex: friday)
+          {Day} = capitalized day of the week (ex: Friday)
+          {DAY} = all caps day of the week (ex: FRIDAY)
+          {dy} = short day of the week (ex: fri)
+          {Dy} = capitalized short day of the week (ex: Fri)
+          {DY} = all caps short day of the week (ex: FRI)
+        */
+        "dateFormat": "{Day}, {YYYY}-{MM}-{DD}"
+      }
+      function loadSettings() {
+        for (var i = 0; i < Object.keys(settings).length; i++) {
+          if (localStorage.getItem(Object.keys(settings)[i])) {
+            settings[Object.keys(settings)[i]] = localStorage.getItem(Object.keys(settings)[i])
+          } else {
+            localStorage.setItem(Object.keys(settings)[i], settings[Object.keys(settings)[i]]);
+          }
+        }
+      }
+      loadSettings();
+      function saveSettings() {
+        for (var i = 0; i < Object.keys(settings).length; i++) {
+          localStorage.setItem(Object.keys(settings)[i], settings[Object.keys(settings)[i]]);
+        }
+      }
+      function updateClock() {
+        var now = new Date();
+        var hours;
+        var amPm = "";
+        if (settings.clockFormat == 24) {
+          hours = now.getHours().toString().padStart(2, "0");
+        } else if (settings.clockFormat == 12) {
+          if (now.getHours() >= 12) {
+            amPm = "PM"
+            // 11:00 is 11 AM, 12:00 is 12 PM
+            // the PM-ness starts at 12:00
+          } else {
+            amPm = "AM"
+          }
+          if (now.getHours() == 0) {
+            hours = "12"
+            amPm = "AM"
+            // 23:00 is 11 PM, 00:00 is 12 AM
+            // "AM-ness" starts at 00:00
+          } else if (now.getHours() > 12) {
+            hours = (now.getHours() - 12).toString()
+            // it resets to 1 PM at 13:00
+            // so subtract 12
+          } else {
+            hours = now.getHours().toString()
+          }
+        }
+        document.getElementById("clock").innerText = hours + ":" + now.getMinutes() + " " + amPm;
+      }
+      updateClock();
+      setInterval(updateClock, 1000);
+      var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      var monthNamesShort = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      var dayNamesShort = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      function updateDate() {
+        var now = new Date();
+        var date = settings.dateFormat
+          .replaceAll("{YYYY}", now.getFullYear())
+          .replaceAll("{YY}", now.getFullYear().toString().substring(2))
+          .replaceAll("{MM}", (now.getMonth() + 1).toString().padStart(2, "0"))
+          .replaceAll("{M}", (now.getMonth() + 1))
+          .replaceAll("{DD}", now.getDate().toString().padStart(2, "0"))
+          .replaceAll("{D}", now.getDate())
+          .replaceAll("{month}", monthNames[now.getMonth()].toLowerCase())
+          .replaceAll("{Month}", monthNames[now.getMonth()])
+          .replaceAll("{MONTH}", monthNames[now.getMonth()].toUpperCase())
+          .replaceAll("{mname}", monthNamesShort[now.getMonth()].toLowerCase())
+          .replaceAll("{Mname}", monthNamesShort[now.getMonth()])
+          .replaceAll("{MNAME}", monthNamesShort[now.getMonth()].toUpperCase())
+          .replaceAll("{day}", dayNames[now.getDay()].toLowerCase())
+          .replaceAll("{Day}", dayNames[now.getDay()])
+          .replaceAll("{DAY}", dayNames[now.getDay()].toUpperCase())
+          .replaceAll("{dy}", dayNamesShort[now.getDay()].toLowerCase())
+          .replaceAll("{Dy}", dayNamesShort[now.getDay()])
+          .replaceAll("{DY}", dayNamesShort[now.getDay()].toUpperCase());
+        document.getElementById("date").innerText = date;
+      }
+      updateDate();
+      setInterval(updateDate, 1000);
+    </script>
+  </body>
+</html>

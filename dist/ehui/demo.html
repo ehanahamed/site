@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!--
+  EhUI
+  Copyright (c) Ehan Ahamed and contributors
+  Licensed under the UPL-1.0 License
+  https://ehan.dev/ehui/LICENSE.txt
+  -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=10, user-scalable=1" />
+    <title>ehui</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png" />
+    <link rel="stylesheet" href="./css/ehui.min.css" />
+    <link rel="stylesheet" href="./themes/auto-all.min.css" />
+    <link rel="stylesheet" href="./fonts/inter.css" />
+    <link
+      rel="stylesheet"
+      href="https://www.nerdfonts.com/assets/css/webfont.css"
+    />
+    <script>
+        let theme;
+        if (window.localStorage) {
+            theme = localStorage.getItem("ehuidemo:theme");
+            if (theme) {
+                document.documentElement.classList.add(
+                    "theme-" + theme
+                );
+                /* `theme` is also used later at the bottom in a script tag inside of `body`
+                to change which button has a visual selected indicator
+                it's at the end so it runs after the button exists/after `body` is rendered
+                but this is at the beginning inside `head` so it runs first to avoid flickering colors/themes */
+            }
+        }
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <div class="menu">
+        <input type="checkbox" class="nav-menu-toggle" id="nav-menu-toggle">
+        <label for="nav-menu-toggle" class="nav-menu-open">
+          <i class="nf nf-fa-bars"></i>
+        </label>
+        <label for="nav-menu-toggle" class="nav-menu-close">
+          <i class="nf nf-fa-close"></i>
+        </label>
+        <div class="nav-menu">
+          <div>
+            <a href="./index.html">Home</a>
+          </div>
+          <div class="current">
+            <a href="./demo.html">Demo</a>
+          </div>
+          <div>
+            <a href="./docs.html">Docs</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="grid hero">
+        <div class="content">
+          <p class="h1">Heading</p>
+          <p>Text text text text</p>
+          <div class="flex center">
+            <button class="button large">Button</button>
+            <button class="button large alt">Button</button>
+          </div>
+        </div>
+        <div class="logo">
+          <svg
+            width="200"
+            height="200"
+            viewBox="0 0 200 200"
+            version="1.1"
+            id="SVGRoot"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:svg="http://www.w3.org/2000/svg"
+          >
+            <defs id="defs1887" />
+            <path
+              d="m 172.40468,10 q 7.03813,0 12.31672,4.658203 Q 190,19.316406 190,26.347656 q 0,5.976562 -4.57479,15.117187 -6.51026,12.392578 -13.19649,24.433594 -6.59824,12.041015 -17.24339,29.003905 -10.55719,16.962898 -16.27567,22.148448 -9.85338,9.14062 -21.90616,9.14062 -12.66862,0 -21.818185,-9.31641 -9.061586,-9.31641 -9.061586,-22.060548 0,-6.064453 2.375367,-11.601562 2.463344,-5.625 6.862173,-9.66797 L 159.29617,15.361328 Q 165.10263,10 172.40468,10 Z M 80.997043,113.79883 q 3.870968,7.55859 10.73314,13.09571 6.862173,5.44921 15.131967,7.64648 l 0.088,7.11914 q 0.43988,21.44531 -13.020538,34.89258 Q 80.4692,190 58.826967,190 q -9.941351,0 -18.12317,-3.07617 -8.181819,-3.07617 -13.812318,-8.4375 -5.6305,-5.36133 -9.501468,-12.74414 -3.870969,-7.38282 -5.6305,-15.82032 Q 10,141.39649 10,131.99219 q 0.527859,0.35156 4.134898,2.98828 3.607039,2.63672 6.246335,4.48242 2.727273,1.8457 5.894429,3.60352 3.167157,1.75781 4.662758,1.75781 4.134897,0 5.542523,-3.6914 2.55132,-6.5918 5.806451,-11.25 3.255134,-4.7461 6.950149,-7.73438 3.695015,-2.98828 8.797655,-4.74609 5.190617,-1.75781 10.381234,-2.46094 5.278593,-0.79102 12.580647,-1.14258 z"
+              id="path526"
+              class="fill-main"
+              style="
+                font-weight: bold;
+                font-size: 200px;
+                -inkscape-font-specification: 'sans-serif Bold';
+                stroke-width: 0.900441;
+              "
+            />
+          </svg>
+        </div>
+      </div>
+      <div class="grid page">
+        <div class="content">
+          <p>Select theme</p>
+          <div class="grid list">
+            <button class="button-box" id="theme-auto-button">
+              Auto
+            </button>
+            <button class="button-box" id="theme-light-button">
+              Light
+            </button>
+            <button class="button-box" id="theme-dark-button">
+              Dark
+            </button>
+            <button class="button-box" id="theme-monochrome-button">
+              Monochrome
+            </button>
+            <button class="button-box" id="theme-midnight-button">
+              Midnight
+            </button>
+          </div>
+          <h1>Heading 1</h1>
+          <h2>Heading 2</h2>
+          <h3>Heading 3</h3>
+          <h4>Heading 4</h4>
+          <h5>Heading 5</h5>
+          <h6>Heading 6</h6>
+          <p>Paragraph of normal text</p>
+          <p>
+            Paragraph with <b>bold text</b>, <i>italic text</i>,
+            <s>strikethrough</s>, <mark>highlighted text</mark>, and
+            <code>inline code</code>
+          </p>
+          <ul>
+            <li>Unordered List</li>
+            <li>Text</li>
+            <li>Text text</li>
+          </ul>
+          <ol>
+            <li>Ordered List</li>
+            <li>More text</li>
+            <li>Wow such text</li>
+          </ol>
+          <p>Text, <a href="https://ehui.ehan.dev">link</a>.</p>
+          <p><a class="link-ohno" href="https://ehui.ehan.dev">link-ohno</a></p>
+          <p><a class="link-yay" href="https://ehui.ehan.dev">link-yay</a></p>
+          <p><a class="link-extra" href="https://ehui.ehan.dev">link-extra</a></p>
+          <p><a class="link-love" href="https://ehui.ehan.dev">link-love</a></p>
+          <div class="flex">
+            <button class="button">Button</button>
+            <button class="button alt">Alt button</button>
+          </div>
+          <div class="flex">
+            <button class="button yay">Yay</button>
+            <button class="button alt yay">Yay alt</button>
+          </div>
+          <div class="flex">
+            <button class="button ohno">Ohno</button>
+            <button class="button alt ohno">Ohno alt</button>
+          </div>
+          <div class="flex">
+            <button class="button">Button</button>
+            <a href="https://ehui.ehan.dev" class="button">Link button</a>
+          </div>
+        <p>Disabled buttons with <code>disabled</code> attribute (for buttons) & <code>disabled</code> class (for link-buttons)</p>
+        <div class="flex">
+            <button disabled>Disabled button</button>
+            <a class="button disabled">Disabled link-button</a>
+        </div>
+        <div class="flex">
+            <button class="yay" disabled>Yay button</button>
+            <a class="button ohno disabled">Ohno link-button</a>
+            <button class="yay alt" disabled>Yay alt</button>
+            <button class="ohno alt" disabled>Ohno alt</button>
+        </div>
+          <p>Default text</p>
+          <p class="ohno">Ohno text</p>
+          <p class="yay">Yay text</p>
+          <p class="main">Main text</p>
+          <p class="fg2">Fg2 text</p>
+          <p class="fg1">Fg1 text</p>
+          <p class="fg0">Fg0 text</p>
+          <p>Dropdowns are cool:</p>
+          <div class="flex">
+            <button>Normal Button</button>
+            <div class="dropdown" tabindex="0">
+              <button>Dropdown</button>
+              <div class="content">
+                <button>Button 1</button>
+                <button>Button 2</button>
+                <button class="ohno">Button 3</button>
+              </div>
+            </div>
+            <div class="dropdown" tabindex="0">
+              <button class="dropdown-toggle">
+                <i class="nf nf-md-dots_vertical"></i>
+              </button>
+              <div class="content">
+                <button>Button 1</button>
+                <button>Button 2</button>
+                <button class="ohno">Button 3</button>
+              </div>
+            </div>
+          </div>
+          <p>Dropdown buttons with more color classes:</p>
+          <div class="flex">
+            <div class="dropdown" tabindex="0">
+              <button>Dropdown</button>
+              <div class="content">
+                <button class="yay">Button 1</button>
+                <button>Button 2</button>
+                <button>Button 3</button>
+              </div>
+            </div>
+            <div class="dropdown ohno" tabindex="0">
+              <button class="ohno">Ohno Dropdown</button>
+              <div class="content">
+                <button class="ohno">Button 1</button>
+                <button class="ohno">Button 2</button>
+                <button class="ohno">Button 3</button>
+              </div>
+            </div>
+          </div>
+          <p>raw-dropdown class (for stuff like js-powered dropdowns)</p>
+            <div class="raw-dropdown">
+                <button>Button 1</button>
+                <button>Button 2</button>
+                <button class="ohno">Scary Button</button>
+                <button class="yay">Happy Button</button>
+            </div>
+          <p style="margin-top: 16rem;">"Icon-only" buttons</p>
+          <div class="flex compact-gap">
+            <button class="icon-only-button">
+              <i class="nf nf-fa-pencil"></i>
+            </button>
+            <button class="icon-only-button yay">
+              <i class="nf nf-fa-check"></i>
+            </button>
+            <button class="icon-only-button ohno">
+              <i class="nf nf-fa-trash_can"></i>
+            </button>
+          </div>
+          <p>Combo-select buttons (<code>.combo-select</code> class)</p>
+          <div class="combo-select" id="combo-select-numbered">
+            <button class="left">
+              1
+            </button>
+            <button class="mid selected">
+              2
+            </button>
+            <button class="mid">
+              3
+            </button>
+            <button class="mid">
+              4
+            </button>
+            <button class="mid">
+              5
+            </button>
+            <button class="right">
+              6
+            </button>
+          </div>
+          <p>Combo-select with <code>.combo-selected-icon</code></p>
+          <div class="combo-select">
+            <button class="left selected" id="comboSelect1">
+              <i class="combo-selected-icon nf nf-fa-check"></i>
+              Option 1
+            </button>
+            <button class="mid" id="comboSelect2">
+              <i class="combo-selected-icon nf nf-fa-check"></i>
+              Option 2
+            </button>
+            <button class="right" id="comboSelect3">
+              <i class="combo-selected-icon nf nf-fa-check"></i>
+              Option 3
+            </button>
+          </div>
+          <div class="combo-select">
+            <button class="left selected" id="comboSelectA">
+              <i class="combo-selected-icon nf nf-fa-check"></i>
+              Option A
+            </button>
+            <button class="right" id="comboSelectB">
+              <i class="combo-selected-icon nf nf-fa-check"></i>
+              Option B
+            </button>
+          </div>
+          <p><code>combo-buttons</code> class (similar to combo-select, but with no selected/unselected styles)</p>
+          <div>
+              <div class="combo-buttons">
+                  <button class="left">
+                      Left
+                  </button>
+                  <button class="mid">
+                      Mid
+                  </button>
+                  <button class="right">
+                      Right
+                  </button>
+              </div>
+              <div class="combo-buttons">
+                  <button class="left">
+                      Left
+                  </button>
+                  <button class="right">
+                      Right
+                  </button>
+              </div>
+              <div class="combo-buttons">
+                  <button class="left">
+                      Left
+                  </button>
+                  <button class="mid">
+                      Mid
+                  </button>
+                  <button class="mid">
+                      Mid
+                  </button>
+                  <button class="right">
+                      Right
+                  </button>
+              </div>
+          </div>
+                    <p>Combo-buttons with alt buttons inside</p>
+                    <div>
+              <div class="combo-buttons">
+                  <button class="left alt">
+                      Left
+                  </button>
+                  <button class="mid alt">
+                      Mid
+                  </button>
+                  <button class="right alt">
+                      Right
+                  </button>
+              </div>
+                    </div>
+          <p>Dropdown select</p>
+          <div class="select-wrapper">
+            <select>
+              <option value="">Select an example</option>
+              <option value="example1">Example 1</option>
+              <option value="example2">Example 2</option>
+              <option value="example3">Example 3</option>
+            </select>
+          </div>
+          <p>Searchbars</p>
+          <div style="display:inline-block">
+            <div class="searchbar">
+                <i class="nf nf-fa-search searchbar-icon"></i>
+                <input type="text" placeholder="Search" />
+            </div>
+          </div>
+          <p>Searchbar with autocomplete</p>
+          <div style="display:inline-block">
+            <div class="searchbar with-autocomplete">
+                <i class="nf nf-fa-search searchbar-icon"></i>
+                <input type="text" placeholder="Search" />
+                <div class="searchbar-autocomplete" style="z-index: 100;">
+                  <a href="/docs">Docs & Tutorials</a>
+                  <a href="/">text texttext</a>
+                  <a href="/">abc defg hijkl</a>
+                </div>
+            </div>
+          </div>
+          <br />
+          <br />
+          <p>Searchbar with raw-autocomplete</p>
+          <div style="display:inline-block">
+            <div class="searchbar with-raw-autocomplete">
+                <i class="nf nf-fa-search searchbar-icon"></i>
+                <input type="text" placeholder="Search" id="raw-autocomplete-input" />
+                <div class="searchbar-raw-autocomplete hide" id="raw-autocomplete">
+                  <a href="/docs">Docs & Tutorials</a>
+                  <a href="/">text texttext</a>
+                  <a href="/">abc defg hijkl</a>
+                </div>
+            </div>
+          </div>
+          <br />
+          <br />
+          <h2>Notice boxes</h2>
+          <p class="box center">Notice box text</p>
+          <p class="box center yay">Notice box text</p>
+          <p class="box center ohno">Notice box text</p>
+          <h2>Boxes</h2>
+          <div class="box">
+            <p>Box text</p>
+            <div class="flex">
+              <button>Button</button>
+              <button class="alt">Button</button>
+            </div>
+          </div>
+          <div class="box yay">
+            <p>Green box</p>
+            <div class="flex">
+              <button class="yay">Button</button>
+              <button class="yay alt">Button</button>
+            </div>
+          </div>
+          <div class="box ohno">
+            <p>Red box</p>
+            <div class="flex">
+              <button class="ohno">Button</button>
+              <button class="ohno alt">Button</button>
+            </div>
+          </div>
+          <h2>Inputs</h2>
+          <p>Text input</p>
+          <div class="flex col">
+            <div><input type="text" placeholder="Text input" /></div>
+            <div><input class="ohno" type="text" placeholder="Red text input" /></div>
+            <div><input class="yay" type="text" placeholder="Green text input" /></div>
+          </div>
+          <p>Password input</p>
+          <div class="flex col">
+            <div><input type="password" placeholder="Password input" /></div>
+            <div><input
+              class="ohno"
+              type="password"
+              placeholder="Red password input"
+            /></div>
+            <div><input
+              class="yay"
+              type="password"
+              placeholder="Green password input"
+            /></div>
+          </div>
+          <p>Textarea input</p>
+          <div class="flex wrap">
+            <textarea rows="2" placeholder="Textarea"></textarea>
+            <textarea
+              class="ohno"
+              rows="2"
+              placeholder="Red textarea"
+            ></textarea>
+            <textarea
+              class="yay"
+              rows="2"
+              placeholder="Green textarea"
+            ></textarea>
+          </div>
+          <p>File input</p>
+          <div>
+            <label for="file" class="button">
+                Select File
+                <input type="file" name="file" id="file" class="invisible" />
+            </label>
+          </div>
+          <h2>Tables</h2>
+          <p>Inner table</p>
+          <table class="inner">
+            <thead>
+              <tr>
+                <th>Header, column 0</th>
+                <th>Header, column 1</th>
+                <th>Header, column 2</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Row 0, column 0</td>
+                <td>Row 0, column 1</td>
+                <td>Row 0, column 2</td>
+              </tr>
+              <tr>
+                <td>Row 1, column 0</td>
+                <td>Row 1, column 1</td>
+                <td>Row 1, column 2</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>Outer table</p>
+          <table class="outer">
+            <thead>
+              <tr>
+                <th>Header, column 0</th>
+                <th>Header, column 1</th>
+                <th>Header, column 2</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Row 0, column 0</td>
+                <td>Row 0, column 1</td>
+                <td>Row 0, column 2</td>
+              </tr>
+              <tr>
+                <td>Row 1, column 0</td>
+                <td>Row 1, column 1</td>
+                <td>Row 1, column 2</td>
+              </tr>
+            </tbody>
+          </table>
+          <h2>Cards</h2>
+          <div class="card">
+            <div class="content">Card</div>
+          </div>
+          <div
+            class="card double"
+            id="flip"
+            onclick="document.getElementById('flip').classList.toggle('flip');"
+          >
+            <div class="content">
+              <div class="front">Card front<br />Click to flip</div>
+              <div class="back">Card back<br />Click to flip</div>
+            </div>
+          </div>
+          <h2>Grid List Thingy</h2>
+          <div class="grid list">
+            <div class="box">Item 0</div>
+            <div class="box">Item 1</div>
+            <div class="box yay">
+              <p>Item 2</p>
+              <p>Green</p>
+            </div>
+            <div class="box">Item 3</div>
+            <div class="box">Item 4</div>
+            <div class="box ohno">
+              <p>Item 5</p>
+              <p>Red</p>
+            </div>
+            <div class="box">Item 6</div>
+            <div class="box yay">
+              <p>Item 7</p>
+              <p>Green</p>
+            </div>
+            <div class="box">Item 8</div>
+            <div class="box">Item 9</div>
+            <div class="box">Item 10</div>
+            <div class="box">Item 11</div>
+            <div class="box">Item 12</div>
+            <div class="box">Item 13</div>
+            <div class="box">Item 14</div>
+          </div>
+          <h2>Grid List & .flex.center-h & .center-v</h2>
+          <div class="grid list">
+            <div class="box">
+              <p>text</p>
+            </div>
+            <div class="box flex center-h">
+              <p>.center-h</p>
+            </div>
+            <div class="box">
+              <p>more</p>
+              <p>text</p>
+            </div>
+            <div class="box flex center-v">
+              <p>.center-v</p>
+            </div>
+            <div class="box flex center-h center-v">
+              <p>-v and -h</p>
+            </div>
+            <div class="box">
+              <p>example</p>
+              <p>text</p>
+            </div>
+          </div>
+          <h2>Separator</h2>
+          <p>text</p>
+          <div class="separator">separator</div>
+          <p>text</p>
+          <h2>Example</h2>
+          <p>Option 1</p>
+          <div class="separator">or</div>
+          <p>Option 2</p>
+        </div>
+      </div>
+      <div class="wave-top extra-bg"></div>
+      <div class="grid page extra">
+        <div class="content">
+          <h2 class="extra">Extra header</h2>
+          <div class="flex">
+            <button class="extra">Extra</button>
+            <button class="alt extra">Extra alt</button>
+          </div>
+          <p>Extra inputs</p>
+          <div>
+            <input class="extra" type="text" placeholder="Extra text input" />
+          </div>
+          <div>
+            <input
+              class="extra"
+              type="password"
+              placeholder="Extra password input"
+            />
+          </div>
+          <div>
+            <textarea
+              class="extra"
+              rows="2"
+              placeholder="Extra textarea"
+            ></textarea>
+          </div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Extra link with link-extra class: <a href="https://quizfreely.org" class="link-extra">link here ig</a></p>
+          <div class="flex">
+            <button class="large extra">Large</button>
+            <button class="large extra alt">Large Alt</button>
+          </div>
+          <div class="flex">
+            <button class="large extra">Button</button>
+            <a href="https://ehui.ehan.dev" class="button large extra">Link Button</a>
+          </div>
+        </div>
+      </div>
+      <div class="wave-bottom extra-bg"></div>
+      <div class="grid page">
+        <div class="content">
+            <p>
+                "yay" color is for success (usually green)<br>
+                "ohno" is for danger/error (usually red)<br>
+                "extra" is just an accent/secondary color, it can be the same as yay if we want<br>
+                "love" is a cute (usually red) color for not-scary stuff, it can be the same as ohno<br>
+                the main difference is ohno and yay need to have contrast, so in colorblind themes they might not be red/green, but they should always give off negative/positive vibes, while love is supposed to be used for stuff like like buttons or donation links which isn't the same "scary" vibe use case that ohno is for
+            </p>
+                    <div class="flex">
+                        <button class="love">Love Color</button>
+                        <button class="love alt">Love Alt</button>
+                        <button class="love faint">Love Faint</button>
+                    </div>
+                    <div class="flex">
+                        <a class="button love">Link Button</a>
+                        <a class="button love alt">Link Alt</a>
+                        <a class="button love faint">Link Faint</a>
+                    </div>
+                    <div class="flex">
+                        <button class="love icon-only-button" id="heartbuttontoggle">
+                            <i class="nf nf-fa-heart" id="annoyingshi" style="font-size: 1.1rem;"></i>
+                        </button>
+                    </div>
+                    <div class="flex">
+                        <a href="https://hcb.hackclub.com/donations/start/quizfreely" class="button love"><i class="nf nf-fa-heart"></i> Donate</a>
+                        <a href="https://hcb.hackclub.com/donations/start/quizfreely" class="button love alt"><i class="nf nf-fa-heart"></i> Donate</a>
+                        <a href="https://hcb.hackclub.com/donations/start/quizfreely" class="button love faint"><i class="nf nf-fa-heart"></i> Donate</a>
+                    </div>
+                    <p>Link using link-love class: <a href="https://quizfreely.org" class="link-love">link is here hiii</a></p>
+                    <p>Ohno and love are not usually directly next to eachother, so they might look odd in the example below but they usually look nice in real use cases (or they might be the same, which is fine)</p>
+                    <div class="flex">
+                        <button class="love">Love Color</button>
+                        <button class="ohno">Ohno Color</button>
+                    </div>
+                    <div class="flex">
+                        <button class="love alt">Love Alt</button>
+                        <button class="ohno alt">Ohno Alt</button>
+                    </div>
+                    <div class="flex">
+                        <button class="love faint">Love Faint</button>
+                        <button class="ohno faint">Ohno Faint</button>
+                    </div>
+          <p>Large buttons (continued?)</p>
+          <div class="flex">
+            <button class="large">Large</button>
+            <button class="large alt">Large Alt</button>
+          </div>
+          <div class="flex">
+            <button class="large yay">Button</button>
+            <a href="https://ehui.ehan.dev" class="button yay large">Link Button</a>
+          </div>
+          <p>continued again?</p>
+          <div class="flex">
+            <button class="large ohno">Button</button>
+            <a href="https://ehui.ehan.dev" class="button large alt ohno">Alt Link Button</a>
+          </div>
+          <div class="flex">
+            <button class="large">Button</button>
+            <a href="https://ehui.ehan.dev" class="button large">Link Button</a>
+          </div>
+          <br />
+          <h2>Modals & Alerts</h2>
+          <p>You/we can use ehui's <code>.hide</code> class to show/hide modals.</p>
+          <button
+            onclick="document.getElementById('modal').classList.remove('hide');"
+          >
+            Open Modal
+          </button>
+          <div id="modal" class="modal hide">
+            <div class="content">
+              <p>This is a modal!</p>
+              <p>
+                Most elements work perfectly inside of modals, with no extra
+                "setup".
+              </p>
+              <div>
+                <button
+                  onclick="document.getElementById('modal').classList.add('hide');"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+          <br />
+          <br />
+          <h2>Button boxes</h2>
+          <p>We have fancy styling for button boxes with <code>&lt;button class="button-box"&gt;...&lt;button&gt;</code> or <code>&lt;a class="button button-box"&gt;...&lt;a&gt;</code></p>
+          <p>You/we can add `.selected` for a fancy outline</p>
+          <div class="flex">
+            <button class="button-box selected" id="button-box-1">
+              Something
+            </button>
+            <button class="button-box" id="button-box-2">
+              Something Else
+            </button>
+            <button class="button-box" id="button-box-3">
+              Another Thing
+            </button>
+          </div>
+          <p>
+            We can also have other elements like images inside button boxes
+          </p>
+          <div class="grid list">
+            <button class="button-box selected" id="button-box-w-img-1">
+              <img src="./img/imgExample1.png" style="width:100%;border-radius:0.8rem">
+              <p>Example 1</p>
+            </button>
+            <button class="button-box" id="button-box-w-img-2">
+              <img src="./img/imgExample2.png" style="width:100%;border-radius:0.8rem">
+              <p>Example 2</p>
+            </button>
+            <button class="button-box" id="button-box-w-img-3">
+              <img src="./img/imgExample3.png" style="width:100%;border-radius:0.8rem">
+              <p>Example 3</p>
+            </button>
+          </div>
+          <p>We can apply color classes <code>.yay</code> and <code>.ohno</code> to button boxes too</p>
+          <div class="flex">
+            <button id="button-box-w-color-1" class="button-box">
+              Plain
+            </button>
+            <button id="button-box-w-color-2" class="button-box ohno">
+              Red (ohno)
+            </button>
+            <button id="button-box-w-color-3" class="button-box">
+              Plain
+            </button>
+          </div>
+          <div class="flex">
+            <button id="button-box-w-color2-1" class="button-box">
+              Plain
+            </button>
+            <button id="button-box-w-color2-2" class="button-box">
+              Plain
+            </button>
+            <button id="button-box-w-color2-3" class="button-box yay">
+              Green (yay)
+            </button>
+          </div>
+          <p>We can apply color classes after being clicked.<br>
+          You can do this with JavaScript using <code>element.classList.add(...)</code> and <code>element.classList.remove(...)</code> in <code>element.addEventListener("click", ...)</code></p>
+          <div class="flex">
+            <button class="button-box" id="button-box-correct">
+              Correct
+            </button>
+            <button class="button-box" id="button-box-incorrect-1">
+              Incorrect
+            </button>
+            <button class="button-box" id="button-box-incorrect-2">
+              Incorrect
+            </button>
+          </div>
+          <p>We can also make button boxes disabled</p>
+          <div class="flex">
+            <button class="button-box selected" disabled>
+              Disabled & Selected
+            </button>
+            <button class="button-box" disabled>
+              Disabled
+            </button>
+            <a class="button button-box disabled">
+              Disabled Link-Button-Box
+            </a>
+          </div>
+          <div class="flex">
+            <button class="button-box yay selected" disabled>
+              Yay disabled (selected)
+            </button>
+            <button class="button-box yay" disabled>
+              Yay disabled
+            </button>
+            <button class="button-box ohno" disabled>
+              Ohno Disabled
+            </button>
+          </div>
+          <div class="flex">
+            <button class="button-box ohno selected" disabled>
+              Ohno disabled (selected)
+            </button>
+            <button class="button-box" disabled>
+              Disabled
+            </button>
+          </div>
+        <br>
+        <br>
+        <p>You can use the <code>button-box-selected-icon</code> class to show/hide icons when selected</p>
+        <p>For example, Question Types: <span class="fg0">(select multiple)</span></p>
+        <div style="display: grid; grid-template-columns: auto; justify-content: start;">
+            <button class="button-box selected" style="display: flex;" id="questiontypes1">
+                <i class="button-box-selected-icon nf nf-fa-check"></i>
+                Multiple Choice
+            </button>
+            <button class="button-box" style="display: flex;" id="questiontypes2">
+                <i class="button-box-selected-icon nf nf-fa-check"></i>
+                True/False
+            </button>
+            <button class="button-box selected" style="display: flex;" id="questiontypes3">
+                <i class="button-box-selected-icon nf nf-fa-check"></i>
+                Matching
+            </button>
+            <button class="button-box" style="display: flex;" id="questiontypes4">
+                <i class="button-box-selected-icon nf nf-fa-check"></i>
+                Free Response
+            </button>
+        </div>
+        <br>
+        <br>
+        <p>
+            You can use classes <code>button-box</code> and <code>with-bordercolor-border</code> when button boxes are inside of div elements that have <code>class="box"</code>
+            <span class="line">This example also applies/resets <code>disabled</code> attributes when answers are submitted/reset.</span>
+            <span class="line">Also use <code>no-box-shadow</code> to disable shadows</span>
+        </p>
+        <div class="box">
+            <p class="fg0">Select the matching definition</p>
+            <p class="h4">ammonium</p>
+            <div style="display: grid; gap: 0.2rem; grid-template-columns: auto; justify-content: start; margin-top: 0.6rem;">
+                <button style="display: flex; justify-items: start; justify-content: start; text-align: start; margin-top: 0px;" class="button-box with-bordercolor-border no-box-shadow" id="button-box-with-bordercolor-border-incorrect1">
+                    <i class="nf nf-fa-check button-box-selected-icon"></i> HCO3
+                </button>
+                <button style="display: flex; justify-items: start; justify-content: start; text-align: start; margin-top: 0px;" class="button-box with-bordercolor-border no-box-shadow" id="button-box-with-bordercolor-border-correct">
+                    <i class="nf nf-fa-check button-box-selected-icon"></i> NH4
+                </button>
+                <button style="display: flex; justify-items: start; justify-content: start; text-align: start; margin-top: 0px;" class="button-box with-bordercolor-border no-box-shadow" id="button-box-with-bordercolor-border-incorrect2">
+                    <i class="nf nf-fa-check button-box-selected-icon"></i> C2H3O2
+                </button>
+                <button style="display: flex; justify-items: start; justify-content: start; text-align: start; margin-top: 0px;" class="button-box with-bordercolor-border no-box-shadow" id="button-box-with-bordercolor-border-incorrect3">
+                    <i class="nf nf-fa-check button-box-selected-icon"></i> ClO
+                </button>
+            </div>
+        </div>
+        <div class="flex">
+            <button class="yay alt" id="button-box-with-bordercolor-border-check-answer"><i class="nf nf-fa-check"></i> Check Answer</button>
+            <button class="faint" id="button-box-with-bordercolor-border-reset">Reset</button>
+        </div>
+        <br>
+        <br>
+          <p>Accordions using the <code>&lt;details&gt;</code> element</p>
+          <details>
+            <summary>Text goes here</summary>
+            <p>More text goes here and here and here</p>
+          </details>
+          <p style="margin-top: 4rem;">Progress bars:</p>
+          <div class="progress-bar" id="progress-bar">
+            <div style="width: 12%;"></div>
+          </div>
+          <p class="fg0">Change progress (live)</p>
+            <div class="flex nowrap compact-gap" style="align-items: center; align-content: center; margin-top: 0.2rem;">
+                <input type="text" id="progress-bar-input" placeholder="12" style="width: 4rem;"><span>%</span>
+            </div>
+          <p style="margin-top: 2rem;">More progress bar styles:</p>
+          <div class="progress-bar thin" id="progress-bar2">
+            <div style="width: 34%;"></div>
+          </div>
+            <div class="flex nowrap compact-gap" style="align-items: center; align-content: center;">
+                <input type="text" id="progress-bar2-input" placeholder="34" style="width: 4rem;"><span>%</span>
+            </div>
+          <div class="progress-bar yay" id="progress-bar3" style="margin-top: 2rem;">
+            <div style="width: 67%;"></div>
+          </div>
+            <div class="flex nowrap compact-gap" style="align-items: center; align-content: center;">
+                <input type="text" id="progress-bar3-input" placeholder="67" style="width: 4rem;"><span>%</span>
+            </div>
+          <div class="progress-bar yay thin" id="progress-bar31" style="margin-top: 2rem;">
+            <div style="width: 67%;"></div>
+          </div>
+            <div class="flex nowrap compact-gap" style="align-items: center; align-content: center;">
+                <input type="text" id="progress-bar31-input" placeholder="67" style="width: 4rem;"><span>%</span>
+            </div>
+          <div class="progress-bar fg1" id="progress-bar4" style="margin-top: 2rem;">
+            <div style="width: 50%;"></div>
+          </div>
+            <div class="flex nowrap compact-gap" style="align-items: center; align-content: center;">
+                <input type="text" id="progress-bar4-input" placeholder="50" style="width: 4rem;"><span>%</span>
+            </div>
+          <div class="progress-bar ohno" id="progress-bar5" style="margin-top: 2rem;">
+            <div style="width: 80%;"></div>
+          </div>
+            <div class="flex nowrap compact-gap" style="align-items: center; align-content: center;">
+                <input type="text" id="progress-bar5-input" placeholder="80" style="width: 4rem;"><span>%</span>
+            </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <h2>Footer</h2>
+      <p>Text text text text</p>
+    </footer>
+        <script>
+        buttonBoxWBorderIncorrect1 = document.getElementById("button-box-with-bordercolor-border-incorrect1");
+        buttonBoxWBorderCorrect = document.getElementById("button-box-with-bordercolor-border-correct");
+        buttonBoxWBorderIncorrect2 = document.getElementById("button-box-with-bordercolor-border-incorrect2");
+        buttonBoxWBorderIncorrect3 = document.getElementById("button-box-with-bordercolor-border-incorrect3");
+
+        buttonBoxWBorderCheckAnswer = document.getElementById("button-box-with-bordercolor-border-check-answer");
+        buttonBoxWBorderReset = document.getElementById("button-box-with-bordercolor-border-reset");
+
+        function buttonBoxWBorderOnClickHandler(e) {
+            if (buttonBoxWBorderAnswerSubmitted) {
+                return;
+            }
+            buttonBoxWBorderIncorrect1.classList.remove("selected");
+            buttonBoxWBorderCorrect.classList.remove("selected");
+            buttonBoxWBorderIncorrect2.classList.remove("selected");
+            buttonBoxWBorderIncorrect3.classList.remove("selected");
+            e.target.classList.add("selected");
+        }
+        buttonBoxWBorderIncorrect1.addEventListener("click", buttonBoxWBorderOnClickHandler);
+        buttonBoxWBorderCorrect.addEventListener("click", buttonBoxWBorderOnClickHandler);
+        buttonBoxWBorderIncorrect2.addEventListener("click", buttonBoxWBorderOnClickHandler);
+        buttonBoxWBorderIncorrect3.addEventListener("click", buttonBoxWBorderOnClickHandler);
+        let buttonBoxWBorderAnswerSubmitted = false;
+        buttonBoxWBorderCheckAnswer.addEventListener("click", () => {
+            let anySelected = false;
+            if (buttonBoxWBorderIncorrect1.classList.contains("selected")) {
+                anySelected = true;
+                buttonBoxWBorderIncorrect1.classList.add("ohno");
+                buttonBoxWBorderIncorrect1.children[0].classList.remove("nf-fa-check");
+                buttonBoxWBorderIncorrect1.children[0].classList.add("nf-fa-xmark");
+            }
+            if (buttonBoxWBorderCorrect.classList.contains("selected")) {
+                anySelected = true;
+                buttonBoxWBorderCorrect.classList.add("yay");
+            }
+            if (buttonBoxWBorderIncorrect2.classList.contains("selected")) {
+                anySelected = true;
+                buttonBoxWBorderIncorrect2.classList.add("ohno");
+                buttonBoxWBorderIncorrect2.children[0].classList.remove("nf-fa-check");
+                buttonBoxWBorderIncorrect2.children[0].classList.add("nf-fa-xmark");
+            }
+            if (buttonBoxWBorderIncorrect3.classList.contains("selected")) {
+                anySelected = true;
+                buttonBoxWBorderIncorrect3.classList.add("ohno");
+                buttonBoxWBorderIncorrect3.children[0].classList.remove("nf-fa-check");
+                buttonBoxWBorderIncorrect3.children[0].classList.add("nf-fa-xmark");
+            }
+
+            if (anySelected) {
+                buttonBoxWBorderAnswerSubmitted = true;
+                buttonBoxWBorderIncorrect1.setAttribute("disabled", "");
+                buttonBoxWBorderCorrect.setAttribute("disabled", "");
+                buttonBoxWBorderIncorrect2.setAttribute("disabled", "");
+                buttonBoxWBorderIncorrect3.setAttribute("disabled", "");
+            }
+        })
+        buttonBoxWBorderReset.addEventListener("click", () => {
+            buttonBoxWBorderAnswerSubmitted = false;
+            buttonBoxWBorderIncorrect1.removeAttribute("disabled");
+            buttonBoxWBorderCorrect.removeAttribute("disabled");
+            buttonBoxWBorderIncorrect2.removeAttribute("disabled");
+            buttonBoxWBorderIncorrect3.removeAttribute("disabled");
+            buttonBoxWBorderIncorrect1.classList.remove("ohno");
+            buttonBoxWBorderCorrect.classList.remove("yay");
+            buttonBoxWBorderIncorrect2.classList.remove("ohno");
+            buttonBoxWBorderIncorrect3.classList.remove("ohno");
+            buttonBoxWBorderIncorrect1.classList.remove("selected");
+            buttonBoxWBorderCorrect.classList.remove("selected");
+            buttonBoxWBorderIncorrect2.classList.remove("selected");
+            buttonBoxWBorderIncorrect3.classList.remove("selected");
+        })
+
+        function questiontypesonclick(e) {
+            e.target.classList.toggle("selected");
+        }
+        document.getElementById("questiontypes1").addEventListener("click", questiontypesonclick);
+        document.getElementById("questiontypes2").addEventListener("click", questiontypesonclick);
+        document.getElementById("questiontypes3").addEventListener("click", questiontypesonclick);
+        document.getElementById("questiontypes4").addEventListener("click", questiontypesonclick);
+
+        document.getElementById("progress-bar-input").addEventListener("input", (ev) => {
+            let n = parseFloat(ev.target.value);
+            if (!isNaN(n) && n > 100) {
+                n = 100;
+            }
+            if (!isNaN(n) && n < 0) {
+                n = 0;
+            }
+            if (!isNaN(n)) {
+                document.getElementById("progress-bar").children[0].style.width = n+"%";
+            }
+        })
+        document.getElementById("progress-bar2-input").addEventListener("input", (ev) => {
+            let n = parseFloat(ev.target.value);
+            if (!isNaN(n) && n > 100) {
+                n = 100;
+            }
+            if (!isNaN(n) && n < 0) {
+                n = 0;
+            }
+            if (!isNaN(n)) {
+                document.getElementById("progress-bar2").children[0].style.width = n+"%";
+            }
+        })
+        document.getElementById("progress-bar3-input").addEventListener("input", (ev) => {
+            let n = parseFloat(ev.target.value);
+            if (!isNaN(n) && n > 100) {
+                n = 100;
+            }
+            if (!isNaN(n) && n < 0) {
+                n = 0;
+            }
+            if (!isNaN(n)) {
+                document.getElementById("progress-bar3").children[0].style.width = n+"%";
+            }
+        })
+        document.getElementById("progress-bar31-input").addEventListener("input", (ev) => {
+            let n = parseFloat(ev.target.value);
+            if (!isNaN(n) && n > 100) {
+                n = 100;
+            }
+            if (!isNaN(n) && n < 0) {
+                n = 0;
+            }
+            if (!isNaN(n)) {
+                document.getElementById("progress-bar31").children[0].style.width = n+"%";
+            }
+        })
+        document.getElementById("progress-bar4-input").addEventListener("input", (ev) => {
+            let n = parseFloat(ev.target.value);
+            if (!isNaN(n) && n > 100) {
+                n = 100;
+            }
+            if (!isNaN(n) && n < 0) {
+                n = 0;
+            }
+            if (!isNaN(n)) {
+                document.getElementById("progress-bar4").children[0].style.width = n+"%";
+            }
+        })
+        document.getElementById("progress-bar5-input").addEventListener("input", (ev) => {
+            let n = parseFloat(ev.target.value);
+            if (!isNaN(n) && n > 100) {
+                n = 100;
+            }
+            if (!isNaN(n) && n < 0) {
+                n = 0;
+            }
+            if (!isNaN(n)) {
+                document.getElementById("progress-bar5").children[0].style.width = n+"%";
+            }
+        })
+        </script>
+        </script>
+    <!--<script src="https://ehui.ehan.dev/js/ehUi.js"></script>
+    <script src="https://ehui.ehan.dev/js/modals.js"></script>
+    <script>
+	    var indx = ehUi.modals.create({
+		    title: "Title",
+		    body: "Body text goes here?",
+		    actions: [
+			    {
+				    tag: "button",
+            text: "close",
+				    onClick: function () { hideThis() } 
+				  },
+          {
+            tag: "button",
+            text: "change color",
+            onClick: function () { chColor() },
+            classList: [
+              "ohno",
+              "alt"
+            ]
+          }
+        ]
+	    });
+      function hideThis() {
+        ehUi.modals.list[indx].classList.add("hide");
+      }
+      function chColor() {
+        ehUi.modals.list[indx].style.color = "#ff0000"
+      }
+    </script>-->
+    <script>
+      /* combo-select with Option 1, Option 2, Option 3 */
+      document.getElementById("comboSelect1").addEventListener("click", function () {
+        document.getElementById("comboSelect1").classList.add("selected");
+        document.getElementById("comboSelect2").classList.remove("selected");
+        document.getElementById("comboSelect3").classList.remove("selected");
+      })
+      document.getElementById("comboSelect2").addEventListener("click", function () {
+        document.getElementById("comboSelect1").classList.remove("selected");
+        document.getElementById("comboSelect2").classList.add("selected");
+        document.getElementById("comboSelect3").classList.remove("selected");
+      })
+      document.getElementById("comboSelect3").addEventListener("click", function () {
+        document.getElementById("comboSelect1").classList.remove("selected");
+        document.getElementById("comboSelect2").classList.remove("selected");
+        document.getElementById("comboSelect3").classList.add("selected");
+      })
+
+      /* combo-select with Option A and Option B*/
+      document.getElementById("comboSelectA").addEventListener("click", function () {
+        document.getElementById("comboSelectA").classList.add("selected");
+        document.getElementById("comboSelectB").classList.remove("selected");
+      })
+      document.getElementById("comboSelectB").addEventListener("click", function () {
+        document.getElementById("comboSelectA").classList.remove("selected");
+        document.getElementById("comboSelectB").classList.add("selected");
+      })
+
+      /* combo-select many numbers (initalized with a for loop and uses event.target) */
+      var comboSelectNumbered = document.getElementById("combo-select-numbered");
+      for (var i = 0; i < comboSelectNumbered.children.length; i++) {
+        comboSelectNumbered.children[i].addEventListener(
+          "click",
+          function (event) {
+            for (var i2 = 0; i2 < comboSelectNumbered.children.length; i2++) {
+              comboSelectNumbered.children[i2].classList.remove("selected");
+            }
+            event.target.classList.add("selected");
+          }
+        )
+      }
+    </script>
+    <script>
+      document.getElementById("button-box-1").addEventListener("click", function () {
+        document.getElementById("button-box-1").classList.toggle("selected");
+        document.getElementById("button-box-2").classList.remove("selected");
+        document.getElementById("button-box-3").classList.remove("selected");
+      })
+      document.getElementById("button-box-2").addEventListener("click", function () {
+        document.getElementById("button-box-1").classList.remove("selected");
+        document.getElementById("button-box-2").classList.toggle("selected");
+        document.getElementById("button-box-3").classList.remove("selected");
+      })
+      document.getElementById("button-box-3").addEventListener("click", function () {
+        document.getElementById("button-box-1").classList.remove("selected");
+        document.getElementById("button-box-2").classList.remove("selected");
+        document.getElementById("button-box-3").classList.toggle("selected");
+      })
+      document.getElementById("button-box-w-img-1").addEventListener("click", function () {
+        document.getElementById("button-box-w-img-1").classList.toggle("selected");
+        document.getElementById("button-box-w-img-2").classList.remove("selected");
+        document.getElementById("button-box-w-img-3").classList.remove("selected");
+      })
+      document.getElementById("button-box-w-img-2").addEventListener("click", function () {
+        document.getElementById("button-box-w-img-1").classList.remove("selected");
+        document.getElementById("button-box-w-img-2").classList.toggle("selected");
+        document.getElementById("button-box-w-img-3").classList.remove("selected");
+      })
+      document.getElementById("button-box-w-img-3").addEventListener("click", function () {
+        document.getElementById("button-box-w-img-1").classList.remove("selected");
+        document.getElementById("button-box-w-img-2").classList.remove("selected");
+        document.getElementById("button-box-w-img-3").classList.toggle("selected");
+      })
+      
+      document.getElementById("button-box-w-color-1").addEventListener("click", function () {
+        document.getElementById("button-box-w-color-1").classList.toggle("selected");
+        document.getElementById("button-box-w-color-2").classList.remove("selected");
+        document.getElementById("button-box-w-color-3").classList.remove("selected");
+      })
+      document.getElementById("button-box-w-color-2").addEventListener("click", function () {
+        document.getElementById("button-box-w-color-1").classList.remove("selected");
+        document.getElementById("button-box-w-color-2").classList.toggle("selected");
+        document.getElementById("button-box-w-color-3").classList.remove("selected");
+      })
+      document.getElementById("button-box-w-color-3").addEventListener("click", function () {
+        document.getElementById("button-box-w-color-1").classList.remove("selected");
+        document.getElementById("button-box-w-color-2").classList.remove("selected");
+        document.getElementById("button-box-w-color-3").classList.toggle("selected");
+      })
+
+      document.getElementById("button-box-w-color2-1").addEventListener("click", function () {
+        document.getElementById("button-box-w-color2-1").classList.toggle("selected");
+        document.getElementById("button-box-w-color2-2").classList.remove("selected");
+        document.getElementById("button-box-w-color2-3").classList.remove("selected");
+      })
+      document.getElementById("button-box-w-color2-2").addEventListener("click", function () {
+        document.getElementById("button-box-w-color2-1").classList.remove("selected");
+        document.getElementById("button-box-w-color2-2").classList.toggle("selected");
+        document.getElementById("button-box-w-color2-3").classList.remove("selected");
+      })
+      document.getElementById("button-box-w-color2-3").addEventListener("click", function () {
+        document.getElementById("button-box-w-color2-1").classList.remove("selected");
+        document.getElementById("button-box-w-color2-2").classList.remove("selected");
+        document.getElementById("button-box-w-color2-3").classList.toggle("selected");
+      })
+
+      document.getElementById("button-box-correct").addEventListener("click", function () {
+        document.getElementById("button-box-correct").classList.add("yay");
+        document.getElementById("button-box-correct").classList.toggle("selected");
+        document.getElementById("button-box-incorrect-1").classList.remove("selected");
+        document.getElementById("button-box-incorrect-2").classList.remove("selected");
+      })
+      document.getElementById("button-box-incorrect-1").addEventListener("click", function () {
+        document.getElementById("button-box-correct").classList.remove("selected");
+        document.getElementById("button-box-incorrect-1").classList.add("ohno");
+        document.getElementById("button-box-incorrect-1").classList.toggle("selected");
+        document.getElementById("button-box-incorrect-2").classList.remove("selected");
+      })
+      document.getElementById("button-box-incorrect-2").addEventListener("click", function () {
+        document.getElementById("button-box-correct").classList.remove("selected");
+        document.getElementById("button-box-incorrect-1").classList.remove("selected");
+        document.getElementById("button-box-incorrect-2").classList.add("ohno");
+        document.getElementById("button-box-incorrect-2").classList.toggle("selected");
+      })
+    </script>
+    <script>
+      document.getElementById("theme-auto-button").addEventListener("click", function () {
+        if (window.localStorage) {
+          localStorage.setItem("ehuidemo:theme", "auto");
+        }
+        document.documentElement.classList.remove("theme-light");
+        document.documentElement.classList.remove("theme-dark");
+        document.documentElement.classList.remove("theme-monochrome");
+        document.documentElement.classList.remove("theme-midnight");
+        document.documentElement.classList.add("theme-auto");
+
+        document.getElementById("theme-auto-button").classList.add("selected");
+        document.getElementById("theme-light-button").classList.remove("selected");
+        document.getElementById("theme-dark-button").classList.remove("selected");
+        document.getElementById("theme-monochrome-button").classList.remove("selected");
+        document.getElementById("theme-midnight-button").classList.remove("selected");
+      });
+      document.getElementById("theme-light-button").addEventListener("click", function () {
+        if (window.localStorage) {
+          localStorage.setItem("ehuidemo:theme", "light");
+        }
+        document.documentElement.classList.remove("theme-auto");
+        document.documentElement.classList.remove("theme-dark");
+        document.documentElement.classList.remove("theme-monochrome");
+        document.documentElement.classList.remove("theme-midnight");
+        document.documentElement.classList.add("theme-light");
+
+        document.getElementById("theme-auto-button").classList.remove("selected");
+        document.getElementById("theme-light-button").classList.add("selected");
+        document.getElementById("theme-dark-button").classList.remove("selected");
+        document.getElementById("theme-monochrome-button").classList.remove("selected");
+        document.getElementById("theme-midnight-button").classList.remove("selected");
+      });
+      document.getElementById("theme-dark-button").addEventListener("click", function () {
+        if (window.localStorage) {
+          localStorage.setItem("ehuidemo:theme", "dark");
+        }
+        document.documentElement.classList.remove("theme-auto");
+        document.documentElement.classList.remove("theme-light");
+        document.documentElement.classList.remove("theme-monochrome");
+        document.documentElement.classList.remove("theme-midnight");
+        document.documentElement.classList.add("theme-dark");
+
+        document.getElementById("theme-auto-button").classList.remove("selected");
+        document.getElementById("theme-light-button").classList.remove("selected");
+        document.getElementById("theme-dark-button").classList.add("selected");
+        document.getElementById("theme-monochrome-button").classList.remove("selected");
+        document.getElementById("theme-midnight-button").classList.remove("selected");
+      });
+      document.getElementById("theme-monochrome-button").addEventListener("click", function () {
+        if (window.localStorage) {
+          localStorage.setItem("ehuidemo:theme", "monochrome");
+        }
+        document.documentElement.classList.remove("theme-auto");
+        document.documentElement.classList.remove("theme-light");
+        document.documentElement.classList.remove("theme-dark");
+        document.documentElement.classList.remove("theme-midnight");
+        document.documentElement.classList.add("theme-monochrome");
+
+        document.getElementById("theme-auto-button").classList.remove("selected");
+        document.getElementById("theme-light-button").classList.remove("selected");
+        document.getElementById("theme-dark-button").classList.remove("selected");
+        document.getElementById("theme-monochrome-button").classList.add("selected");
+        document.getElementById("theme-midnight-button").classList.remove("selected");
+      });
+      document.getElementById("theme-midnight-button").addEventListener("click", function () {
+        if (window.localStorage) {
+          localStorage.setItem("ehuidemo:theme", "midnight");
+        }
+        document.documentElement.classList.remove("theme-auto");
+        document.documentElement.classList.remove("theme-light");
+        document.documentElement.classList.remove("theme-dark");
+        document.documentElement.classList.remove("theme-monochrome");
+        document.documentElement.classList.add("theme-midnight");
+
+        document.getElementById("theme-auto-button").classList.remove("selected");
+        document.getElementById("theme-light-button").classList.remove("selected");
+        document.getElementById("theme-dark-button").classList.remove("selected");
+        document.getElementById("theme-monochrome-button").classList.remove("selected");
+        document.getElementById("theme-midnight-button").classList.add("selected");
+      });
+      if (theme) {
+        /* `theme` is set in the script tag at the top, inside head
+        because we need to change the class before the document renders (inside head)
+        having it at the top inside head prevents flickering
+        and then we need to change the visual selected effect after the document renders (here, inside body, at the end) */
+        const selectedThemeButton = document.getElementById(
+          "theme-" + theme + "-button"
+        );
+        if (selectedThemeButton) {
+          selectedThemeButton.classList.add("selected");
+        }
+      }
+
+      document.getElementById("heartbuttontoggle").addEventListener("click", (e) => {
+          const hearticon = document.getElementById("annoyingshi");
+          if (hearticon && hearticon.classList.contains("nf-fa-heart")) {
+            hearticon.classList.remove("nf-fa-heart")
+            hearticon.classList.add("nf-fa-heart_o")
+          } else if (hearticon) {
+            hearticon.classList.remove("nf-fa-heart_o")
+            hearticon.classList.add("nf-fa-heart")
+          }
+      });
+    </script>
+    <script>
+        function outsideClick(e) {
+            if (!document.getElementById("raw-autocomplete-input").contains(e.target) && !document.getElementById("raw-autocomplete").contains(e.target)) {
+                document.getElementById("raw-autocomplete").classList.add("hide");
+                window.removeEventListener("click", outsideClick);
+            }
+        }
+        function searchbarInteraction(e) {
+            if (e.target.value.length > 0) {
+                document.getElementById("raw-autocomplete").classList.remove("hide");
+                window.addEventListener("click", outsideClick);
+            } else {
+                document.getElementById("raw-autocomplete").classList.add("hide");
+                window.removeEventListener("click", outsideClick);
+            }
+        }
+        document.getElementById("raw-autocomplete-input").addEventListener(
+            "input", searchbarInteraction
+        );
+        document.getElementById("raw-autocomplete-input").addEventListener(
+            "focus", searchbarInteraction
+        );
+    </script>
+  </body>
+</html>
