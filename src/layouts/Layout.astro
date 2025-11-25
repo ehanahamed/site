@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="theme-dark">
   <head>
     <meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width" />
@@ -7,7 +7,7 @@
     <link rel="icon" href="/favicon.ico" sizes="32x32">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="stylesheet" href="/immutable/css-20251122/ehui.min.css" />
-    <link rel="stylesheet" href="/immutable/themes-20251122/auto-light-dark.min.css" />
+    <link rel="stylesheet" href="/immutable/themes-20251122/dark.min.css" />
     <link rel="stylesheet" href="/extraCustomStyles.css" />
     <link rel="preload" as="font" type="font/woff2" href="/immutable/fonts-20251122/inter/inter-v18-cyrillic_cyrillic-ext_greek_greek-ext_latin_latin-ext_vietnamese-600.woff2">
     <link rel="preload" as="font" type="font/woff2" href="/immutable/fonts-20251122/inter/inter-v18-cyrillic_cyrillic-ext_greek_greek-ext_latin_latin-ext_vietnamese-600italic.woff2">
@@ -17,6 +17,8 @@
   </head>
 
   <body>
-		<slot />
+        <div style="min-height: 70vh;">
+		    <slot />
+        </div>
   </body>
 </html>
