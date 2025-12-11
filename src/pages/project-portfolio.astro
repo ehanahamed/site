@@ -3,14 +3,30 @@ import Layout from '../layouts/Layout.astro';
 import CodebergIcon from '../components/icons/Codeberg.astro';
 import GitHubIcon from '../components/icons/GitHub.astro';
 ---
-<style>
-.customgridlist {
-    gap: 1rem;
-    grid-template-columns: 1fr;
-}
-</style>
-<Layout title="Ehan A - Portfolio">
-    <div class="background-extra-bg grid page" style="padding-top:3rem;padding-bottom:1rem;">
+<!DOCTYPE html>
+<html lang="en" class="theme-dark">
+  <head>
+    <meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width" />
+    <title>Ehan A - Portfolio</title>
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="/immutable/css-20251122/ehui.min.css" />
+    <link rel="stylesheet" href="/immutable/themes-20251122/dark.min.css" />
+    <link rel="stylesheet" href="/extraCustomStyles.css" />
+    <link rel="preload" href="/immutable/fonts-20251122/inter.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/immutable/fonts-20251122/inter.css"></noscript>
+    <style>
+      .customgridlist {
+        gap: 1rem;
+        grid-template-columns: 1fr;
+      }
+    </style>
+  </head>
+
+  <body>
+        <div style="min-height: 70vh;">
+		    <div class="background-extra-bg grid page" style="padding-top:3rem;padding-bottom:1rem;">
         <div class="content">
             <p class="fg0" style="font-size: 1.8rem;">Ehan Ahamed</p>
             <p style="font-size: 1.8rem; margin-top: 0.4rem;">Hands-on Project Portfolio</p>
@@ -71,4 +87,7 @@ import GitHubIcon from '../components/icons/GitHub.astro';
         </div>
       </div>
     </div>
-</Layout>
+
+        </div>
+  </body>
+</html>
