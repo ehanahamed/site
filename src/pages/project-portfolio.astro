@@ -19,6 +19,18 @@ import GitHubIcon from '../components/icons/GitHub.astro';
         gap: 1rem;
         grid-template-columns: 1fr;
       }
+      .box-layout-split-component {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+      @media only screen and (max-width: 1000px) {
+        .box-layout-split-component {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto auto;
+        }
+      }
     </style>
   </head>
 
