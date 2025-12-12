@@ -4,12 +4,12 @@ import GitHubIcon from '../components/icons/GitHub.astro';
 ---
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width" />
-    <title>Ehan A - Portfolio</title>
-    <link rel="icon" href="/favicon.ico" sizes="32x32">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <head>
+        <meta charset="UTF-8" />
+	    <meta name="viewport" content="width=device-width" />
+        <title>Ehan A - Portfolio</title>
+        <link rel="icon" href="/favicon.ico" sizes="32x32">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="stylesheet" href="/immutable/project-portfolio/css-20251122/ehui.min.css" />
     <link rel="stylesheet" href="/immutable/project-portfolio/themes-20251122/auto-light-dark.min.css" />
     <link rel="preload" href="/immutable/project-portfolio/fonts-20251122/inter.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -47,51 +47,31 @@ import GitHubIcon from '../components/icons/GitHub.astro';
         <div class="content">
         <div class="grid customgridlist">
           <div class="box">
-            <h3>Quizfreely</h3>
-            <p>Free & open source nonprofit studying tool</p>
-            <div>
-              <p class="fg0" style="margin-bottom: 0px;">Website:</p>
-              <a href="https://quizfreely.org/"
-                class="button alt no-box-shadow"
-                style="margin-top: 0.2rem;"
-              >quizfreely.org</a>
-            </div>
-            <div>
-              <p class="fg0" style="margin-bottom: 0px;">Source Code:</p>
-              <div class="flex compact-gap" style="margin-top: 0.2rem;"> 
-                <a href="https://codeberg.org/quizfreely/quizfreely"
-                  class="button faint"
-                ><CodebergIcon></CodebergIcon> Codeberg</a>
-                <a
-                  href="https://github.com/quizfreely/quizfreely"
-                  class="button faint"
-                ><GitHubIcon></GitHubIcon> GitHub</a
-                >
-              </div>
-            </div>
-          </div>
-          <div class="box">
-            <h3>EhUI</h3>
-            <p>Customizable and themeable UI kit</p>
-            <div>
-              <p class="fg0" style="margin-bottom: 0px;">Website:</p>
-              <a href="https://ehan.dev/ehui"
-                class="button alt no-box-shadow"
-                style="margin-top: 0.2rem;"
-              >ehan.dev/ehui</a>
-            </div>
-            <div>
-              <p class="fg0" style="margin-bottom: 0px;">Source Code:</p>
-              <div class="flex compact-gap" style="margin-top: 0.2rem;"> 
-                <a href="https://codeberg.org/ehanahamed/ehui"
-                  class="button faint"
-                ><CodebergIcon></CodebergIcon> Codeberg</a>
-                <a
-                  href="https://github.com/ehanahamed/ehui"
-                  class="button faint"
-                            ><GitHubIcon></GitHubIcon> GitHub</a
-                >
-              </div>
+            <div class="box-layout-split-component">
+                            <div>
+                <h3>Quizfreely</h3>
+                <p>Free & open source nonprofit studying tool</p>
+                <div>
+                  <p class="fg0" style="margin-bottom: 0px;">Website:</p>
+                  <a href="https://quizfreely.org/"
+                    class="button alt no-box-shadow"
+                    style="margin-top: 0.2rem;"
+                  >quizfreely.org</a>
+                </div>
+                <div>
+                  <p class="fg0" style="margin-bottom: 0px;">Source Code:</p>
+                  <div class="flex compact-gap" style="margin-top: 0.2rem;"> 
+                    <a href="https://codeberg.org/quizfreely/quizfreely"
+                      class="button faint"
+                    ><CodebergIcon></CodebergIcon> Codeberg</a>
+                    <a
+                      href="https://github.com/quizfreely/quizfreely"
+                      class="button faint"
+                    ><GitHubIcon></GitHubIcon> GitHub</a
+                    >
+                  </div>
+                </div>
+                </div>
             </div>
           </div>
         </div>
