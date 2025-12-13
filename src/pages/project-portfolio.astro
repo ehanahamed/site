@@ -1,6 +1,9 @@
 ---
 import CodebergIcon from '../components/icons/Codeberg.astro';
 import GitHubIcon from '../components/icons/GitHub.astro';
+import { Image } from "astro:assets";
+import qzfrScreenshot1 from "../assets/qzfr-screenshot-1.png";
+import qzfrScreenshot2 from "../assets/qzfr-screenshot-2.png";
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +17,7 @@ import GitHubIcon from '../components/icons/GitHub.astro';
         <link rel="stylesheet" href="/immutable/project-portfolio/themes-20251122/auto-light-dark.min.css" />
         <link rel="preload" href="/immutable/project-portfolio/fonts-20251122/inter.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/immutable/project-portfolio/fonts-20251122/inter.css"></noscript>
-        <style>
+        <style is:global>
             .customgridlist {
                 gap: 1rem;
                 grid-template-columns: 1fr;
@@ -30,6 +33,10 @@ import GitHubIcon from '../components/icons/GitHub.astro';
                     grid-template-columns: 1fr;
                     grid-template-rows: auto auto;
                 }
+            }
+            .screenshot {
+                border: 0.2rem solid var(--border);
+                border-radius: 0.8rem;
             }
         </style>
     </head>
@@ -71,8 +78,12 @@ import GitHubIcon from '../components/icons/GitHub.astro';
                                     </div>
                                 </div>
                                 <div>
-                                    Digital flashcards, practice tests, and spaced repetition tools for students & teachers to track studying habits.
-
+                                    <p>
+                                        Digital flashcards, practice tests, and spaced repetition tools for students & teachers to track studying habits.
+                                    </p>
+                                    <p class="fg0">Screenshots:</p>
+                                    <Image src={qzfrScreenshot1} alt="screenshot" width={600} class="screenshot" />
+                                    <Image src={qzfrScreenshot2} alt="screenshot" width={600} class="screenshot" />
                                 </div>
                             </div>
                         </div>
