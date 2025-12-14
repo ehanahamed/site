@@ -4,6 +4,7 @@ import GitHubIcon from '../components/icons/GitHub.astro';
 import { Image } from "astro:assets";
 import qzfrScreenshot1 from "../assets/qzfr-screenshot-1.png";
 import qzfrScreenshot2 from "../assets/qzfr-screenshot-2.png";
+import QzfrTechnicalOverviewSVG from "../components/project-portfolio/QzfrTechnicalOverview.astro";
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -22,21 +23,34 @@ import qzfrScreenshot2 from "../assets/qzfr-screenshot-2.png";
                 gap: 1rem;
                 grid-template-columns: 1fr;
             }
-            .box-layout-split-component {
-                display: grid;
-                gap: 1rem;
-                grid-template-columns: 1fr 1fr;
-                grid-template-rows: auto;
+            .box-layout-split-component,
+            .flex.box-layout-split-component {
+                display: flex;
+                flex-wrap: nowrap;
+                row-gap: 2rem;
+                column-gap: 4rem;
+                flex-direction: row;
+            }
+            .box-layout-split-component .split-side2-col {
+                max-width: 40vw;
             }
             @media only screen and (max-width: 1000px) {
-                .box-layout-split-component {
-                    grid-template-columns: 1fr;
-                    grid-template-rows: auto auto;
+                .box-layout-split-component,
+                .flex.box-layout-split-component {
+                    flex-direction: column;
+                }
+                .box-layout-split-component .only-h-split {
+                    display: none;
+                }
+                .box-layout-split-component .split-side2-col {
+                    max-width: 100%;
                 }
             }
             .screenshot {
                 border: 0.2rem solid var(--border);
                 border-radius: 0.8rem;
+                width: 100%;
+                height: auto;
             }
         </style>
     </head>
@@ -51,9 +65,11 @@ import qzfrScreenshot2 from "../assets/qzfr-screenshot-2.png";
             <div class="grid page" style="padding-top: 1rem; margin-bottom: 8rem;">
                 <div class="content">
                     <div class="grid customgridlist">
-                        <div class="box">
-                            <div class="box-layout-split-component">
-                                <div>
+                        <div class="box" style="padding: 1.4rem;">
+                            <div class="flex box-layout-split-component">
+                                <div style="min-width:22rem;">
+                                    <div class="flex" style="flex-direction: column; justify-content: space-between; height: 100%;">
+                                    <div>
                                     <h3>Quizfreely</h3>
                                     <p>Free & open source nonprofit studying tool</p>
                                     <div>
@@ -74,14 +90,29 @@ import qzfrScreenshot2 from "../assets/qzfr-screenshot-2.png";
                                             </a>
                                         </div>
                                     </div>
+                                            <div class="only-h-split" style="margin-top: 4rem;">
+                                                <p>It's a 501(c)(3) non-profit project, fiscally sponsored by The Hack Foundation</p>
+                                        </div>
+                                    </div>
+                                    <div class="only-h-split" style="margin-bottom: 4rem;">
+                                            <p>
+                                                Complete, fully functional website:
+                                                <span class="line"><a href="https://quizfreely.org">https://quizfreely.org</a></span>
+                                            </p>
+                                    </div>
                                 </div>
-                                <div>
+                                </div>
+                                <div class="split-side2-col">
                                     <p>
                                         Digital flashcards, practice tests, and spaced repetition tools for students & teachers to track studying habits.
                                     </p>
-                                    <p class="fg0">Screenshots:</p>
-                                    <Image src={qzfrScreenshot1} alt="screenshot" width={600} class="screenshot" />
-                                    <Image src={qzfrScreenshot2} alt="screenshot" width={600} class="screenshot" />
+                                    <Image src={qzfrScreenshot1} alt="screenshot" class="screenshot" />
+                                    <Image src={qzfrScreenshot2} alt="screenshot" class="screenshot" />
+                                </div>
+                            </div>
+                            <div>
+                                <div style="border-radius:0.8rem;overflow:hidden;background:#ffffff;--select-bg:#d4defa;">
+                                    <QzfrTechnicalOverviewSVG style="width:100%;height:100%;"></QzfrTechnicalOverviewSVG>
                                 </div>
                             </div>
                         </div>
