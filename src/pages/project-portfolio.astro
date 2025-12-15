@@ -2,9 +2,12 @@
 import CodebergIcon from '../components/icons/Codeberg.astro';
 import GitHubIcon from '../components/icons/GitHub.astro';
 import { Image } from "astro:assets";
-import qzfrScreenshot1 from "../assets/qzfr-screenshot-1.png";
-import qzfrScreenshot2 from "../assets/qzfr-screenshot-2.png";
+import qzfrScreenshot1 from "../assets/project-portfolio/qzfr-screenshot-1.png";
+import qzfrScreenshot2 from "../assets/project-portfolio/qzfr-screenshot-2.png";
+import lcbScreenshot1 from "../assets/project-portfolio/lcb-screenshot-1.png";
+import lcbScreenshot2 from "../assets/project-portfolio/lcb-screenshot-2.png";
 import QzfrTechnicalOverviewSVG from "../components/project-portfolio/QzfrTechnicalOverview.astro";
+import LCBTechnicalOverviewSVG from "../components/project-portfolio/LCBTechnicalOverview.astro";
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -52,6 +55,13 @@ import QzfrTechnicalOverviewSVG from "../components/project-portfolio/QzfrTechni
                 width: 100%;
                 height: auto;
             }
+            a text {
+                transition-duration: 0.2s;
+                transition-timing-function: ease-out;
+            }
+            a:hover text {
+                fill: #4551f0;
+            }
         </style>
     </head>
     <body>
@@ -91,7 +101,7 @@ import QzfrTechnicalOverviewSVG from "../components/project-portfolio/QzfrTechni
                                         </div>
                                     </div>
                                             <div class="only-h-split" style="margin-top: 4rem;">
-                                                <p>It's a 501(c)(3) non-profit project, fiscally sponsored by The Hack Foundation</p>
+                                                <p>It has official 501(c)(3) non-profit status, fiscally sponsored by The Hack Foundation</p>
                                         </div>
                                     </div>
                                     <div class="only-h-split" style="margin-bottom: 4rem;">
@@ -111,8 +121,36 @@ import QzfrTechnicalOverviewSVG from "../components/project-portfolio/QzfrTechni
                                 </div>
                             </div>
                             <div>
+                                <p>I've worked on this project for 3 years and have been able to explore the real-world application of various fields across computer science. I originally started this project in December 2022, to serve as a free alternative to for-profit websites used by students & teachers who couldn't take advantage of all the possible features because they were either paid features the school or individual teachers did not find it worth enough to purchase or were features these platforms lacked completly. I started this project as a simple, static website with JavaScript to initially offer basic features students and teachers need. I continued to build upon this project until it became more complex and involved a variety of components outlined in the technical overview diagram below.</p>
                                 <div style="border-radius:0.8rem;overflow:hidden;background:#ffffff;--select-bg:#d4defa;">
                                     <QzfrTechnicalOverviewSVG style="width:100%;height:100%;"></QzfrTechnicalOverviewSVG>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box" style="padding: 1.4rem; margin-top: 4rem;">
+                            <div class="flex box-layout-split-component">
+                                <div style="min-width:18rem;">
+                                    <h3>La Cipollina Budgeter</h3>
+                                            <p>Budget calculator/management software for La Cipollina resturant</p>
+                                    <div>
+                                        <p class="fg0" style="margin-bottom: 0px;">Source Code:</p>
+                                                <a href="https://github.com/ehanahamed/la-cipollina-budgeter" class="button faint" style="margin-top: 0.2rem;">
+                                                <GitHubIcon></GitHubIcon> GitHub
+                                            </a>
+                                </div>
+                                </div>
+                                <div class="split-side2-col">
+                                    <p>
+                                        I worked in a group of 3 students to make it easier for a local resturant, La Cipollina, to manage their weekly budget/expenses, payroll, and schedule easily. They used to use pen-and-paper and manually calculate this data weekly because of their unique needs, which we made this project to meet.
+                                    </p>
+                                    <Image src={lcbScreenshot1} alt="screenshot" class="screenshot" />
+                                    <Image src={lcbScreenshot2} alt="screenshot" class="screenshot" />
+                                </div>
+                            </div>
+                            <div>
+                                <p>I had the opportinity to teach my classmates how to apply the various concepts they've learned in our AP Computer Science A class into building a web application that would be deployed to a real server and handle real user data. This was also an expirence where I got to apply my own skills to a project that would have to meet specific requirements and have a real impact and responsibility.</p>
+                                <div style="border-radius:0.8rem;overflow:hidden;background:#ffffff;--select-bg:#d4defa;">
+                                    <LCBTechnicalOverviewSVG style="width:100%;height:100%;"></QzfrTechnicalOverviewSVG>
                                 </div>
                             </div>
                         </div>
